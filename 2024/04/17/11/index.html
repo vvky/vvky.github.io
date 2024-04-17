@@ -14,7 +14,7 @@
 <meta property="og:description" content="1. 创建数据目录和配置文件目录1mkdir -p  &#x2F;data&#x2F;redis&#x2F;data  &#x2F;data&#x2F;redis配置文件放宿主机的配置文件 &#x2F;data&#x2F;redis&#x2F;data持久化文件和容器的配置文件 启动容器后，&#x2F;data&#x2F;redis&#x2F;data下还会有一层&#x2F;redis，里面就是容器的配置文件 2. 创建自定义配置文件参考链接：https:&#x2F;&#x2F;gitee.com&#x2F;wangyue123com">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-17T09:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-17T14:12:58.729Z">
+<meta property="article:modified_time" content="2024-04-17T14:35:56.343Z">
 <meta property="article:author" content="wangkaiyu">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -101,22 +101,10 @@
 <p>启动容器后，<code>/data/redis/data</code>下还会有一层&#x2F;redis，里面就是容器的配置文件</p>
 <h2 id="2-创建自定义配置文件"><a href="#2-创建自定义配置文件" class="headerlink" title="2. 创建自定义配置文件"></a>2. 创建自定义配置文件</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://gitee.com/wangyue123com_admin/helpdocument/blob/master/package/redis.conf">https://gitee.com/wangyue123com_admin&#x2F;helpdocument&#x2F;blob&#x2F;master&#x2F;package&#x2F;redis.conf</a></p>
 <p>并修改若干配置，如：密码requirepass, 绑定地址bind，端口号port, 后台运行daemonize</p>
-<blockquote>
 <p><code>daemonize</code>守护进程默认为<code>no</code>，在docker中下是正确的，因为：</p>
-<blockquote>
-<p>Docker容器与进程：<br>Docker容器是围绕单个进程设计的。当该进程终止时，容器也会停止。因此，在Docker容器中运行的应用程序通常应该在前台运行，以便Docker可以正确管理和监控该进程。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+<p>容器与进程：<br>容器是围绕单个进程设计的。当该进程终止时，容器也会停止。因此，在Docker容器中运行的应用程序通常应该在前台运行，以便Docker可以正确管理和监控该进程。</p>
 <p>日志管理：<br>当Redis在前台运行时，它的输出（日志）会直接发送到标准输出（stdout）和标准错误（stderr），这使得Docker可以捕获并管理这些日志。如果Redis作为守护进程运行，这些日志可能不会被Docker捕获。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
 <p>简化配置： 在Docker环境中，使用默认设置（daemonize no）可以简化配置和部署过程，因为您不需要对Redis进行特殊配置来确保它以守护进程形式运行。</p>
-</blockquote>
-</blockquote>
 <p>先正达生产环境的redis设置daemonizeyes → no是因为：</p>
 <p>当时的redis是源码安装的，使用systemctl管理总是无法正确加载配置文件，没法配置开机自启动，只能曲线救国，写了一个shell脚本去启动redis实例，然后使用systemctl管理这个脚本，并且设置自启动。但daemonize是yes，脚本运行一次redis就挂到后台了，systemctl认为脚本已经执行结束，所以查询脚本状态就是exit。于是设置redis为前台运行。</p>
 <h2 id="3-创建并启动容器"><a href="#3-创建并启动容器" class="headerlink" title="3. 创建并启动容器"></a>3. 创建并启动容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd  --name  redis-new --privileged=<span class="literal">true</span> -v /data/redis/redis.conf:/data/redis/redis.conf -v /data/redis/data:/data  -p 46379:6379  redis redis-server /data/redis/redis.conf</span><br></pre></td></tr></table></figure>
