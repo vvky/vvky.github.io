@@ -69,6 +69,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/13/2/" class="article-date">
+  <time class="dt-published" datetime="2023-07-12T16:00:00.000Z" itemprop="datePublished">2023-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/07/13/2/">flask软删除方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="flask软删除方案"><a href="#flask软删除方案" class="headerlink" title="flask软删除方案"></a>flask软删除方案</h2><p>在模型和表中加入了软删除标识字段 <code>is_delete</code>，为了实现查询时过滤掉已删除数据，需要在每一个query后手写filter参数(is_delete&#x3D;0)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pagination = DemoModel.query.filter_by(is_delete=<span class="number">0</span>).paginate(page=<span class="number">1</span>, per_page=<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>为了避免重复的显式的过滤查询，可以继承改写<code>BaseQuery</code>基类，将<code>is_delete</code>的过滤操作放在底层，实现预过滤。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> BaseQuery</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QueryWithSoftDelete</span>(<span class="title class_ inherited__">BaseQuery</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span><br><span class="line">        obj = <span class="built_in">super</span>(QueryWithSoftDelete, cls).__new__(cls)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(args) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">super</span>(QueryWithSoftDelete, obj).__init__(*args, **kwargs)</span><br><span class="line">            <span class="keyword">return</span> obj.filter_by(is_delete=<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> obj</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>(这个<code>BaseQuery</code>并不是从<code>sqlalchemy</code>导入的，而是<code>flask_sqlalchemy</code>….)</p>
+</blockquote>
+<p>然后每一个模型都添加<code>query_class = QueryWithSoftDelete</code>，表示这个model的查询基类使用<code>QueryWithSoftDelete</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> custom.models.custom_query <span class="keyword">import</span> QueryWithSoftDelete</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DemoModel</span>(db.Model):</span><br><span class="line">    __tablename__ = <span class="string">&#x27;demo&#x27;</span></span><br><span class="line">    ...</span><br><span class="line">    query_class = QueryWithSoftDelete</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">soft_delete</span>(<span class="params">self</span>):</span><br><span class="line">        self.is_delete = time.time()</span><br><span class="line">        <span class="keyword">return</span> self.is_delete</span><br></pre></td></tr></table></figure>
+<p><code>soft_delete</code>方法用于软删除，将<code>is_delete</code>字段设置为当前时间戳，表示删除时间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj = DemoModel.query.filter_by(obj_uuid=<span class="number">1</span>).first()</span><br><span class="line">obj.soft_delete()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vvky.github.io/2023/07/13/2/" data-id="clv3ehnx000019r09fl1bfps7" data-title="flask软删除方案" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flask/" rel="tag">flask</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/01/10/1/" class="article-date">
@@ -160,7 +210,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" style="font-size: 10px;">系统集成</a>
+      <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" style="font-size: 10px;">系统集成</a>
     </div>
   </div>
 
@@ -182,6 +232,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/17/12/">累积权重抽样demo及方案分析</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/17/11/">加权随机抽样</a>
           </li>
         
@@ -195,10 +249,6 @@
         
           <li>
             <a href="/2024/04/17/8/">docker容器自启动</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/7/">shell批量添加cron任务</a>
           </li>
         
       </ul>
