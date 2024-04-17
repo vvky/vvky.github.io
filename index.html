@@ -149,7 +149,7 @@
 <p>所有的回调消息，都是AES加密的，所以先<strong>配置消息秘钥</strong>（<strong>长度必须是16位</strong>）</p>
 <p>然后配置消息接收地址（后续所有的回调，包括消息订阅，都会走这一个接口）</p>
 <p><strong>不管给你发啥，必须在一秒内响应</strong><code>&#123;&quot;result&quot;: &quot;success&quot;&#125;</code><strong>，长时间响应异常，会被中断消息推送。</strong></p>
-<p>被中断后，可以到下图中，点击<strong>重置并发送</strong>按钮，恢复使用。或者调用”<strong>立即触发 ticket 推送</strong>“接口。</p>
+<p>被中断后，可以到消息订阅中，点击<strong>重置并发送</strong>按钮，恢复使用。或者调用”<strong>立即触发 ticket 推送</strong>“接口。</p>
 <h2 id="6、配置服务器公网地址-（公有云不用看这条）"><a href="#6、配置服务器公网地址-（公有云不用看这条）" class="headerlink" title="6、配置服务器公网地址 （公有云不用看这条）"></a><strong>6、配置服务器公网地址 （公有云不用看这条）</strong></h2><p><strong>专属云的通信流程：你的第三方程序 → 畅捷通开放平台 → 专属云客户端</strong></p>
 <p><strong>这个公网地址指的是客户 T+ 系统的公网地址，简单说就是把它告诉开放平台，平台才能通过公网和专属云通信。</strong></p>
 <p>登录T+管理员账号 → 服务器配置 → 地址配置 → 测试连接，然后登录客户端到云应用里测试一下服务器网络连接。</p>
@@ -399,7 +399,7 @@
     <div id="footer-info" class="inner">
       
       &copy; 2024 WKY<br>
-      Powered by <a href="https://github.com/vvky target="_blank">wangkaiyu</a>
+      Powered by <a target="_blank" rel="noopener" href="https://github.com/vvky">wangkaiyu</a>
     </div>
   </div>
   
