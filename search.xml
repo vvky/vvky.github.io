@@ -61,6 +61,25 @@
     
     
     <entry>
+      <title>python2/3中base64的使用差异</title>
+      <link href="/2024/04/17/6/"/>
+      <url>/2024/04/17/6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="python2"><a href="#python2" class="headerlink" title="python2"></a>python2</h2><p>在python2中，base64可以直接操作string类型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">encoded = base64.b64encode(msg)</span><br><span class="line">decoded = base64.b64decode(encoded)</span><br><span class="line"><span class="built_in">print</span>(encoded, decoded)</span><br></pre></td></tr></table></figure><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (&#x27;aGVsbG8gd29ybGQ=&#x27;, &#x27;Hello World&#x27;)</span><br></pre></td></tr></table></figure><h2 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h2><p>在python3中，base64只能操作bytes类型，直接编码会报错。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: a bytes-like object is required, not &#x27;str&#x27;</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">encoded = base64.b64encode(msg.encode(<span class="string">&quot;utf-8&quot;</span>)).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">decoded = base64.b64decode(encoded).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(encoded, decoded)</span><br><span class="line"></span><br></pre></td></tr></table></figure><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (&#x27;aGVsbG8gd29ybGQ=&#x27;, &#x27;hello world&#x27;)</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Python 2：字符串默认是字节串，Unicode字符串需要使用u前缀声明。</p><p>Python 3：字符串默认是Unicode字符串，字节串需要使用b前缀声明。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>flask软删除方案</title>
       <link href="/2023/07/13/2/"/>
       <url>/2023/07/13/2/</url>
