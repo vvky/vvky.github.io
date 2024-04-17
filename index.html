@@ -114,13 +114,13 @@
 <li>生成一个介于0到<code>total_weight-1</code>的随机整数<code>ran_weight</code>。</li>
 <li>返回<code>unwind_list</code>列表中索引为<code>ran_weight</code>的元素。</li>
 </ol>
-<p>举例说明，假设有两个渠道，权重分别为2和3：</p>
+<h2 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h2><p>假设有两个渠道，权重分别为2和3：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">channel_weights = [&#123;<span class="string">&quot;weight&quot;</span>: <span class="number">2</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;A&quot;</span>&#125;, &#123;<span class="string">&quot;weight&quot;</span>: <span class="number">3</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;B&quot;</span>&#125;]</span><br></pre></td></tr></table></figure>
 
 <p>unwind_list将会是：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[A, A, B, B, B]</span><br></pre></td></tr></table></figure>
 
-<p>需要注意的是，对于非常大的权重，这种方法可能会占用大量内存，因为它需要创建一个“展开”列表。在实际应用中，可能需要其他更高效的方法来实现基于权重的随机选择。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>需要注意的是，对于非常大的权重，这种方法可能会占用大量内存，因为它需要创建一个“展开”列表。在实际应用中，可能需要其他更高效的方法来实现基于权重的随机选择。</p>
 
       
     </div>
