@@ -14,7 +14,7 @@
 <meta property="og:description" content="1. 查看已安装的文件1yum list installed |grep docker   2. 删除已安装的文件1yum -y remove xxx  再次执行第一步检查是否删除成功 3. 安装存储库1sudo yum install -y yum-utils device-mapper-persistent-data lvm2  4. 添加镜像源(aliyun)1yum-config-mana">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-17T07:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-17T10:54:33.298Z">
+<meta property="article:modified_time" content="2024-04-17T10:55:06.342Z">
 <meta property="article:author" content="wangkaiyu">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -103,7 +103,7 @@
 
 <h2 id="4-添加镜像源-aliyun"><a href="#4-添加镜像源-aliyun" class="headerlink" title="4. 添加镜像源(aliyun)"></a>4. 添加镜像源(aliyun)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-1下载最新版"><a href="#5-1下载最新版" class="headerlink" title="5.1下载最新版"></a>5.1下载最新版</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+<h2 id="5-1-下载最新版"><a href="#5-1-下载最新版" class="headerlink" title="5.1 下载最新版"></a>5.1 下载最新版</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
 
 <p><code>docker-ce</code>: 这是 Docker 社区版的主要软件包，包含 Docker 的核心功能。</p>
 <p><code>docker-ce-cli</code>: 这是 Docker 社区版的命令行界面工具，用于与 Docker 守护进程进行交互。</p>
