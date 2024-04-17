@@ -69,6 +69,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/17/7/" class="article-date">
+  <time class="dt-published" datetime="2024-04-17T05:00:00.000Z" itemprop="datePublished">2024-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/17/7/">shell批量添加cron任务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本来想写个脚本批量创建任务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 1 * * * /usr/bin/python3 /path/to/script1.py&quot;</span> | crontab -</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 2 * * * /usr/bin/python3 /path/to/script2.py&quot;</span> | crontab -</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 3 * * * /usr/bin/python3 /path/to/script3.py&quot;</span> | crontab -</span><br></pre></td></tr></table></figure>
+<p>看着跟真的似的，但其实这个老逼|管道符号写的不对，运行后只有最后一个任务添加进去。<br>修改后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 1 * * * /usr/bin/python3 /path/to/your/script1.py&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 2 * * * /usr/bin/python3 /path/to/your/script2.py&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 3 * * * /usr/bin/python3 /path/to/your/script3.py&quot;</span></span><br><span class="line">&#125; | crontab -</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用crontab运行python脚本，logru日志不打印：日志路径修改为绝对路径即可。</p>
+<p>crontab默认的日志：&#x2F;var&#x2F;log&#x2F;cron（只能看到是否执行）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vvky.github.io/2024/04/17/7/" data-id="clv3o91jb0000te099ujo3q7o" data-title="shell批量添加cron任务" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/17/6/" class="article-date">
@@ -434,7 +480,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/" rel="tag">mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" rel="tag">系统集成</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/" rel="tag">mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" rel="tag">系统集成</a></li></ul>
     </div>
   </div>
 
@@ -444,7 +490,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" style="font-size: 10px;">系统集成</a>
+      <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" style="font-size: 10px;">系统集成</a>
     </div>
   </div>
 
@@ -466,6 +512,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/17/7/">shell批量添加cron任务</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/17/6/">python2/3中base64的使用差异</a>
           </li>
         
@@ -479,10 +529,6 @@
         
           <li>
             <a href="/2024/04/17/3/">pymysql的几种游标类</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/13/2/">flask软删除方案</a>
           </li>
         
       </ul>

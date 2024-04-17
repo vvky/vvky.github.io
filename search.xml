@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>shell批量添加cron任务</title>
+      <link href="/2024/04/17/7/"/>
+      <url>/2024/04/17/7/</url>
+      
+        <content type="html"><![CDATA[<p>本来想写个脚本批量创建任务</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 1 * * * /usr/bin/python3 /path/to/script1.py&quot;</span> | crontab -</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 2 * * * /usr/bin/python3 /path/to/script2.py&quot;</span> | crontab -</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 3 * * * /usr/bin/python3 /path/to/script3.py&quot;</span> | crontab -</span><br></pre></td></tr></table></figure><p>看着跟真的似的，但其实这个老逼|管道符号写的不对，运行后只有最后一个任务添加进去。<br>修改后：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 1 * * * /usr/bin/python3 /path/to/your/script1.py&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 2 * * * /usr/bin/python3 /path/to/your/script2.py&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 3 * * * /usr/bin/python3 /path/to/your/script3.py&quot;</span></span><br><span class="line">&#125; | crontab -</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>使用crontab运行python脚本，logru日志不打印：日志路径修改为绝对路径即可。</p><p>crontab默认的日志：&#x2F;var&#x2F;log&#x2F;cron（只能看到是否执行）</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python2/3中base64的使用差异</title>
       <link href="/2024/04/17/6/"/>
       <url>/2024/04/17/6/</url>
