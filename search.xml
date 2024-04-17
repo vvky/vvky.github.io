@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>docker容器自启动</title>
+      <link href="/2024/04/17/8/"/>
+      <url>/2024/04/17/8/</url>
+      
+        <content type="html"><![CDATA[<p>先查看是否已经设置了自启</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID</span><br></pre></td></tr></table></figure><p>在输出中，找到 “RestartPolicy” ，它会显示容器的重启策略。如果值是 “always”，那么说明该容器已设置为开机自启。</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;RestartPolicy&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;always&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;MaximumRetryCount&quot;</span><span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p>设置为always</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker update --restart=always [容器名称或ID]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>shell批量添加cron任务</title>
       <link href="/2024/04/17/7/"/>
       <url>/2024/04/17/7/</url>
