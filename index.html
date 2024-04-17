@@ -135,12 +135,12 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rand_val = random.random() * total_weight</span><br></pre></td></tr></table></figure>
 
 <p>这里，<code>rand_val</code>就是一个在[0, <code>total_weight</code>)范围内的随机数。</p>
-<h2 id="为什么要使用random-random-总权重，而不是直接取0到总权重之间的随机数呢？"><a href="#为什么要使用random-random-总权重，而不是直接取0到总权重之间的随机数呢？" class="headerlink" title="为什么要使用random.random()*总权重，而不是直接取0到总权重之间的随机数呢？"></a>为什么要使用random.random()*总权重，而不是直接取0到总权重之间的随机数呢？</h2><p>在原始代码中，你使用了一个展开的列表(<code>unwind_list</code>)</p>
-<p>所以使用<code>random.randint(0, int(total_weight) - 1)</code>是合适的，因为你是在一个整数索引范围内选择。这意味着，如果总权重为10，那么你会随机选择一个整数，范围从0到9。</p>
+<h2 id="为什么要使用random-random-总权重，而不是直接取0到总权重之间的随机数呢？"><a href="#为什么要使用random-random-总权重，而不是直接取0到总权重之间的随机数呢？" class="headerlink" title="为什么要使用random.random()*总权重，而不是直接取0到总权重之间的随机数呢？"></a>为什么要使用random.random()*总权重，而不是直接取0到总权重之间的随机数呢？</h2><p>在原始代码中，使用了一个展开的列表(<code>unwind_list</code>)</p>
+<p>所以使用<code>random.randint(0, int(total_weight) - 1)</code>是合适的，因为是在一个整数索引范围内选择。这意味着，如果总权重为10，那么你会随机选择一个整数，范围从0到9。</p>
 <p>但在基于累积权重的方法中，我们没有展开的列表。我们的目标是直接在权重的连续范围内选择。使用<code>random.random() * total_weight</code><br>的原因在于我们想获取一个连续的数值范围而不仅仅是整数。这使得我们可以更平滑地处理权重，尤其是当权重不是整数时。</p>
 <p>举个例子，假设有两个渠道，权重分别是1.5和2.5，那么总权重是4。如果我们只随机选择一个整数，我们只能在0、1、2、3之中选择，这就不够精确，可能会导致某些渠道被过度选择或者被忽略。</p>
 <p>但如果我们使用<code>random.random() * total_weight</code>，我们会得到一个从0到4之间的浮点数（如1.23、2.78等），这样就可以更精确地反映权重。</p>
-<p>当然，如果你确保你的权重始终是整数，并且你想继续使用整数随机数，那么使用<code>random.randint(0, total_weight - 1)</code><br>也是可以的。但使用<code>random.random() * total_weight</code>提供了更大的灵活性，并且可以更准确地处理不同的权重情况。</p>
+<p>当然，如果确保你的权重始终是整数，并且想继续使用整数随机数，那么使用<code>random.randint(0, total_weight - 1)</code>也是可以的。但使用<code>random.random() * total_weight</code>提供了更大的灵活性，并且可以更准确地处理不同的权重情况。</p>
 <h2 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="什么情况下权重数会变得很大？"><a href="#什么情况下权重数会变得很大？" class="headerlink" title="什么情况下权重数会变得很大？"></a>什么情况下权重数会变得很大？</h3><ol>
 <li><strong>大数据集</strong>：例如，当处理一个大型的广告平台或内容推荐系统时，可能有数百万的项目，每个项目都有自己的权重。</li>
 <li><strong>高精度权重</strong>：在某些应用中，为了实现高精确度的权重分配，权重可能会被设置为非常大的数值。例如，代替使用0.1和0.9作为权重，可能会使用100和900以获得更好的控制。</li>
@@ -152,7 +152,7 @@
 <p>对于任何具有权重的系统或应用，定期审查和管理权重是很重要的，以确保权重的分配仍然合理并符合预期的目的。如果发现权重变得太大，可能需要考虑重新调整、归一化或使用其他技术来管理这些权重。</p>
 <h3 id="和上一篇展开式实现方案的差异"><a href="#和上一篇展开式实现方案的差异" class="headerlink" title="和上一篇展开式实现方案的差异"></a>和上一篇展开式实现方案的差异</h3><p>这两种实现方案，目的都是根据权重对一组数据进行随机抽样。</p>
 <ol>
-<li><strong>展开抽样</strong>：你使用了一个”展开”的方法，也就是根据每个渠道的权重在<code>unwind_list</code>中重复该渠道。权重大的渠道在<code>unwind_list</code><br>中出现的次数更多，因此被随机选择的概率更大。</li>
+<li><strong>展开抽样</strong>：使用”展开”的方法，也就是根据每个渠道的权重在<code>unwind_list</code>中重复该渠道。权重大的渠道在<code>unwind_list</code><br>中出现的次数更多，因此被随机选择的概率更大。</li>
 <li><strong>累积权重抽样</strong><br>：通过使用累积权重和一个连续范围内的随机数来确定应选择哪个渠道。这种方式避免了创建一个可能非常大的<code>unwind_list</code><br>，尤其是当权重非常大时。</li>
 </ol>
 <p>但不论哪种方式，核心思想都是：<em><strong>确保每个渠道被选中的概率与其权重成正比。</strong></em></p>
