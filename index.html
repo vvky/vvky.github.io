@@ -69,6 +69,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/17/11/" class="article-date">
+  <time class="dt-published" datetime="2024-04-17T09:00:00.000Z" itemprop="datePublished">2024-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/17/11/">docker部署redis（centos7.9）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-创建数据目录和配置文件目录"><a href="#1-创建数据目录和配置文件目录" class="headerlink" title="1. 创建数据目录和配置文件目录"></a>1. 创建数据目录和配置文件目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p  /data/redis/data</span><br></pre></td></tr></table></figure>
+
+<p><code>/data/redis</code>配置文件放宿主机的配置文件</p>
+<p><code>/data/redis/data</code>持久化文件和容器的配置文件</p>
+<p>启动容器后，<code>/data/redis/data</code>下还会有一层&#x2F;redis，里面就是容器的配置文件</p>
+<h2 id="2-创建自定义配置文件"><a href="#2-创建自定义配置文件" class="headerlink" title="2. 创建自定义配置文件"></a>2. 创建自定义配置文件</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://gitee.com/wangyue123com_admin/helpdocument/blob/master/package/redis.conf">https://gitee.com/wangyue123com_admin&#x2F;helpdocument&#x2F;blob&#x2F;master&#x2F;package&#x2F;redis.conf</a></p>
+<p>并修改若干配置，如：密码requirepass, 绑定地址bind，端口号port, 后台运行daemonize</p>
+<blockquote>
+<p><code>daemonize</code>守护进程默认为<code>no</code>，在docker中下是正确的，因为：</p>
+<blockquote>
+<p>Docker容器与进程：<br>Docker容器是围绕单个进程设计的。当该进程终止时，容器也会停止。因此，在Docker容器中运行的应用程序通常应该在前台运行，以便Docker可以正确管理和监控该进程。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>日志管理：<br>当Redis在前台运行时，它的输出（日志）会直接发送到标准输出（stdout）和标准错误（stderr），这使得Docker可以捕获并管理这些日志。如果Redis作为守护进程运行，这些日志可能不会被Docker捕获。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>简化配置： 在Docker环境中，使用默认设置（daemonize no）可以简化配置和部署过程，因为您不需要对Redis进行特殊配置来确保它以守护进程形式运行。</p>
+</blockquote>
+</blockquote>
+<p>先正达生产环境的redis设置daemonizeyes → no是因为：</p>
+<p>当时的redis是源码安装的，使用systemctl管理总是无法正确加载配置文件，没法配置开机自启动，只能曲线救国，写了一个shell脚本去启动redis实例，然后使用systemctl管理这个脚本，并且设置自启动。但daemonize是yes，脚本运行一次redis就挂到后台了，systemctl认为脚本已经执行结束，所以查询脚本状态就是exit。于是设置redis为前台运行。</p>
+<h2 id="3-创建并启动容器"><a href="#3-创建并启动容器" class="headerlink" title="3. 创建并启动容器"></a>3. 创建并启动容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd  --name  redis-new --privileged=<span class="literal">true</span> -v /data/redis/redis.conf:/data/redis/redis.conf -v /data/redis/data:/data  -p 46379:6379  redis redis-server /data/redis/redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>对该命令各个部分的详细解释：</p>
+<ol>
+<li><code>docker run</code>：这是Docker的基本命令，用来运行一个新的容器。</li>
+<li><code>-itd</code>：这个参数实际上是三个参数的组合。<code>-i</code>（或<code>--interactive</code>）保持容器的标准输入开放，即使不附加到容器。<code>-t</code>（或<code>--tty</code><br>）为容器分配一个伪终端。<code>-d</code>（或<code>--detach</code>）表示在后台运行容器，并打印容器ID。</li>
+<li><code>--name redis-new</code>：这个参数为您的容器指定一个名字，这里名字是<code>redis-new</code>。</li>
+<li><code>--privileged=true</code>：这个参数给容器提供额外的权限。当设置为<code>true</code>时，容器几乎具有相同的权限作为宿主机上的进程。</li>
+<li><code>-v /data/redis/redis.conf:/data/redis/redis.conf</code>：这是一个卷挂载命令。它将宿主机上的<code>/data/redis/redis.conf</code><br>文件挂载到容器内的<code>/data/redis/redis.conf</code>。这允许你使用自定义的Redis配置。</li>
+<li><code>-v /data/redis/data:/data</code>：同样是一个卷挂载命令，将宿主机的<code>/data/redis/data</code>目录挂载到容器的<code>/data</code><br>目录。这通常用于持久化Redis数据。</li>
+<li><code>-p 46379:6379</code>：这是端口映射。它将容器内部的6379端口映射到宿主机的46379端口。这意味着，当你在宿主机上访问46379端口时，实际上是在访问容器内部的6379端口。</li>
+<li><code>redis</code>：这是要运行的Docker镜像的名称，在这个案例中是官方的Redis镜像。</li>
+<li><code>redis-server /data/redis/redis.conf</code><br>：这是容器启动时要运行的命令。它启动Redis服务器并使用您提供的配置文件<code>/data/redis/redis.conf</code>。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vvky.github.io/2024/04/17/11/" data-id="clv3wqshx0000nv09g3kdcp68" data-title="docker部署redis（centos7.9）" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/17/10/" class="article-date">
@@ -579,70 +658,12 @@
 
 
   
-    <article id="post-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/01/10/1/" class="article-date">
-  <time class="dt-published" datetime="2023-01-10T15:32:34.000Z" itemprop="datePublished">2023-01-10</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/01/10/1/">mongo投影</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="投影（Projection）"><a href="#投影（Projection）" class="headerlink" title="投影（Projection）"></a>投影（Projection）</h2><p>在 MongoDB 中，查询操作中的投影（Projection）可以控制返回结果中包含的字段。通过使用投影控制返回字段，从而减少数据传输和处理的开销。</p>
-<p>在编写查询语句时，投影的写法有以下几点讲究：</p>
-<ol>
-<li><strong>指定包含的字段或排除的字段：</strong> 可以使用 1 表示要包含该字段，使用 0 表示要排除该字段。在投影中指定要返回的字段，可以减少返回结果的数据量，提高查询性能。</li>
-<li><strong>使用下划线 _id：</strong> 默认情况下，MongoDB 在每个文档中都会有一个名为 _id 的字段，它唯一标识了该文档。在投影中，如果不想返回 _id 字段，可以将其设置为 0。</li>
-</ol>
-<p>以下是一些投影的常见写法示例：</p>
-<ul>
-<li>返回指定字段，排除其他字段：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">projection = &#123;</span><br><span class="line">    <span class="string">&quot;field1&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;field2&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;_id&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>排除指定字段，返回其他字段：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">projection = &#123;</span><br><span class="line">    <span class="string">&quot;field1&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;field2&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;field3&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;_id&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>返回所有字段（默认情况，可以省略投影）：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">projection = &#123;&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>返回除指定字段外的所有字段：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">projection = &#123;</span><br><span class="line">    <span class="string">&quot;excluded_field&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2023/01/10/1/" data-id="clv3ehnww00009r09af1nd29w" data-title="mongo投影" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongo/" rel="tag">mongo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 
 </section>
         
@@ -687,6 +708,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/17/11/">docker部署redis（centos7.9）</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/17/10/">docker升级后运行容器报错（centos7.9）</a>
           </li>
         
@@ -700,10 +725,6 @@
         
           <li>
             <a href="/2024/04/17/7/">shell批量添加cron任务</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/6/">python2/3中base64的使用差异</a>
           </li>
         
       </ul>
