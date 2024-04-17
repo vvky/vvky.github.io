@@ -42,6 +42,25 @@
     
     
     <entry>
+      <title>解决mac触控手势或快捷键失效</title>
+      <link href="/2024/04/17/5/"/>
+      <url>/2024/04/17/5/</url>
+      
+        <content type="html"><![CDATA[<h3 id="触控板手势失效"><a href="#触控板手势失效" class="headerlink" title="触控板手势失效"></a>触控板手势失效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall Dock</span><br></pre></td></tr></table></figure><h3 id="复制粘贴快捷键失效"><a href="#复制粘贴快捷键失效" class="headerlink" title="复制粘贴快捷键失效"></a>复制粘贴快捷键失效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall pboard</span><br></pre></td></tr></table></figure><h3 id="touchbar失效"><a href="#touchbar失效" class="headerlink" title="touchbar失效"></a>touchbar失效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pkill TouchBarServer</span><br></pre></td></tr></table></figure><h3 id="左键单击失效"><a href="#左键单击失效" class="headerlink" title="左键单击失效"></a>左键单击失效</h3><p>检查外置设备接入，重新插拔即可</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> mac </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>flask软删除方案</title>
       <link href="/2023/07/13/2/"/>
       <url>/2023/07/13/2/</url>
