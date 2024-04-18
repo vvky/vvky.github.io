@@ -91,7 +91,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="一、啥是JSON？"><a href="#一、啥是JSON？" class="headerlink" title="一、啥是JSON？"></a>一、啥是JSON？</h2><p><code>JSON（JavaScript Object Notation）</code>是一种轻量级的数据交换格式，通过简洁、通用的语法规则来表达数据。它基于 JavaScript 语言的子集，但已成为一种独立于编程语言的通用数据格式。JSON 格式易于阅读和编写，同时也易于机器解析和生成，因此在网络传输和数据存储中被广泛应用。</p>
+        <h2 id="一、啥是-JSON"><a href="#一、啥是-JSON" class="headerlink" title="一、啥是 JSON ?"></a>一、啥是 JSON ?</h2><p><code>JSON（JavaScript Object Notation）</code>是一种轻量级的数据交换格式，通过简洁、通用的语法规则来表达数据。它基于 JavaScript 语言的子集，但已成为一种独立于编程语言的通用数据格式。JSON 格式易于阅读和编写，同时也易于机器解析和生成，因此在网络传输和数据存储中被广泛应用。</p>
 <h3 id="JSON-的两种基本结构："><a href="#JSON-的两种基本结构：" class="headerlink" title="JSON 的两种基本结构："></a>JSON 的两种基本结构：</h3><ol>
 <li>对象（Object）：对象是一个无序的键值对集合，键值对之间使用逗号分隔，整个对象包含在花括号 <code>&#123;&#125;</code> 中。键是字符串，值可以是任意合法的 JSON 数据类型（字符串、数字、布尔值、数组、对象、null）。</li>
 </ol>
@@ -102,7 +102,7 @@
 </ol>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="string">&quot;apple&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;banana&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;orange&quot;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>JSON格式的数据可以被几乎所有编程语言解析和生成，因为它具有简洁、通用和易于理解的特点。在网络通信中，JSON格式常用于客户端和服务器之间的数据交换；在数据存储中，JSON格式也经常用于保存配置文件、日志数据等。JSON格式的使用已经超越了其最初的 JavaScript 背景，成为了一种跨平台、通用的数据交换格式。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>JSON格式的数据可以被几乎所有编程语言解析和生成，因为它具有简洁、通用和易于理解的特点。在网络通信中，JSON格式常用于客户端和服务器之间的数据交换；在数据存储中，JSON格式也经常用于保存配置文件、日志数据等。JSON 是一种跨平台、通用的数据交换格式。</p>
 <h2 id="二、python标准库中的JSON"><a href="#二、python标准库中的JSON" class="headerlink" title="二、python标准库中的JSON"></a>二、python标准库中的JSON</h2><p>Python 的标准库中提供了 JSON 模块，用于解析 JSON 格式的数据或将 Python 对象序列化为 JSON 格式。</p>
 <h3 id="将JSON格式的字符串转换为python对象"><a href="#将JSON格式的字符串转换为python对象" class="headerlink" title="将JSON格式的字符串转换为python对象"></a>将JSON格式的字符串转换为python对象</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">json_str = &#x27;<span class="punctuation">&#123;</span><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;小熊维尼&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span> <span class="number">70</span><span class="punctuation">,</span> <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Beijing&quot;</span><span class="punctuation">&#125;</span>&#x27;</span><br><span class="line">data = json.loads(json_str)</span><br><span class="line">print(data) </span><br></pre></td></tr></table></figure>
 
