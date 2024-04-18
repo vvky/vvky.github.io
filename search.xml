@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>mongo创建用户密码</title>
+      <link href="/2024/04/18/14/"/>
+      <url>/2024/04/18/14/</url>
+      
+        <content type="html"><![CDATA[<p>在<code>admin</code>中创建用户，权限为<code>readWriteAnyDatabase</code></p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(<span class="punctuation">&#123;</span></span><br><span class="line">  user<span class="punctuation">:</span> <span class="string">&quot;root&quot;</span><span class="punctuation">,</span></span><br><span class="line">  pwd<span class="punctuation">:</span> <span class="string">&quot;root&quot;</span><span class="punctuation">,</span></span><br><span class="line">  roles<span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span> role<span class="punctuation">:</span> <span class="string">&quot;readWriteAnyDatabase&quot;</span><span class="punctuation">,</span> db<span class="punctuation">:</span> <span class="string">&quot;admin&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span>)</span><br></pre></td></tr></table></figure><p>在配置中开启<code>authorization</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mongod.conf</span><br></pre></td></tr></table></figure><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">security:</span><br><span class="line">  authorization: enabled</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> mongo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker部署redis（centos7.9）</title>
       <link href="/2024/04/17/13/"/>
       <url>/2024/04/17/13/</url>
