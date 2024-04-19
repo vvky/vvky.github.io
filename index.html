@@ -297,184 +297,6 @@
 
 
   
-    <article id="post-累积权重抽样demo及方案分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/17/%E7%B4%AF%E7%A7%AF%E6%9D%83%E9%87%8D%E6%8A%BD%E6%A0%B7demo%E5%8F%8A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/" class="article-date">
-  <time class="dt-published" datetime="2024-04-17T11:00:00.000Z" itemprop="datePublished">2024-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/17/%E7%B4%AF%E7%A7%AF%E6%9D%83%E9%87%8D%E6%8A%BD%E6%A0%B7demo%E5%8F%8A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">累积权重抽样demo及方案分析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time : 2023/9/18 11:21</span></span><br><span class="line"><span class="comment"># @Author : wangkaiyu</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">channel_choose</span>(<span class="params">channel_weights</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> channel_weights:</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 累积权重列表</span></span><br><span class="line">    cumulative_weights = []</span><br><span class="line">    total_weight = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> channel_weights:</span><br><span class="line">        weight = item.get(<span class="string">&quot;weight&quot;</span>, <span class="number">0</span>)</span><br><span class="line">        total_weight += weight</span><br><span class="line">        cumulative_weights.append(total_weight)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果所有渠道的权重和为0，返回第一个渠道数据</span></span><br><span class="line">    <span class="keyword">if</span> total_weight == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> channel_weights[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成一个0到总权重的随机数</span></span><br><span class="line">    rand_val = random.random() * total_weight</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查找随机数所在的权重范围</span></span><br><span class="line">    <span class="keyword">for</span> index, cum_weight <span class="keyword">in</span> <span class="built_in">enumerate</span>(cumulative_weights):</span><br><span class="line">        <span class="keyword">if</span> rand_val &lt; cum_weight:</span><br><span class="line">            <span class="keyword">return</span> channel_weights[index]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    data = [&#123;<span class="string">&quot;weight&quot;</span>: <span class="number">100</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;DDOS&quot;</span>&#125;, &#123;<span class="string">&quot;weight&quot;</span>: <span class="number">50000</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;WAF&quot;</span>&#125;]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;抽样结果：&quot;</span>, channel_choose(data))</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    total_time = end_time - start_time</span><br><span class="line">    total_time_s = <span class="built_in">format</span>(total_time, <span class="string">&#x27;.10f&#x27;</span>)</span><br><span class="line">    total_time_ms = <span class="built_in">format</span>(total_time * <span class="number">1000</span>, <span class="string">&#x27;.2f&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;运行时间：<span class="subst">&#123;total_time_s&#125;</span>s   --&gt;  <span class="subst">&#123;total_time_ms&#125;</span>ms&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><h3 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h3><p>为了更好地理解这个方法，先看一个简化的例子。假设我们有3个渠道，权重分别为<code>3</code>, <code>2</code>, 和<code>5</code>。如果我们将这些权重绘制到一条直线上，可以想象成这样：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">| ---A - -- | ---B - -- | ----------C - --------- |</span><br></pre></td></tr></table></figure>
-
-<p>其中，<code>A</code>代表第一个渠道，它占3个单位长度；<code>B</code>代表第二个，它占2个单位；<code>C</code><br>代表第三个，它占5个单位。整条线的总长度是<code>3 + 2 + 5 = 10</code>。</p>
-<p>当我们在这条长度为10的线上随机选择一个点，落在<code>A</code>、<code>B</code>、或<code>C</code>的区间内的概率分别为<code>3/10</code>、<code>2/10</code>、和<code>5/10</code>，这与它们的权重是一致的。</p>
-<p>现在，我们不必真的画这样的线，而是使用一个叫做“累积权重”的列表来代替。</p>
-<p>对于我们的例子，累积权重列表是这样的：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">3</span>, <span class="number">5</span>, <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
-
-<h3 id="如何计算的？"><a href="#如何计算的？" class="headerlink" title="如何计算的？"></a>如何计算的？</h3><ul>
-<li>第一个数是第一个渠道的权重：3</li>
-<li>第二个数是前两个渠道权重的和：3 + 2 &#x3D; 5</li>
-<li>第三个数是所有渠道权重的和：3 + 2 + 5 &#x3D; 10</li>
-</ul>
-<p>当我们产生一个<code>0~10</code>之间的随机数：</p>
-<ul>
-<li>如果这个数小于3，我们选择<code>A</code>。</li>
-<li>如果这个数小于5但大于或等于3，我们选择<code>B</code>。</li>
-<li>如果这个数小于10但大于或等于5，我们选择<code>C</code>。</li>
-</ul>
-<p>这样就模拟了基于权重的随机选择，而没有必要创建一个巨大的unwind_list。</p>
-<h2 id="代码逻辑："><a href="#代码逻辑：" class="headerlink" title="代码逻辑："></a>代码逻辑：</h2><ol>
-<li>初始化<code>cumulative_weights</code>为空列表和<code>total_weight</code>为0。</li>
-<li>遍历<code>channel_weights</code>，对每个渠道，将其权重加到<code>total_weight</code>，然后将<code>total_weight</code>添加到<code>cumulative_weights</code>。</li>
-<li>产生一个<code>0~total_weight</code>之间的随机数。</li>
-<li>查找这个随机数属于哪个渠道的范围，并返回那个渠道。</li>
-</ol>
-<p>这种方法更加高效，因为不需要为每个渠道按其权重数创建多个条目，而只需要做一些简单的数学计算和查找操作。</p>
-<h2 id="如何生成一个0-最大权重之间的随机数？"><a href="#如何生成一个0-最大权重之间的随机数？" class="headerlink" title="如何生成一个0~最大权重之间的随机数？"></a>如何生成一个0~最大权重之间的随机数？</h2><p>在Python中，<code>random.random()</code>会返回一个在[0, 1)范围内的浮点数。也就是说，它会返回一个大于或等于0且小于1的随机数。</p>
-<p>为了得到一个在[0, <code>total_weight</code>)范围内的随机数，我们可以简单地将<code>random.random()</code>的结果乘以<code>total_weight</code>。</p>
-<p>让我们用一个简单的例子来解释：</p>
-<p>假设<code>total_weight</code>为10，那么<code>random.random()</code>可能会返回如下一些值：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.123</span>, <span class="number">0.456</span>, <span class="number">0.789</span>, ...</span><br></pre></td></tr></table></figure>
-
-<p>当我们将这些值乘以<code>total_weight</code>（即10）时，得到的是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.23</span>, <span class="number">4.56</span>, <span class="number">7.89</span>, ...</span><br></pre></td></tr></table></figure>
-
-<p>这样，我们就得到了一个在[0, 10)范围内的随机浮点数。</p>
-<p>在上面提到的<code>channel_choose</code>函数中，这一步是这样实现的：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rand_val = random.random() * total_weight</span><br></pre></td></tr></table></figure>
-
-<p>这里，<code>rand_val</code>就是一个在[0, <code>total_weight</code>)范围内的随机数。</p>
-<h2 id="为什么要使用random-random-总权重，而不是直接取0到总权重之间的随机数呢？"><a href="#为什么要使用random-random-总权重，而不是直接取0到总权重之间的随机数呢？" class="headerlink" title="为什么要使用random.random()*总权重，而不是直接取0到总权重之间的随机数呢？"></a>为什么要使用random.random()*总权重，而不是直接取0到总权重之间的随机数呢？</h2><p>在原始代码中，使用了一个展开的列表(<code>unwind_list</code>)</p>
-<p>所以使用<code>random.randint(0, int(total_weight) - 1)</code>是合适的，因为是在一个整数索引范围内选择。这意味着，如果总权重为10，那么你会随机选择一个整数，范围从0到9。</p>
-<p>但在基于累积权重的方法中，我们没有展开的列表。我们的目标是直接在权重的连续范围内选择。使用<code>random.random() * total_weight</code><br>的原因在于我们想获取一个连续的数值范围而不仅仅是整数。这使得我们可以更平滑地处理权重，尤其是当权重不是整数时。</p>
-<p>举个例子，假设有两个渠道，权重分别是1.5和2.5，那么总权重是4。如果我们只随机选择一个整数，我们只能在0、1、2、3之中选择，这就不够精确，可能会导致某些渠道被过度选择或者被忽略。</p>
-<p>但如果我们使用<code>random.random() * total_weight</code>，我们会得到一个从0到4之间的浮点数（如1.23、2.78等），这样就可以更精确地反映权重。</p>
-<p>当然，如果确保你的权重始终是整数，并且想继续使用整数随机数，那么使用<code>random.randint(0, total_weight - 1)</code>也是可以的。但使用<code>random.random() * total_weight</code>提供了更大的灵活性，并且可以更准确地处理不同的权重情况。</p>
-<h2 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="什么情况下权重数会变得很大？"><a href="#什么情况下权重数会变得很大？" class="headerlink" title="什么情况下权重数会变得很大？"></a>什么情况下权重数会变得很大？</h3><ol>
-<li><strong>大数据集</strong>：例如，当处理一个大型的广告平台或内容推荐系统时，可能有数百万的项目，每个项目都有自己的权重。</li>
-<li><strong>高精度权重</strong>：在某些应用中，为了实现高精确度的权重分配，权重可能会被设置为非常大的数值。例如，代替使用0.1和0.9作为权重，可能会使用100和900以获得更好的控制。</li>
-<li><strong>权重的累计或叠加</strong>：在某些情况下，权重可能会基于各种标准或指标进行累加或乘法叠加。随着时间的推移，这可能导致非常大的权重。</li>
-<li><strong>自然增长</strong>：例如，在某些系统中，项目可能基于其存在的时间或其受欢迎程度获得更多的权重。随着时间的推移，这些权重可能会不断增长。</li>
-<li><strong>人为设置</strong>：在某些应用中，为了使某些项目具有更高的优先级或可见性，管理员或用户可能会人为地设置非常大的权重。</li>
-<li><strong>缺乏归一化或规范化</strong>：在某些情况下，权重可能没有经过适当的归一化或规范化处理，导致其值远大于预期。</li>
-</ol>
-<p>对于任何具有权重的系统或应用，定期审查和管理权重是很重要的，以确保权重的分配仍然合理并符合预期的目的。如果发现权重变得太大，可能需要考虑重新调整、归一化或使用其他技术来管理这些权重。</p>
-<h3 id="和上一篇展开式实现方案的差异"><a href="#和上一篇展开式实现方案的差异" class="headerlink" title="和上一篇展开式实现方案的差异"></a>和上一篇展开式实现方案的差异</h3><p>这两种实现方案，目的都是根据权重对一组数据进行随机抽样。</p>
-<ol>
-<li><strong>展开抽样</strong>：使用”展开”的方法，也就是根据每个渠道的权重在<code>unwind_list</code>中重复该渠道。权重大的渠道在<code>unwind_list</code><br>中出现的次数更多，因此被随机选择的概率更大。</li>
-<li><strong>累积权重抽样</strong><br>：通过使用累积权重和一个连续范围内的随机数来确定应选择哪个渠道。这种方式避免了创建一个可能非常大的<code>unwind_list</code><br>，尤其是当权重非常大时。</li>
-</ol>
-<p>但不论哪种方式，核心思想都是：<em><strong>确保每个渠道被选中的概率与其权重成正比。</strong></em></p>
-<h2 id="CDF累积分布函数"><a href="#CDF累积分布函数" class="headerlink" title="CDF累积分布函数"></a>CDF累积分布函数</h2><p>基于累积权重进行随机选择，通常被称为累积分布函数（CDF, Cumulative Distribution Function）的随机抽样方法。</p>
-<p>在统计学中，CDF描述了一个实数随机变量的概率分布。对于离散随机变量（如本例中的渠道），CDF表示值小于或等于某个给定值的概率。通过使用累积权重列表和随机抽样，我们实际上是从离散的CDF中进行抽样。</p>
-<p>因此，这种方案可以称之为<code>基于CDF的权重随机抽样算法</code>或简称<code>CDF随机抽样</code>。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/17/%E7%B4%AF%E7%A7%AF%E6%9D%83%E9%87%8D%E6%8A%BD%E6%A0%B7demo%E5%8F%8A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/" data-id="clv649ev3000lij096s4l7xge" data-title="累积权重抽样demo及方案分析" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-加权随机抽样" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/17/%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA%E6%8A%BD%E6%A0%B7/" class="article-date">
-  <time class="dt-published" datetime="2024-04-17T10:00:00.000Z" itemprop="datePublished">2024-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/17/%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA%E6%8A%BD%E6%A0%B7/">加权随机抽样</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time : 2022/10/13 16:11</span></span><br><span class="line"><span class="comment"># @Author : wangkaiyu</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">channel_choose</span>(<span class="params">channel_weights</span>):</span><br><span class="line">    <span class="comment"># 初始化总权重</span></span><br><span class="line">    total_weight = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 用于按权重展开数据</span></span><br><span class="line">    unwind_list = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> channel_weights:</span><br><span class="line">        <span class="comment"># 获取当前渠道的权重，如果没有指定权重，默认为0</span></span><br><span class="line">        weight = <span class="built_in">int</span>(item.get(<span class="string">&quot;weight&quot;</span>, <span class="number">0</span>))</span><br><span class="line">        total_weight += weight</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(weight):</span><br><span class="line">            unwind_list.append(item)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> total_weight == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> channel_weights[<span class="number">0</span>] <span class="keyword">if</span> channel_weights <span class="keyword">else</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 在0到总权重-1之间生成一个随机整数</span></span><br><span class="line">    ran_weight = random.randint(<span class="number">0</span>, <span class="built_in">int</span>(total_weight) - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算unwind_list中每个数据的出现次数</span></span><br><span class="line">    data_count = Counter(item[<span class="string">&#x27;content&#x27;</span>] <span class="keyword">for</span> item <span class="keyword">in</span> unwind_list)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Data Count:&quot;</span>, data_count)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回unwind_list中对应随机权重的渠道</span></span><br><span class="line">    <span class="keyword">return</span> unwind_list[<span class="built_in">int</span>(ran_weight)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    data = [&#123;<span class="string">&quot;weight&quot;</span>: <span class="number">100</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;DDOS&quot;</span>&#125;, &#123;<span class="string">&quot;weight&quot;</span>: <span class="number">50000</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;WAF&quot;</span>&#125;]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;抽样结果：&quot;</span>, channel_choose(data))</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    total_time = end_time - start_time</span><br><span class="line">    total_time_s = <span class="built_in">format</span>(total_time, <span class="string">&#x27;.10f&#x27;</span>)</span><br><span class="line">    total_time_ms = <span class="built_in">format</span>(total_time * <span class="number">1000</span>, <span class="string">&#x27;.2f&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;运行时间：<span class="subst">&#123;total_time_s&#125;</span>s   --&gt;  <span class="subst">&#123;total_time_ms&#125;</span>ms&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><p>使用“展开”的方法来实现基于权重的随机选择。具体来说，它首先将每个渠道按其权重数“复制”到一个新的列表中，然后从这个“展开”列表中随机选择一个元素。这样，权重较大的渠道在列表中出现的次数就越多，因此被选中的概率也越大。</p>
-<p>详细工作步骤：</p>
-<ol>
-<li>初始化：<ul>
-<li><code>total_weight</code>为2（但这可能是一个错误，应该初始化为0）。</li>
-<li><code>unwind_list</code>为空列表。</li>
-</ul>
-</li>
-<li>对<code>channel_weights</code>中的每个渠道执行以下操作：<ul>
-<li>获取该渠道的权重；如果未定义权重，则默认为0。</li>
-<li>将当前的权重累加到<code>total_weight</code>。</li>
-<li>根据当前渠道的权重，将这个渠道多次（等于其权重）添加到<code>unwind_list</code>。</li>
-</ul>
-</li>
-<li>判断<code>total_weight</code>是否为0：<ul>
-<li>如果为0，这可能意味着配置存在问题。在这种情况下，代码直接返回<code>channel_weights</code>中的第一个渠道或空字典（如果列表为空）。</li>
-</ul>
-</li>
-<li>生成一个介于0到<code>total_weight-1</code>的随机整数<code>ran_weight</code>。</li>
-<li>返回<code>unwind_list</code>列表中索引为<code>ran_weight</code>的元素。</li>
-</ol>
-<h2 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h2><p>假设有两个渠道，权重分别为2和3：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">channel_weights = [&#123;<span class="string">&quot;weight&quot;</span>: <span class="number">2</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;A&quot;</span>&#125;, &#123;<span class="string">&quot;weight&quot;</span>: <span class="number">3</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;B&quot;</span>&#125;]</span><br></pre></td></tr></table></figure>
-
-<p>unwind_list将会是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[A, A, B, B, B]</span><br></pre></td></tr></table></figure>
-
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>需要注意的是，对于非常大的权重，这种方法可能会占用大量内存，因为它需要创建一个“展开”列表。在实际应用中，可能需要其他更高效的方法来实现基于权重的随机选择。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/17/%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA%E6%8A%BD%E6%A0%B7/" data-id="clv649ev2000hij0906x82ku8" data-title="加权随机抽样" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-shell批量添加cron任务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/17/shell%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0cron%E4%BB%BB%E5%8A%A1/" class="article-date">
@@ -561,53 +383,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-解决mac触控手势或快捷键失效" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/17/%E8%A7%A3%E5%86%B3mac%E8%A7%A6%E6%8E%A7%E6%89%8B%E5%8A%BF%E6%88%96%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%B1%E6%95%88/" class="article-date">
-  <time class="dt-published" datetime="2024-04-17T03:00:00.000Z" itemprop="datePublished">2024-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/17/%E8%A7%A3%E5%86%B3mac%E8%A7%A6%E6%8E%A7%E6%89%8B%E5%8A%BF%E6%88%96%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%B1%E6%95%88/">解决mac触控手势或快捷键失效</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="触控板手势失效"><a href="#触控板手势失效" class="headerlink" title="触控板手势失效"></a>触控板手势失效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
-
-<h3 id="复制粘贴快捷键失效"><a href="#复制粘贴快捷键失效" class="headerlink" title="复制粘贴快捷键失效"></a>复制粘贴快捷键失效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall pboard</span><br></pre></td></tr></table></figure>
-
-<h3 id="touchbar失效"><a href="#touchbar失效" class="headerlink" title="touchbar失效"></a>touchbar失效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pkill TouchBarServer</span><br></pre></td></tr></table></figure>
-
-<h3 id="左键单击失效"><a href="#左键单击失效" class="headerlink" title="左键单击失效"></a>左键单击失效</h3><p>检查外置设备接入，重新插拔即可</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/17/%E8%A7%A3%E5%86%B3mac%E8%A7%A6%E6%8E%A7%E6%89%8B%E5%8A%BF%E6%88%96%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%B1%E6%95%88/" data-id="clv649ev3000nij090z25cmtw" data-title="解决mac触控手势或快捷键失效" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li></ul>
 
     </footer>
   </div>
@@ -760,6 +535,185 @@
 
 
   
+    <article id="post-docker升级后运行容器报错（centos7.9）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2023-10-18T08:00:00.000Z" itemprop="datePublished">2023-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/">docker升级后运行容器报错（centos7.9）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error response from daemon: Unknown runtime specified docker-runc</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>可能是因为从不兼容的版本升级了docker，更改&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers目录中的文件参数，把docker-runc替换为runc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -rl <span class="string">&#x27;docker-runc&#x27;</span> /var/lib/docker/containers/ | xargs sed -i <span class="string">&#x27;s/docker-runc/runc/g&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>grep -rl：递归搜索目录和子目录，只列出含有匹配的文本行的文件名，而不显示具体的匹配内容</p>
+<p>xargs：衔接执行之前得到的值</p>
+<p>总体意思是把&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers中含有docker-runc的文件搜索出来，更改为runc，然后重启docker、重启容器即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart [容器<span class="built_in">id</span>]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vvky.github.io/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/" data-id="clv649eus0000ij096skue3l4" data-title="docker升级后运行容器报错（centos7.9）" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-docker版本升级（centos7.9）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/10/17/docker%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%EF%BC%88centos7.9%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2023-10-17T07:00:00.000Z" itemprop="datePublished">2023-10-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/10/17/docker%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%EF%BC%88centos7.9%EF%BC%89/">docker版本升级（centos7.9）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-查看已安装的文件"><a href="#1-查看已安装的文件" class="headerlink" title="1. 查看已安装的文件"></a>1. 查看已安装的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed |grep docker </span><br></pre></td></tr></table></figure>
+
+<h2 id="2-删除已安装的文件"><a href="#2-删除已安装的文件" class="headerlink" title="2. 删除已安装的文件"></a>2. 删除已安装的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove xxx</span><br></pre></td></tr></table></figure>
+
+<p>再次执行第一步检查是否删除成功</p>
+<h2 id="3-安装存储库"><a href="#3-安装存储库" class="headerlink" title="3. 安装存储库"></a>3. 安装存储库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-添加镜像源-aliyun"><a href="#4-添加镜像源-aliyun" class="headerlink" title="4. 添加镜像源(aliyun)"></a>4. 添加镜像源(aliyun)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-1-下载最新版"><a href="#5-1-下载最新版" class="headerlink" title="5.1 下载最新版"></a>5.1 下载最新版</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+
+<p><code>docker-ce</code>: 这是 Docker 社区版的主要软件包，包含 Docker 的核心功能。</p>
+<p><code>docker-ce-cli</code>: 这是 Docker 社区版的命令行界面工具，用于与 Docker 守护进程进行交互。</p>
+<p><code>containerd.io</code>: 这是一个容器运行时，Docker 用它来管理容器的生命周期。</p>
+<p>这个命令安装了 Docker 的全部主要组件，包括 Docker 引擎、客户端界面，以及容器运行时。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y docker-ce </span><br></pre></td></tr></table></figure>
+
+<p>这个命令只显式地安装了 <code>docker-ce</code> 包，即 Docker 社区版的核心组件。</p>
+<p>在许多情况下，安装 <code>docker-ce</code> 时，相关的依赖包（如 <code>docker-ce-cli</code> 和 <code>containerd.io</code>）会自动被安装。但并不可靠，特别是在特定的<br>YUM 仓库配置或包依赖性发生变化的情况下。</p>
+<p>因此，<strong>第一个命令更加全面</strong>，它确保了 Docker 的所有主要组件都被安装。而第二个命令可能依赖于 YUM<br>的依赖性解析来安装额外的必要组件。为了确保完整的安装，通常推荐使用第一个命令</p>
+<h2 id="5-2-下载指定版本"><a href="#5-2-下载指定版本" class="headerlink" title="5.2 下载指定版本"></a>5.2 下载指定版本</h2><p>先查看版本列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | <span class="built_in">sort</span> -r</span><br></pre></td></tr></table></figure>
+
+<p>指定版本号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker-ce-17.09.0.ce -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-启动"><a href="#6-启动" class="headerlink" title="6. 启动"></a>6. 启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-查看版本"><a href="#7-查看版本" class="headerlink" title="7. 查看版本"></a>7. 查看版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+
+<h2 id="以下版本号有啥区别？"><a href="#以下版本号有啥区别？" class="headerlink" title="以下版本号有啥区别？"></a>以下版本号有啥区别？</h2><p><code>Docker version 1.13.1, build 7d71120/1.13.1</code>（直接yum安装的）</p>
+<p><code>Docker version 24.0.7, build afdd53b</code></p>
+<ol>
+<li><p><strong>Docker 1.13.1</strong>：这是 Docker 较早期的一个版本，发布于 2017<br>年左右。这个版本号遵循着传统的主版本号.次版本号.修订号的格式。在这个版本中，主版本号是 <code>1</code>，次版本号是 <code>13</code><br>，修订号是 <code>1</code>。<code>build 7d71120/1.13.1</code> 表明这个构建的具体提交 ID 是 <code>7d71120</code>。</p>
+</li>
+<li><p><strong>Docker 24.0.7</strong>：这个版本号代表了 Docker 的较新版本，其版本命名方式在 Docker 17.03 版本后发生了变化。从 2017<br>年开始，Docker 采用年份和月份的方式来标记版本，比如 <code>17.03</code> 表示 2017 年 3 月的版本。但在您提供的版本号中，<code>24.0.7</code><br>似乎并不遵循这个规则，可能是 Docker 又一次调整了版本命名策略，或者这是一个特定的企业版或定制版 Docker<br>的版本号。<code>build afdd53b</code> 同样表示这个版本的构建 ID。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vvky.github.io/2023/10/17/docker%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%EF%BC%88centos7.9%EF%BC%89/" data-id="clv649eux0003ij093aq7gjok" data-title="docker版本升级（centos7.9）" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-flask软删除方案" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/13/flask%E8%BD%AF%E5%88%A0%E9%99%A4%E6%96%B9%E6%A1%88/" class="article-date">
+  <time class="dt-published" datetime="2023-07-12T16:00:00.000Z" itemprop="datePublished">2023-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/07/13/flask%E8%BD%AF%E5%88%A0%E9%99%A4%E6%96%B9%E6%A1%88/">flask软删除方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="flask软删除方案"><a href="#flask软删除方案" class="headerlink" title="flask软删除方案"></a>flask软删除方案</h2><p>在模型和表中加入了软删除标识字段 <code>is_delete</code>，为了实现查询时过滤掉已删除数据，需要在每一个query后手写filter参数(is_delete&#x3D;0)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pagination = DemoModel.query.filter_by(is_delete=<span class="number">0</span>).paginate(page=<span class="number">1</span>, per_page=<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>为了避免重复的显式的过滤查询，可以继承改写<code>BaseQuery</code>基类，将<code>is_delete</code>的过滤操作放在底层，实现预过滤。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> BaseQuery</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QueryWithSoftDelete</span>(<span class="title class_ inherited__">BaseQuery</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span><br><span class="line">        obj = <span class="built_in">super</span>(QueryWithSoftDelete, cls).__new__(cls)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(args) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">super</span>(QueryWithSoftDelete, obj).__init__(*args, **kwargs)</span><br><span class="line">            <span class="keyword">return</span> obj.filter_by(is_delete=<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> obj</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>(这个<code>BaseQuery</code>并不是从<code>sqlalchemy</code>导入的，而是<code>flask_sqlalchemy</code>….)</p>
+</blockquote>
+<p>然后每一个模型都添加<code>query_class = QueryWithSoftDelete</code>，表示这个model的查询基类使用<code>QueryWithSoftDelete</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> custom.models.custom_query <span class="keyword">import</span> QueryWithSoftDelete</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DemoModel</span>(db.Model):</span><br><span class="line">    __tablename__ = <span class="string">&#x27;demo&#x27;</span></span><br><span class="line">    ...</span><br><span class="line">    query_class = QueryWithSoftDelete</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">soft_delete</span>(<span class="params">self</span>):</span><br><span class="line">        self.is_delete = time.time()</span><br><span class="line">        <span class="keyword">return</span> self.is_delete</span><br></pre></td></tr></table></figure>
+<p><code>soft_delete</code>方法用于软删除，将<code>is_delete</code>字段设置为当前时间戳，表示删除时间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj = DemoModel.query.filter_by(obj_uuid=<span class="number">1</span>).first()</span><br><span class="line">obj.soft_delete()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vvky.github.io/2023/07/13/flask%E8%BD%AF%E5%88%A0%E9%99%A4%E6%96%B9%E6%A1%88/" data-id="clv63qvut00008l091d6fbmh4" data-title="flask软删除方案" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flask/" rel="tag">flask</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
   <nav id="page-nav">
@@ -797,7 +751,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a></li></ul>
     </div>
   </div>
 
@@ -822,11 +776,11 @@
           </li>
         
           <li>
-            <a href="/2024/04/17/%E7%B4%AF%E7%A7%AF%E6%9D%83%E9%87%8D%E6%8A%BD%E6%A0%B7demo%E5%8F%8A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">累积权重抽样demo及方案分析</a>
+            <a href="/2024/04/17/shell%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0cron%E4%BB%BB%E5%8A%A1/">shell批量添加cron任务</a>
           </li>
         
           <li>
-            <a href="/2024/04/17/%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA%E6%8A%BD%E6%A0%B7/">加权随机抽样</a>
+            <a href="/2024/04/17/python2:3%E4%B8%ADbase64%E7%9A%84%E4%BD%BF%E7%94%A8%E5%B7%AE%E5%BC%82/">python2/3中base64的使用差异</a>
           </li>
         
       </ul>
