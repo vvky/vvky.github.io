@@ -306,6 +306,25 @@
     </entry>
     
     
+    
+    <entry>
+      <title>git中fork和clone的区别</title>
+      <link href="/2020/01/02/git%E7%9A%84fork/"/>
+      <url>/2020/01/02/git%E7%9A%84fork/</url>
+      
+        <content type="html"><![CDATA[<h2 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h2><p>复制一个远程仓库到你自己的git账户下，等于拷贝了一个副本。可以随意的提交，不会影响到原仓库。</p><h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><p>将一个远程仓库连接到本地计算机上，但如果没权限，只能pull不能push。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
     
