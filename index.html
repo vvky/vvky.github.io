@@ -184,88 +184,6 @@
 
 
   
-    <article id="post-15" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/18/15/" class="article-date">
-  <time class="dt-published" datetime="2024-04-17T18:00:00.000Z" itemprop="datePublished">2024-04-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/18/15/">关于JSON</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="一、啥是-JSON"><a href="#一、啥是-JSON" class="headerlink" title="一、啥是 JSON ?"></a>一、啥是 JSON ?</h2><p><code>JSON（JavaScript Object Notation）</code>是一种轻量级的数据交换格式，通过简洁、通用的语法规则来表达数据。它基于 JavaScript 语言的子集，但已成为一种独立于编程语言的通用数据格式。JSON 格式易于阅读和编写，同时也易于机器解析和生成，因此在网络传输和数据存储中被广泛应用。</p>
-<h3 id="JSON-的两种基本结构："><a href="#JSON-的两种基本结构：" class="headerlink" title="JSON 的两种基本结构："></a>JSON 的两种基本结构：</h3><ol>
-<li>对象（Object）：对象是一个无序的键值对集合，键值对之间使用逗号分隔，整个对象包含在花括号 <code>&#123;&#125;</code> 中。键是字符串，值可以是任意合法的 JSON 数据类型（字符串、数字、布尔值、数组、对象、null）。</li>
-</ol>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;小熊维尼&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;birthday&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1953&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>数组（Array）：数组是一个有序的值集合，值之间使用逗号分隔，整个数组包含在方括号 <code>[]</code> 中。数组中的值可以是任意合法的 JSON 数据类型。</li>
-</ol>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="string">&quot;apple&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;banana&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;orange&quot;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>JSON格式的数据可以被几乎所有编程语言解析和生成，因为它具有简洁、通用和易于理解的特点。在网络通信中，JSON格式常用于客户端和服务器之间的数据交换；在数据存储中，JSON格式也经常用于保存配置文件、日志数据等。JSON 是一种跨平台、通用的数据交换格式。</p>
-<h2 id="二、python标准库中的JSON"><a href="#二、python标准库中的JSON" class="headerlink" title="二、python标准库中的JSON"></a>二、python标准库中的JSON</h2><p>Python 的标准库中提供了 JSON 模块，用于解析 JSON 格式的数据或将 Python 对象序列化为 JSON 格式。</p>
-<h3 id="将JSON格式的字符串转换为python对象"><a href="#将JSON格式的字符串转换为python对象" class="headerlink" title="将JSON格式的字符串转换为python对象"></a>将JSON格式的字符串转换为python对象</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">json_str = &#x27;<span class="punctuation">&#123;</span><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;小熊维尼&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span> <span class="number">70</span><span class="punctuation">,</span> <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Beijing&quot;</span><span class="punctuation">&#125;</span>&#x27;</span><br><span class="line">data = json.loads(json_str)</span><br><span class="line">print(data) </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &#123;&#x27;name&#x27;: &#x27;小熊维尼&#x27;, &#x27;age&#x27;: 70, &#x27;city&#x27;: &#x27;Beijing&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="将python对象转换为-JSON-字符串"><a href="#将python对象转换为-JSON-字符串" class="headerlink" title="将python对象转换为 JSON 字符串"></a>将python对象转换为 JSON 字符串</h2><p>使用 <code>json.dumps()</code> 函数可以将 Python 对象转换为 JSON 格式的字符串。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;小熊维尼&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">70</span>, <span class="string">&#x27;city&#x27;</span>: <span class="string">&#x27;Beijing&#x27;</span>&#125;</span><br><span class="line">json_str = json.dumps(data, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(json_str)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &#123;&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30, &quot;city&quot;: &quot;New York&quot;&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>可选参数（前三个最常用）</p>
-<ol>
-<li><code>default</code>：一个函数，用于自定义对象的序列化方式。如果对象无法被序列化，则会调用该函数，返回对象的可序列化表示。</li>
-<li><code>indent</code>：一个整数或字符串，用于指定输出中的缩进量。如果是一个整数，则表示每级缩进的空格数；如果是一个字符串，则表示用于缩进的字符串，通常是一个空格或制表符。</li>
-<li><code>ensure_ascii</code>：一个布尔值，默认为 True。如果设置为 True（默认值），则所有非 ASCII 字符将转义；如果设置为 False，则不会转义非 ASCII 字符，可用于处理包含非 ASCII 字符的数据。</li>
-<li><code>cls</code>：一个 JSONEncoder 子类，用于自定义 JSON 序列化器。</li>
-<li><code>skipkeys</code>：一个布尔值，默认为 False。如果设置为 True，则会跳过字典中不是字符串的键；如果设置为 False（默认值），则会引发 TypeError。</li>
-<li><code>separators</code>：一个元组，默认为 (‘, ‘, ‘: ‘)。可以指定用于分隔元素的字符串，第一个元素用于分隔对象的键值对，第二个元素用于分隔数组的元素。</li>
-<li><code>sort_keys</code>：一个布尔值，默认为 False。如果设置为 True，则会按照键的顺序对字典进行排序；如果设置为 False（默认值），则不会排序。</li>
-<li><code>allow_nan</code>：一个布尔值，默认为 True。如果设置为 False，则在序列化过程中，如果遇到 NaN、Infinity 或 -Infinity 等特殊浮点数值，会抛出 ValueError 异常；如果设置为 True（默认值），则会将这些特殊值转换为相应的字符串。</li>
-</ol>
-<p>不能dumps的类型：</p>
-<ol>
-<li>不可序列化的对象：如自定义对象、函数、文件对象等。<code>json.dumps()</code> 函数只能序列化支持 JSON 数据类型的 Python 对象，包括字典、列表、字符串、数字、布尔值和 None。否则引发 <code>TypeError</code> 异常。</li>
-<li>包含循环引用的对象：如果要序列化的对象包含循环引用（即对象之间相互引用，形成了环），则 <code>json.dumps()</code> 函数会抛出 ValueError 异常。JSON 格式不支持循环引用，因此无法将包含循环引用的对象转换为 JSON 格式。</li>
-<li>包含特殊值的浮点数：JSON 规范中不支持 NaN、Infinity 和 -Infinity 等特殊的浮点数值。如果要序列化的对象包含这些特殊值，则会抛出 ValueError 异常。可以通过将 <code>allow_nan</code> 参数设置为 False 来禁止序列化特殊的浮点数值，但这样可能会导致 JSON 编码后的字符串无法被标准的 JSON 解析器解析。</li>
-</ol>
-<h2 id="从文件读取-JSON-数据"><a href="#从文件读取-JSON-数据" class="headerlink" title="从文件读取 JSON 数据"></a>从文件读取 JSON 数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;input_data.json&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    data = json.load(file)</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
-
-<h2 id="将数据写入-JSON-文件"><a href="#将数据写入-JSON-文件" class="headerlink" title="将数据写入 JSON 文件"></a>将数据写入 JSON 文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;小熊维尼&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">70</span>, <span class="string">&#x27;city&#x27;</span>: <span class="string">&#x27;Beijing&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;out_data.json&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    json.dump(data, file)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/18/15/" data-id="clv5294n80009yy09222y6mlg" data-title="关于JSON" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/18/14/" class="article-date">
@@ -778,6 +696,55 @@
 
 
   
+    <article id="post-6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/17/6/" class="article-date">
+  <time class="dt-published" datetime="2024-04-17T04:00:00.000Z" itemprop="datePublished">2024-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/17/6/">python2/3中base64的使用差异</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="python2"><a href="#python2" class="headerlink" title="python2"></a>python2</h2><p>在python2中，base64可以直接操作string类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">encoded = base64.b64encode(msg)</span><br><span class="line">decoded = base64.b64decode(encoded)</span><br><span class="line"><span class="built_in">print</span>(encoded, decoded)</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (&#x27;aGVsbG8gd29ybGQ=&#x27;, &#x27;Hello World&#x27;)</span><br></pre></td></tr></table></figure>
+<h2 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h2><p>在python3中，base64只能操作bytes类型，直接编码会报错。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: a bytes-like object is required, not &#x27;str&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">encoded = base64.b64encode(msg.encode(<span class="string">&quot;utf-8&quot;</span>)).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">decoded = base64.b64decode(encoded).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(encoded, decoded)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (&#x27;aGVsbG8gd29ybGQ=&#x27;, &#x27;hello world&#x27;)</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Python 2：字符串默认是字节串，Unicode字符串需要使用u前缀声明。</p>
+<p>Python 3：字符串默认是Unicode字符串，字节串需要使用b前缀声明。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vvky.github.io/2024/04/17/6/" data-id="clv5294nb000kyy096war7ezw" data-title="python2/3中base64的使用差异" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
   <nav id="page-nav">
@@ -815,7 +782,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li></ul>
     </div>
   </div>
 
@@ -832,10 +799,6 @@
           </li>
         
           <li>
-            <a href="/2024/04/18/15/">关于JSON</a>
-          </li>
-        
-          <li>
             <a href="/2024/04/18/14/">mongo创建用户密码</a>
           </li>
         
@@ -845,6 +808,10 @@
         
           <li>
             <a href="/2024/04/17/12/">累积权重抽样demo及方案分析</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/17/11/">加权随机抽样</a>
           </li>
         
       </ul>
