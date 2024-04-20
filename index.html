@@ -1,859 +1,1057 @@
 <!DOCTYPE html>
-<html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
 <head>
   <meta charset="utf-8">
   
   
+  
+
+  
   <title>WKY的记事本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
   <meta property="og:type" content="website">
 <meta property="og:title" content="WKY的记事本">
 <meta property="og:url" content="https://vvky.github.io/index.html">
 <meta property="og:site_name" content="WKY的记事本">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="wangkaiyu">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="WKY的记事本" type="application/atom+xml">
   
   
-    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
   
   
   
 <link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
 <meta name="generator" content="Hexo 7.1.1"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">WKY的记事本</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://vvky.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-gps和gprs的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/19/gps%E5%92%8Cgprs%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time class="dt-published" datetime="2024-04-19T08:00:00.000Z" itemprop="datePublished">2024-04-19</time>
-</a>
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=" is_home "  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>WKY的记事本 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">WKY </div>
+      <div class="dot"></div>
+      <div class="subtitle">无数渺小的思考填满了人的一生 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://twitter.com/" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com/" title="Steam"><i class="fa-brands fa-steam"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/vvky" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/mongo/" rel="tag">mongo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" rel="tag">系统集成</a></li></ul>
+    </div>
+  </div>
+
+
     
   </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+      
+   
+
+
+<article id="post-gps和gprs的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
   <div class="article-inner">
-    
-    
+    <div class="article-main">
       <header class="article-header">
         
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/19/gps%E5%92%8Cgprs%E7%9A%84%E5%8C%BA%E5%88%AB/">gps和gprs的区别</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="一-GPS（全球定位系统-global-position-system）"><a href="#一-GPS（全球定位系统-global-position-system）" class="headerlink" title="一. GPS（全球定位系统 global position system）"></a>一. GPS（全球定位系统 global position system）</h2><p>是一种定位技术，用来确认物体的经纬度位置</p>
-<p>维基百科：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/GPS">https://zh.wikipedia.org/zh-hans/GPS</a></p>
-<h2 id="二-GPRS（通用分组无线数据服务-general-packet-radio-service）"><a href="#二-GPRS（通用分组无线数据服务-general-packet-radio-service）" class="headerlink" title="二. GPRS（通用分组无线数据服务 general packet radio service）"></a>二. GPRS（通用分组无线数据服务 general packet radio service）</h2><p>只是一种数据传输方式，用来传递数据组群，如同发送手机短信，不具备定位功能 </p>
-<p>维基百科：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/GPRS">https://zh.wikipedia.org/zh-hans/GPRS</a></p>
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/04/19/gps%E5%92%8Cgprs%E7%9A%84%E5%8C%BA%E5%88%AB/">gps和gprs的区别</a>
+      </h1>
+    
+  
+</div>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/19/gps%E5%92%8Cgprs%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="clv7qkvwa000cnm09935n1f2d" data-title="gps和gprs的区别" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-04-19T08:00:00.000Z" itemprop="datePublished">2024-04-19</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            215 词 
+          </div>
+        </div>
+        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              一. GPS（全球定位系统 global position system）是一种定位技术，用来确认物体的经纬度位置
+维基百科：https://zh.wikipedia.org/zh-hans/GPS
+二. GPRS（通用分组无线数据服务 general packet radio service）只是一种数据传输方式，用来传递数据组群，如同发送手机短信，不具备定位功能 
+维基百科：https://zh.wikipedia.org/zh-hans/GPRS
+
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/04/19/gps%E5%92%8Cgprs%E7%9A%84%E5%8C%BA%E5%88%AB/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
-  
-    <article id="post-html嵌入微博关注按钮" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/19/html%E5%B5%8C%E5%85%A5%E5%BE%AE%E5%8D%9A%E5%85%B3%E6%B3%A8%E6%8C%89%E9%92%AE/" class="article-date">
-  <time class="dt-published" datetime="2024-04-19T06:00:00.000Z" itemprop="datePublished">2024-04-19</time>
-</a>
-    
-  </div>
+
+
+
+
+   
+
+
+<article id="post-html嵌入微博关注按钮" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
   <div class="article-inner">
-    
-    
+    <div class="article-main">
       <header class="article-header">
         
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/19/html%E5%B5%8C%E5%85%A5%E5%BE%AE%E5%8D%9A%E5%85%B3%E6%B3%A8%E6%8C%89%E9%92%AE/">html嵌入微博关注按钮</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns:wb</span>=<span class="string">&quot;http://open.weibo.com/wb&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://tjs.sjs.sinajs.cn/open/api/js/wb.js&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;weibo&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">wb:follow-button</span> <span class="attr">uid</span>=<span class="string">&quot;微博uid&quot;</span> <span class="attr">width</span>=<span class="string">&quot;136&quot;</span> <span class="attr">height</span>=<span class="string">&quot;24&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">wb:follow-button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/04/19/html%E5%B5%8C%E5%85%A5%E5%BE%AE%E5%8D%9A%E5%85%B3%E6%B3%A8%E6%8C%89%E9%92%AE/">html嵌入微博关注按钮</a>
+      </h1>
+    
+  
+</div>
 
-<p>微博的uid：在任何人的微博主页，复制分享链接，后缀就是uid</p>
-<p>比如日娃的微博：<a target="_blank" rel="noopener" href="https://weibo.com/u/1865990891">https://weibo.com/u/1865990891</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/19/html%E5%B5%8C%E5%85%A5%E5%BE%AE%E5%8D%9A%E5%85%B3%E6%B3%A8%E6%8C%89%E9%92%AE/" data-id="clv7qkvwb000dnm09b4tnbefb" data-title="html嵌入微博关注按钮" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-04-19T06:00:00.000Z" itemprop="datePublished">2024-04-19</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            507 词 
+          </div>
+        </div>
+        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              12345678910&lt;!DOCTYPE HTML&gt;&lt;html xmlns:wb=&quot;http://open.weibo.com/wb&quot;&gt;&lt;head&gt;    &lt;script src=&quot;http://tjs.sjs.sinajs.cn/open/api/js/wb.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/head&gt;	&lt;div id=&quot;weibo&quot;&gt;		&lt;wb:follow-button uid=&quot;微博uid&quot; width=&quot;136&quot; height=&quot;24&quot; &gt;&lt;/wb:follow-button&gt;	&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+
+微博的uid：在任何人的微博主页，复制分享链接，后缀就是uid
+比如日娃的微博...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/04/19/html%E5%B5%8C%E5%85%A5%E5%BE%AE%E5%8D%9A%E5%85%B3%E6%B3%A8%E6%8C%89%E9%92%AE/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
-  
-    <article id="post-git常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2024-04-18T17:00:00.000Z" itemprop="datePublished">2024-04-19</time>
-</a>
-    
-  </div>
+
+
+
+
+   
+
+
+<article id="post-git常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
   <div class="article-inner">
-    
-    
+    <div class="article-main">
       <header class="article-header">
         
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="查看远程仓库信息"><a href="#查看远程仓库信息" class="headerlink" title="查看远程仓库信息"></a>查看远程仓库信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
+      </h1>
+    
+  
+</div>
 
-<h3 id="查看代码所在分支"><a href="#查看代码所在分支" class="headerlink" title="查看代码所在分支"></a>查看代码所在分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看远程分支列表"><a href="#查看远程分支列表" class="headerlink" title="查看远程分支列表"></a>查看远程分支列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看本地分支列表"><a href="#查看本地分支列表" class="headerlink" title="查看本地分支列表"></a>查看本地分支列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看所有分支列表"><a href="#查看所有分支列表" class="headerlink" title="查看所有分支列表"></a>查看所有分支列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><ol>
-<li>创建新branch</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>切换回主分支</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>合并新分支到主分支</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>push</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="切换分支或指定版本"><a href="#切换分支或指定版本" class="headerlink" title="切换分支或指定版本"></a>切换分支或指定版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [branch name]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [version <span class="built_in">hash</span>]</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改上一次提交详情"><a href="#修改上一次提交详情" class="headerlink" title="修改上一次提交详情"></a>修改上一次提交详情</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
-
-<p>会进入一个vim编辑页面，然后重新提交</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force</span><br></pre></td></tr></table></figure>
-
-<h3 id="将日志写入文件"><a href="#将日志写入文件" class="headerlink" title="将日志写入文件"></a>将日志写入文件</h3><p>默认写入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> &gt; ./git.log</span><br></pre></td></tr></table></figure>
-
-<p>格式化写入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --format=<span class="string">&quot;hash：%H%n提交人：%an &lt;%ae&gt;%n日期：%ad%n更新内容：%s%n&quot;</span> &gt; git.log</span><br></pre></td></tr></table></figure>
-
-<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><p>例如，dev合并到master</p>
-<ol>
-<li><strong>切换到</strong><code>master</code>分支：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master </span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><strong>更新</strong><code>master</code>分支：</li>
-</ol>
-<p>在合并前，确保<code>master</code>分支是最新的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull </span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><strong>合并</strong><code>dev</code>分支到<code>master</code>：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev </span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><strong>可能出现的冲突</strong></li>
-</ol>
-<p>如果在合并过程出现冲突，需要手动解决，然后再添加新的更改到git</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li><strong>提交推送</strong></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;Merge dev into master&quot;</span> </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="clv7qkvw90008nm0913utcix1" data-title="git常用命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-04-18T17:00:00.000Z" itemprop="datePublished">2024-04-19</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            661 词 
+          </div>
+        </div>
+        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              查看远程仓库信息1git remote -v
+
+查看代码所在分支1git branch -v
+
+查看远程分支列表1git branch -r
+
+查看本地分支列表1git branch
+
+查看所有分支列表1git branch -a
+
+创建分支
+创建新branch
+
+1git checkout -b dev
+
+
+切换回主分支
+
+1git checkout master
+
+
+合并新分支到主分支
+
+1git merge dev
+
+
+push
+
+1git push origin dev
+
+切换分支或指定版本1git checkout [branch name]
+
+1git checkout [version hash]
+
+修改上一次提交详情1git commit --amend
+
+会进入一个vim编辑页面，然后重新提交
+1git push --force
+
+将日志写入文件默认写入
+1git log &gt; ./git.log
+
+格式化写入：
+1git log --format=&quot;hash：%H%n提交人：%an &lt;%ae&gt;%n日期：%ad%n更新内容：%s%n&q...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
-  
-    <article id="post-docker部署redis（centos7.9）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/17/docker%E9%83%A8%E7%BD%B2redis%EF%BC%88centos7.9%EF%BC%89/" class="article-date">
-  <time class="dt-published" datetime="2024-04-17T15:00:00.000Z" itemprop="datePublished">2024-04-17</time>
-</a>
-    
-  </div>
+
+
+
+
+   
+
+
+<article id="post-docker部署redis（centos7.9）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
   <div class="article-inner">
-    
-    
+    <div class="article-main">
       <header class="article-header">
         
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/17/docker%E9%83%A8%E7%BD%B2redis%EF%BC%88centos7.9%EF%BC%89/">docker部署redis（centos7.9）</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-创建数据目录和配置文件目录"><a href="#1-创建数据目录和配置文件目录" class="headerlink" title="1. 创建数据目录和配置文件目录"></a>1. 创建数据目录和配置文件目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p  /data/redis/data</span><br></pre></td></tr></table></figure>
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/04/17/docker%E9%83%A8%E7%BD%B2redis%EF%BC%88centos7.9%EF%BC%89/">docker部署redis（centos7.9）</a>
+      </h1>
+    
+  
+</div>
 
-<p><code>/data/redis</code>配置文件放宿主机的配置文件</p>
-<p><code>/data/redis/data</code>持久化文件和容器的配置文件</p>
-<p>启动容器后，<code>/data/redis/data</code>下还会有一层&#x2F;redis，里面就是容器的配置文件</p>
-<h2 id="2-创建自定义配置文件"><a href="#2-创建自定义配置文件" class="headerlink" title="2. 创建自定义配置文件"></a>2. 创建自定义配置文件</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://gitee.com/wangyue123com_admin/helpdocument/blob/master/package/redis.conf">https://gitee.com/wangyue123com_admin&#x2F;helpdocument&#x2F;blob&#x2F;master&#x2F;package&#x2F;redis.conf</a></p>
-<p>并修改若干配置，如：密码requirepass, 绑定地址bind，端口号port, 后台运行daemonize</p>
-<p><code>daemonize</code>守护进程默认为<code>no</code>，在docker中下是正确的，因为：</p>
-<p>容器与进程：<br>容器是围绕单个进程设计的。当该进程终止时，容器也会停止。因此，在Docker容器中运行的应用程序通常应该在前台运行，以便Docker可以正确管理和监控该进程。</p>
-<p>日志管理：<br>当Redis在前台运行时，它的输出（日志）会直接发送到标准输出（stdout）和标准错误（stderr），这使得Docker可以捕获并管理这些日志。如果Redis作为守护进程运行，这些日志可能不会被Docker捕获。</p>
-<p>简化配置： 在Docker环境中，使用默认设置（daemonize no）可以简化配置和部署过程，因为您不需要对Redis进行特殊配置来确保它以守护进程形式运行。</p>
-<p>xzd生产环境的redis设置daemonizeyes → no是因为：</p>
-<p>当时的redis是源码安装的，使用systemctl管理总是无法正确加载配置文件，没法配置开机自启动，只能曲线救国，写了一个shell脚本去启动redis实例，然后使用systemctl管理这个脚本，并且设置自启动。但daemonize是yes，脚本运行一次redis就挂到后台了，systemctl认为脚本已经执行结束，所以查询脚本状态就是exit。于是设置redis为前台运行。</p>
-<h2 id="3-创建并启动容器"><a href="#3-创建并启动容器" class="headerlink" title="3. 创建并启动容器"></a>3. 创建并启动容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd  --name  redis-new --privileged=<span class="literal">true</span> -v /data/redis/redis.conf:/data/redis/redis.conf -v /data/redis/data:/data  -p 46379:6379  redis redis-server /data/redis/redis.conf</span><br></pre></td></tr></table></figure>
-
-<p>对该命令各个部分的详细解释：</p>
-<ol>
-<li><code>docker run</code>：这是Docker的基本命令，用来运行一个新的容器。</li>
-<li><code>-itd</code>：这个参数实际上是三个参数的组合。<code>-i</code>（或<code>--interactive</code>）保持容器的标准输入开放，即使不附加到容器。<code>-t</code>（或<code>--tty</code><br>）为容器分配一个伪终端。<code>-d</code>（或<code>--detach</code>）表示在后台运行容器，并打印容器ID。</li>
-<li><code>--name redis-new</code>：这个参数为您的容器指定一个名字，这里名字是<code>redis-new</code>。</li>
-<li><code>--privileged=true</code>：这个参数给容器提供额外的权限。当设置为<code>true</code>时，容器几乎具有相同的权限作为宿主机上的进程。</li>
-<li><code>-v /data/redis/redis.conf:/data/redis/redis.conf</code>：这是一个卷挂载命令。它将宿主机上的<code>/data/redis/redis.conf</code><br>文件挂载到容器内的<code>/data/redis/redis.conf</code>。这允许你使用自定义的Redis配置。</li>
-<li><code>-v /data/redis/data:/data</code>：同样是一个卷挂载命令，将宿主机的<code>/data/redis/data</code>目录挂载到容器的<code>/data</code><br>目录。这通常用于持久化Redis数据。</li>
-<li><code>-p 46379:6379</code>：这是端口映射。它将容器内部的6379端口映射到宿主机的46379端口。这意味着，当你在宿主机上访问46379端口时，实际上是在访问容器内部的6379端口。</li>
-<li><code>redis</code>：这是要运行的Docker镜像的名称，在这个案例中是官方的Redis镜像。</li>
-<li><code>redis-server /data/redis/redis.conf</code><br>：这是容器启动时要运行的命令。它启动Redis服务器并使用您提供的配置文件<code>/data/redis/redis.conf</code>。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/17/docker%E9%83%A8%E7%BD%B2redis%EF%BC%88centos7.9%EF%BC%89/" data-id="clv7qkvw70004nm09hbpy6w0f" data-title="docker部署redis（centos7.9）" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-04-17T15:00:00.000Z" itemprop="datePublished">2024-04-17</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.8k 词 
+          </div>
+        </div>
+        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              1. 创建数据目录和配置文件目录1mkdir -p  /data/redis/data
+
+/data/redis配置文件放宿主机的配置文件
+/data/redis/data持久化文件和容器的配置文件
+启动容器后，/data/redis/data下还会有一层&#x2F;redis，里面就是容器的配置文件
+2. 创建自定义配置文件参考链接：https://gitee.com/wangyue123com_admin&#x2F;helpdocument&#x2F;blob&#x2F;master&#x2F;package&#x2F;redis.conf
+并修改若干配置，如：密码requirepass, 绑定地址bind，端口号port, 后台运行daemonize
+daemonize守护进程默认为no，在docker中下是正确的，因为：
+容器与进程：容器是围绕单个进程设计的。当该进程终止时，容器也会停止。因此，在Docker容器中运行的应用程序通常应该在前台运行，以便Docker可以正确管理和监控该进程。
+日志管理：当Redis在前台运行时，它的输出（日志）会直接发送到标准输出（stdo...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/04/17/docker%E9%83%A8%E7%BD%B2redis%EF%BC%88centos7.9%EF%BC%89/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
-  
-    <article id="post-shell批量添加cron任务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/17/shell%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0cron%E4%BB%BB%E5%8A%A1/" class="article-date">
-  <time class="dt-published" datetime="2024-04-17T05:00:00.000Z" itemprop="datePublished">2024-04-17</time>
-</a>
-    
-  </div>
+
+
+
+
+   
+
+
+<article id="post-shell批量添加cron任务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
   <div class="article-inner">
-    
-    
+    <div class="article-main">
       <header class="article-header">
         
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/17/shell%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0cron%E4%BB%BB%E5%8A%A1/">shell批量添加cron任务</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>本来想写个脚本批量创建任务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 1 * * * /usr/bin/python3 /path/to/script1.py&quot;</span> | crontab -</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 2 * * * /usr/bin/python3 /path/to/script2.py&quot;</span> | crontab -</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 3 * * * /usr/bin/python3 /path/to/script3.py&quot;</span> | crontab -</span><br></pre></td></tr></table></figure>
-<p>看着跟真的似的，但其实这个老逼|管道符号写的不对，运行后只有最后一个任务添加进去。<br>修改后：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 1 * * * /usr/bin/python3 /path/to/your/script1.py&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 2 * * * /usr/bin/python3 /path/to/your/script2.py&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0 3 * * * /usr/bin/python3 /path/to/your/script3.py&quot;</span></span><br><span class="line">&#125; | crontab -</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>使用crontab运行python脚本，logru日志不打印：日志路径修改为绝对路径即可。</p>
-<p>crontab默认的日志：&#x2F;var&#x2F;log&#x2F;cron（只能看到是否执行）</p>
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/04/17/shell%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0cron%E4%BB%BB%E5%8A%A1/">shell批量添加cron任务</a>
+      </h1>
+    
+  
+</div>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/17/shell%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0cron%E4%BB%BB%E5%8A%A1/" data-id="clv7qkvwf000xnm090m0idv5i" data-title="shell批量添加cron任务" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-04-17T05:00:00.000Z" itemprop="datePublished">2024-04-17</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            611 词 
+          </div>
+        </div>
+        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              本来想写个脚本批量创建任务
+1234567#!/bin/bashcrontab -recho &quot;0 1 * * * /usr/bin/python3 /path/to/script1.py&quot; | crontab -echo &quot;0 2 * * * /usr/bin/python3 /path/to/script2.py&quot; | crontab -echo &quot;0 3 * * * /usr/bin/python3 /path/to/script3.py&quot; | crontab -
+看着跟真的似的，但其实这个老逼|管道符号写的不对，运行后只有最后一个任务添加进去。修改后：
+12345678910#!/bin/bashcrontab -r&#123;echo &quot;0 1 * * * /usr/bin/python3 /path/to/your/script1.py&quot;echo &quot;0 2 * * * /usr/bin/python3 /path/to/your/script2.py&quot;echo &quo...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/04/17/shell%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0cron%E4%BB%BB%E5%8A%A1/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
-  
-    <article id="post-畅捷通T+Cloud定制开发指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/17/%E7%95%85%E6%8D%B7%E9%80%9AT+Cloud%E5%AE%9A%E5%88%B6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" class="article-date">
-  <time class="dt-published" datetime="2024-04-17T01:00:00.000Z" itemprop="datePublished">2024-04-17</time>
-</a>
-    
-  </div>
+
+
+
+
+   
+
+
+<article id="post-畅捷通T+Cloud定制开发指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
   <div class="article-inner">
-    
-    
+    <div class="article-main">
       <header class="article-header">
         
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/17/%E7%95%85%E6%8D%B7%E9%80%9AT+Cloud%E5%AE%9A%E5%88%B6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">畅捷通T+Cloud定制开发指南</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id=""><a href="#" class="headerlink" title=""></a></h2><blockquote>
-<p>按顺序往下走即可</p>
-</blockquote>
-<h2 id="1、申请开发测试账套"><a href="#1、申请开发测试账套" class="headerlink" title="1、申请开发测试账套"></a><strong>1、申请开发测试账套</strong></h2><p>擦亮眼睛，别选错账套</p>
-<h2 id="2、创建应用"><a href="#2、创建应用" class="headerlink" title="2、创建应用"></a><strong>2、创建应用</strong></h2><p>控制台 → 创建企业自建应用 → 对接主应用选择 <code>TPlus</code></p>
-<h2 id="3、生成授权证书"><a href="#3、生成授权证书" class="headerlink" title="3、生成授权证书"></a><strong>3、生成授权证书</strong></h2><p>token是二开鉴权的最后一道防线，证书用于获取token，为了证明你是一个被授权的开发者。</p>
-<p>控制台 → 选择应用 → 开发管理 → 权限管理 → 找一个管理员 → 生成授权链接 → 保存授权证书（长期有效）</p>
-<h2 id="4、配置可信域名"><a href="#4、配置可信域名" class="headerlink" title="4、配置可信域名"></a><strong>4、配置可信域名</strong></h2><p><strong>就是怕你乱申请token搞事情，配置了可信域名后，就能从token追溯到具体的ISV和为其颁发授权证书的应用管理员。</strong></p>
-<p>控制台 → 左侧可信域名管理 → 下载<code>CHANJET_CHECK.txt</code>文件 → 放到回调服务器的<strong>80或443端口</strong>的根路由下→ 回到消息配置页面 →<br>输入AES密钥 → 输入消息接收地址。</p>
-<p><strong>⚠️ 一个域名只能绑定一个账套（平台会查重）</strong></p>
-<p><strong>⚠️ 经过为期一个月的测试，绑定可信域名后，把</strong><code>CHANJET_CHECK.txt</code>修改为其他企业<br>，甚至删除掉，仍不影响回调使用，平台说不定期拨测可能是在忽悠你。</p>
-<h2 id="5、配置回调服务器地址"><a href="#5、配置回调服务器地址" class="headerlink" title="5、配置回调服务器地址"></a><strong>5、配置回调服务器地址</strong></h2><p>控制台 → 选择企业自建应用 → 应用功能 → 消息订阅 → 消息配置</p>
-<p>所有的回调消息，都是AES加密的，所以先<strong>配置消息秘钥</strong>（<strong>长度必须是16位</strong>）</p>
-<p>然后配置消息接收地址（后续所有的回调，包括消息订阅，都会走这一个接口）</p>
-<p><strong>不管给你发啥，必须在一秒内响应</strong><code>&#123;&quot;result&quot;: &quot;success&quot;&#125;</code><strong>，长时间响应异常，会被中断消息推送。</strong></p>
-<p>被中断后，可以到消息订阅中，点击<strong>重置并发送</strong>按钮，恢复使用。或者调用”<strong>立即触发 ticket 推送</strong>“接口。</p>
-<h2 id="6、配置服务器公网地址-（公有云不用看这条）"><a href="#6、配置服务器公网地址-（公有云不用看这条）" class="headerlink" title="6、配置服务器公网地址 （公有云不用看这条）"></a><strong>6、配置服务器公网地址 （公有云不用看这条）</strong></h2><p><strong>专属云的通信流程：你的第三方程序 → 畅捷通开放平台 → 专属云客户端</strong></p>
-<p><strong>这个公网地址指的是客户 T+ 系统的公网地址，简单说就是把它告诉开放平台，平台才能通过公网和专属云通信。</strong></p>
-<p>登录T+管理员账号 → 服务器配置 → 地址配置 → 测试连接，然后登录客户端到云应用里测试一下服务器网络连接。</p>
-<h2 id="7、开通业务接口权限"><a href="#7、开通业务接口权限" class="headerlink" title="7、开通业务接口权限"></a><strong>7、开通业务接口权限</strong></h2><p>千万不要费九牛二虎之力获取到 token最后发现接口报错<code>openToken无调用该接口的权限</code>，再返回来开通。</p>
-<p>咱直接少走十年弯路，控制台 → 自建应用 → 权限管理 → 开通对应的接口权限</p>
-<h2 id="8、获取-app-ticket"><a href="#8、获取-app-ticket" class="headerlink" title="8、获取 app_ticket"></a><strong>8、获取 app_ticket</strong></h2><p>配置好可信域名和消息接收地址后，平台每10分钟给你推送一次ticket密文，用上述配好的密钥解密，获取ticket。每个ticket有效期30分钟。</p>
-<p><strong>所有的回调或订阅消息，都用明文载荷中的</strong><code>msgType</code><strong>区分事件类型。</strong></p>
-<h2 id="9、获取-open-token"><a href="#9、获取-open-token" class="headerlink" title="9、获取 open_token"></a><strong>9、获取 open_token</strong></h2><p>官方接口文档： <a target="_blank" rel="noopener" href="https://open.chanjet.com/docs/file/apiFile/common/selfBuiltApp/selfBuiltAppAuth?id=32086">T+自建应用获取token接口</a></p>
-<p>就是用自建应用信息和刚才生成的授权证书+ticket去请求token接口，获取token。</p>
-<p>他的有效期比较牛逼：<strong>6天</strong>，可以缓存下来。</p>
-<p>响应数据中还有一个 refreshToken, 有效期 29 天，可以用他直接刷新 token。</p>
-<p>接口：GET  <a target="_blank" rel="noopener" href="https://openapi.chanjet.com/auth/v2/refreshToken">https://openapi.chanjet.com/auth/v2/refreshToken</a></p>
-<p>headers：appkey 和 appSecret</p>
-<p>params：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x27;grantType&#x27;: &#x27;refresh_token&#x27;,</span><br><span class="line">    &#x27;refreshToken&#x27;: &#x27;xxx&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/04/17/%E7%95%85%E6%8D%B7%E9%80%9AT+Cloud%E5%AE%9A%E5%88%B6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">畅捷通T+Cloud定制开发指南</a>
+      </h1>
+    
+  
+</div>
 
-<h2 id="10、消息订阅"><a href="#10、消息订阅" class="headerlink" title="10、消息订阅"></a><strong>10、消息订阅</strong></h2><p>控制台 → 选择自建应用 → 应用功能 → 消息订阅 → 消息列表 → 订阅想要的事件（要记住订阅消息code） → 重新生成授权证书（否则订阅不生效）</p>
-<p>有个bug，直接点右侧的查看消息，无法查看接口文档，需要到开放平台 API文档 → T+API → T+消息订阅 查看 😓</p>
-<p>如果开发目标是把T+的数据同步给其他系统（如宜搭），那么只需要第一次部署上线时，调T+业务接口批量同步过来，后续T+中增加的数据，采用消息订阅即可，T+增加一条你就同步一条，避免无意义的定时任务消耗资源。</p>
-<p>T+的消息订阅非常朴实无华：比如T+增加了一个出库单，他会通过http post你的消息接收地址，发送加密载荷，解密后根据msgType判断事件类型，比如订阅了付款单审核，msgType就是ArapPayment_Audit。载荷中带有单据标识voucherCode，然后你拿code去请求查询单据的接口，获取单据的详情… …</p>
-<h3 id="收不到？一般专属云会这样"><a href="#收不到？一般专属云会这样" class="headerlink" title="收不到？一般专属云会这样"></a><strong>收不到？一般专属云会这样</strong></h3><p>先检查客户<code>账套版本</code>是否过低（小于16）</p>
-<p>再检查T+的部署机器上<code>rabitmq</code>启动了没</p>
-<p>再检查T+的部署机器上，T+服务管理APP中<code>异步任务</code>启动了没</p>
-<h2 id="11、经典报错汇总"><a href="#11、经典报错汇总" class="headerlink" title="11、经典报错汇总"></a><strong>11、经典报错汇总</strong></h2><h3 id="专属云获取token报server-not-found"><a href="#专属云获取token报server-not-found" class="headerlink" title="专属云获取token报server not found"></a>专属云获取token报<code>server not found</code></h3><p>没有配置服务器公网地址。看第六条 。</p>
-<h3 id="业务接口报服务名称不正确"><a href="#业务接口报服务名称不正确" class="headerlink" title="业务接口报服务名称不正确"></a>业务接口报服务名称不正确</h3><p>一查官方文档，说系统版本低要打补丁，<strong>不要被他误导</strong>，一定是你请求参数写错了。参数缺失他不报参数缺失，报打补丁的错…😓</p>
-<h3 id="未将对象引用设置到对象的…"><a href="#未将对象引用设置到对象的…" class="headerlink" title="未将对象引用设置到对象的…"></a>未将对象引用设置到对象的…</h3><p>请求参数缺失了，类型传错了，都会这样，反正就是对方报错了 ，老毛病了😓</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;code&quot;: &quot;EXERROR0001&quot;,</span><br><span class="line">    &quot;message&quot;: &quot;未将对象引用设置到对象的实例，调用堆栈为   在 Ufida.T.EAP.Aop.Server.ServerDynamicProxyImpl.NormalInvoke(MethodBase method, Object[] args)\r\n   在 Ufida.T.EAP.Aop.Server.ServerDynamicProxyImpl.Invoke(IMessage message)\r\n   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)\r\n   在 Ufida.T.BAP.Base.VoucherAPI.IVoucherAPIService.Save(DTO dto, APIParamDTO apiParam)&quot;,</span><br><span class="line">    &quot;data&quot;: &#123;</span><br><span class="line">        &quot;Code&quot;: &quot;EXERROR0001&quot;,</span><br><span class="line">        &quot;StatusCode&quot;: 400</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="12、关于基础档案查询"><a href="#12、关于基础档案查询" class="headerlink" title="12、关于基础档案查询"></a><strong>12、关于基础档案查询</strong></h2><p>默认只返回基础字段，如 name、code，要使用 <code>SelectFields</code>来过滤字段，比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;param&quot;: &#123;</span><br><span class="line">        &quot;SelectFields&quot;: &quot;ID,Code,Name,Unit.Code,Unit.Name&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>⚠️ 1、 存货查询，如传入错误字段，将导致查询结果全为空。</strong></p>
-<p><strong>⚠️ 2、 仓库查询， SelectFields 中的字段名不区分大小写，查什么返回什么，比如：</strong></p>
-<p>查询参数：name 可以写成 Name，也可以写成 NaMe，或者 NAME、namE</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;param&quot;: &#123;</span><br><span class="line">        &quot;Selectfields&quot;: &quot;ID,Code,NaMe&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>返回参数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;ID&quot;: 1,</span><br><span class="line">        &quot;Code&quot;: &quot;01&quot;,</span><br><span class="line">        &quot;NaMe&quot;: &quot;成品仓&quot;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>你甚至可以传入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;param&quot;: &#123;</span><br><span class="line">        &quot;Selectfields&quot;: &quot;ID,Code,NaMe,天王盖地虎,宝塔镇河妖&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;param&quot;: &#123;</span><br><span class="line">        &quot;Selectfields&quot;: &quot;ID,Code,NaMe,天王盖地虎,宝塔镇河妖@@@@</span><br><span class="line">        dasdad666&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>返回参数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;ID&quot;: 1,</span><br><span class="line">        &quot;Code&quot;: &quot;01&quot;,</span><br><span class="line">        &quot;NaMe&quot;: &quot;成品仓&quot;,</span><br><span class="line">        &quot;天王盖地虎&quot;: null,</span><br><span class="line">        &quot;宝塔镇河妖&quot;: null</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;ID&quot;: 1,</span><br><span class="line">        &quot;Code&quot;: &quot;01&quot;,</span><br><span class="line">        &quot;NaMe&quot;: &quot;成品仓&quot;,</span><br><span class="line">        &quot;天王盖地虎&quot;: null,</span><br><span class="line">        &quot;宝塔镇河妖@@@@\n        dasdad666&quot;: null</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2024/04/17/%E7%95%85%E6%8D%B7%E9%80%9AT+Cloud%E5%AE%9A%E5%88%B6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" data-id="clv7qkvwe000vnm09a9en5y6x" data-title="畅捷通T+Cloud定制开发指南" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-04-17T01:00:00.000Z" itemprop="datePublished">2024-04-17</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.6k 词 
+          </div>
+        </div>
+        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" rel="tag">系统集成</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+按顺序往下走即可
+
+1、申请开发测试账套擦亮眼睛，别选错账套
+2、创建应用控制台 → 创建企业自建应用 → 对接主应用选择 TPlus
+3、生成授权证书token是二开鉴权的最后一道防线，证书用于获取token，为了证明你是一个被授权的开发者。
+控制台 → 选择应用 → 开发管理 → 权限管理 → 找一个管理员 → 生成授权链接 → 保存授权证书（长期有效）
+4、配置可信域名就是怕你乱申请token搞事情，配置了可信域名后，就能从token追溯到具体的ISV和为其颁发授权证书的应用管理员。
+控制台 → 左侧可信域名管理 → 下载CHANJET_CHECK.txt文件 → 放到回调服务器的80或443端口的根路由下→ 回到消息配置页面 →输入AES密钥 → 输入消息接收地址。
+⚠️ 一个域名只能绑定一个账套（平台会查重）
+⚠️ 经过为期一个月的测试，绑定可信域名后，把CHANJET_CHECK.txt修改为其他企业，甚至删除掉，仍不影响回调使用，平台说不定期拨测可能是在忽悠你。
+5、配置回调服务器地址控制台 → 选择企业自建应用 → 应用功能 → 消息订阅 → 消息配置
+所有的回...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/04/17/%E7%95%85%E6%8D%B7%E9%80%9AT+Cloud%E5%AE%9A%E5%88%B6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
+
+
+
+
+   
+
+
+<article id="post-docker升级后运行容器报错（centos7.9）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <article id="post-docker升级后运行容器报错（centos7.9）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/" class="article-date">
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/">docker升级后运行容器报错（centos7.9）</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
   <time class="dt-published" datetime="2023-10-18T08:00:00.000Z" itemprop="datePublished">2023-10-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            467 词 
+          </div>
+        </div>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/">docker升级后运行容器报错（centos7.9）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error response from daemon: Unknown runtime specified docker-runc</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>可能是因为从不兼容的版本升级了docker，更改&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers目录中的文件参数，把docker-runc替换为runc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -rl <span class="string">&#x27;docker-runc&#x27;</span> /var/lib/docker/containers/ | xargs sed -i <span class="string">&#x27;s/docker-runc/runc/g&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>grep -rl：递归搜索目录和子目录，只列出含有匹配的文本行的文件名，而不显示具体的匹配内容</p>
-<p>xargs：衔接执行之前得到的值</p>
-<p>总体意思是把&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers中含有docker-runc的文件搜索出来，更改为runc，然后重启docker、重启容器即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart [容器<span class="built_in">id</span>]</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/" data-id="clv7qkvw40001nm092k7pdh5b" data-title="docker升级后运行容器报错（centos7.9）" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              报错1Error response from daemon: Unknown runtime specified docker-runc
+
+解决可能是因为从不兼容的版本升级了docker，更改&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers目录中的文件参数，把docker-runc替换为runc
+1grep -rl &#x27;docker-runc&#x27; /var/lib/docker/containers/ | xargs sed -i &#x27;s/docker-runc/runc/g&#x27;
+
+grep -rl：递归搜索目录和子目录，只列出含有匹配的文本行的文件名，而不显示具体的匹配内容
+xargs：衔接执行之前得到的值
+总体意思是把&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers中含有docker-runc的文件搜索出来，更改为runc，然后重启docker、重启容器即可。
+1systemctl restart docker
+1docker restart [容器id]
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
+
+
+
+
+   
+
+
+<article id="post-docker版本升级（centos7.9）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <article id="post-docker版本升级（centos7.9）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/17/docker%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%EF%BC%88centos7.9%EF%BC%89/" class="article-date">
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2023/10/17/docker%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%EF%BC%88centos7.9%EF%BC%89/">docker版本升级（centos7.9）</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
   <time class="dt-published" datetime="2023-10-17T07:00:00.000Z" itemprop="datePublished">2023-10-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.4k 词 
+          </div>
+        </div>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/17/docker%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%EF%BC%88centos7.9%EF%BC%89/">docker版本升级（centos7.9）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-查看已安装的文件"><a href="#1-查看已安装的文件" class="headerlink" title="1. 查看已安装的文件"></a>1. 查看已安装的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed |grep docker </span><br></pre></td></tr></table></figure>
-
-<h2 id="2-删除已安装的文件"><a href="#2-删除已安装的文件" class="headerlink" title="2. 删除已安装的文件"></a>2. 删除已安装的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove xxx</span><br></pre></td></tr></table></figure>
-
-<p>再次执行第一步检查是否删除成功</p>
-<h2 id="3-安装存储库"><a href="#3-安装存储库" class="headerlink" title="3. 安装存储库"></a>3. 安装存储库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-添加镜像源-aliyun"><a href="#4-添加镜像源-aliyun" class="headerlink" title="4. 添加镜像源(aliyun)"></a>4. 添加镜像源(aliyun)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-1-下载最新版"><a href="#5-1-下载最新版" class="headerlink" title="5.1 下载最新版"></a>5.1 下载最新版</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
-
-<p><code>docker-ce</code>: 这是 Docker 社区版的主要软件包，包含 Docker 的核心功能。</p>
-<p><code>docker-ce-cli</code>: 这是 Docker 社区版的命令行界面工具，用于与 Docker 守护进程进行交互。</p>
-<p><code>containerd.io</code>: 这是一个容器运行时，Docker 用它来管理容器的生命周期。</p>
-<p>这个命令安装了 Docker 的全部主要组件，包括 Docker 引擎、客户端界面，以及容器运行时。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y docker-ce </span><br></pre></td></tr></table></figure>
-
-<p>这个命令只显式地安装了 <code>docker-ce</code> 包，即 Docker 社区版的核心组件。</p>
-<p>在许多情况下，安装 <code>docker-ce</code> 时，相关的依赖包（如 <code>docker-ce-cli</code> 和 <code>containerd.io</code>）会自动被安装。但并不可靠，特别是在特定的<br>YUM 仓库配置或包依赖性发生变化的情况下。</p>
-<p>因此，<strong>第一个命令更加全面</strong>，它确保了 Docker 的所有主要组件都被安装。而第二个命令可能依赖于 YUM<br>的依赖性解析来安装额外的必要组件。为了确保完整的安装，通常推荐使用第一个命令</p>
-<h2 id="5-2-下载指定版本"><a href="#5-2-下载指定版本" class="headerlink" title="5.2 下载指定版本"></a>5.2 下载指定版本</h2><p>先查看版本列表</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | <span class="built_in">sort</span> -r</span><br></pre></td></tr></table></figure>
-
-<p>指定版本号</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker-ce-17.09.0.ce -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-启动"><a href="#6-启动" class="headerlink" title="6. 启动"></a>6. 启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-查看版本"><a href="#7-查看版本" class="headerlink" title="7. 查看版本"></a>7. 查看版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
-
-<h2 id="以下版本号有啥区别？"><a href="#以下版本号有啥区别？" class="headerlink" title="以下版本号有啥区别？"></a>以下版本号有啥区别？</h2><p><code>Docker version 1.13.1, build 7d71120/1.13.1</code>（直接yum安装的）</p>
-<p><code>Docker version 24.0.7, build afdd53b</code></p>
-<ol>
-<li><p><strong>Docker 1.13.1</strong>：这是 Docker 较早期的一个版本，发布于 2017<br>年左右。这个版本号遵循着传统的主版本号.次版本号.修订号的格式。在这个版本中，主版本号是 <code>1</code>，次版本号是 <code>13</code><br>，修订号是 <code>1</code>。<code>build 7d71120/1.13.1</code> 表明这个构建的具体提交 ID 是 <code>7d71120</code>。</p>
-</li>
-<li><p><strong>Docker 24.0.7</strong>：这个版本号代表了 Docker 的较新版本，其版本命名方式在 Docker 17.03 版本后发生了变化。从 2017<br>年开始，Docker 采用年份和月份的方式来标记版本，比如 <code>17.03</code> 表示 2017 年 3 月的版本。但在您提供的版本号中，<code>24.0.7</code><br>似乎并不遵循这个规则，可能是 Docker 又一次调整了版本命名策略，或者这是一个特定的企业版或定制版 Docker<br>的版本号。<code>build afdd53b</code> 同样表示这个版本的构建 ID。</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2023/10/17/docker%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%EF%BC%88centos7.9%EF%BC%89/" data-id="clv7qkvw60003nm09fwe4gst8" data-title="docker版本升级（centos7.9）" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              1. 查看已安装的文件1yum list installed |grep docker 
+
+2. 删除已安装的文件1yum -y remove xxx
+
+再次执行第一步检查是否删除成功
+3. 安装存储库1sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+4. 添加镜像源(aliyun)1yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+5.1 下载最新版1sudo yum -y install docker-ce docker-ce-cli containerd.io
+
+docker-ce: 这是 Docker 社区版的主要软件包，包含 Docker 的核心功能。
+docker-ce-cli: 这是 Docker 社区版的命令行界面工具，用于与 Docker 守护进程进行交互。
+containerd.io: 这是一个容器运行时，Docker 用它来管理容器的生命...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2023/10/17/docker%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%EF%BC%88centos7.9%EF%BC%89/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
-  
-    <article id="post-flask软删除方案" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/07/13/flask%E8%BD%AF%E5%88%A0%E9%99%A4%E6%96%B9%E6%A1%88/" class="article-date">
-  <time class="dt-published" datetime="2023-07-12T16:00:00.000Z" itemprop="datePublished">2023-07-13</time>
-</a>
-    
-  </div>
+
+
+
+
+   
+
+
+<article id="post-flask软删除方案" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
   <div class="article-inner">
-    
-    
+    <div class="article-main">
       <header class="article-header">
         
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/07/13/flask%E8%BD%AF%E5%88%A0%E9%99%A4%E6%96%B9%E6%A1%88/">flask软删除方案</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="flask软删除方案"><a href="#flask软删除方案" class="headerlink" title="flask软删除方案"></a>flask软删除方案</h2><p>在模型和表中加入了软删除标识字段 <code>is_delete</code>，为了实现查询时过滤掉已删除数据，需要在每一个query后手写filter参数(is_delete&#x3D;0)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pagination = DemoModel.query.filter_by(is_delete=<span class="number">0</span>).paginate(page=<span class="number">1</span>, per_page=<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>为了避免重复的显式的过滤查询，可以继承改写<code>BaseQuery</code>基类，将<code>is_delete</code>的过滤操作放在底层，实现预过滤。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> BaseQuery</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QueryWithSoftDelete</span>(<span class="title class_ inherited__">BaseQuery</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span><br><span class="line">        obj = <span class="built_in">super</span>(QueryWithSoftDelete, cls).__new__(cls)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(args) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">super</span>(QueryWithSoftDelete, obj).__init__(*args, **kwargs)</span><br><span class="line">            <span class="keyword">return</span> obj.filter_by(is_delete=<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> obj</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>(这个<code>BaseQuery</code>并不是从<code>sqlalchemy</code>导入的，而是<code>flask_sqlalchemy</code>….)</p>
-</blockquote>
-<p>然后每一个模型都添加<code>query_class = QueryWithSoftDelete</code>，表示这个model的查询基类使用<code>QueryWithSoftDelete</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> custom.models.custom_query <span class="keyword">import</span> QueryWithSoftDelete</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DemoModel</span>(db.Model):</span><br><span class="line">    __tablename__ = <span class="string">&#x27;demo&#x27;</span></span><br><span class="line">    ...</span><br><span class="line">    query_class = QueryWithSoftDelete</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">soft_delete</span>(<span class="params">self</span>):</span><br><span class="line">        self.is_delete = time.time()</span><br><span class="line">        <span class="keyword">return</span> self.is_delete</span><br></pre></td></tr></table></figure>
-<p><code>soft_delete</code>方法用于软删除，将<code>is_delete</code>字段设置为当前时间戳，表示删除时间。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj = DemoModel.query.filter_by(obj_uuid=<span class="number">1</span>).first()</span><br><span class="line">obj.soft_delete()</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2023/07/13/flask%E8%BD%AF%E5%88%A0%E9%99%A4%E6%96%B9%E6%A1%88/" data-id="clv7qkvw90009nm09ful6hqrl" data-title="flask软删除方案" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2023/07/13/flask%E8%BD%AF%E5%88%A0%E9%99%A4%E6%96%B9%E6%A1%88/">flask软删除方案</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-07-12T16:00:00.000Z" itemprop="datePublished">2023-07-13</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            979 词 
+          </div>
+        </div>
+        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flask/" rel="tag">flask</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              flask软删除方案在模型和表中加入了软删除标识字段 is_delete，为了实现查询时过滤掉已删除数据，需要在每一个query后手写filter参数(is_delete&#x3D;0)
+1pagination = DemoModel.query.filter_by(is_delete=0).paginate(page=1, per_page=10)
+为了避免重复的显式的过滤查询，可以继承改写BaseQuery基类，将is_delete的过滤操作放在底层，实现预过滤。
+123456789from flask_sqlalchemy import BaseQueryclass QueryWithSoftDelete(BaseQuery):    def __new__(cls, *args, **kwargs):        obj = super(QueryWithSoftDelete, cls).__new__(cls)        if len(args) &gt; 0:            super(QueryWithSoftDelete, obj).__init__...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2023/07/13/flask%E8%BD%AF%E5%88%A0%E9%99%A4%E6%96%B9%E6%A1%88/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
-  
-    <article id="post-mongo投影" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/04/29/mongo%E6%8A%95%E5%BD%B1/" class="article-date">
-  <time class="dt-published" datetime="2023-04-29T15:32:34.000Z" itemprop="datePublished">2023-04-29</time>
-</a>
-    
-  </div>
+
+
+
+
+   
+
+
+<article id="post-mongo投影" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
   <div class="article-inner">
-    
-    
+    <div class="article-main">
       <header class="article-header">
         
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/04/29/mongo%E6%8A%95%E5%BD%B1/">mongo投影</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="投影（Projection）"><a href="#投影（Projection）" class="headerlink" title="投影（Projection）"></a>投影（Projection）</h2><p>在 MongoDB 中，查询操作中的投影（Projection）可以控制返回结果中包含的字段。通过使用投影控制返回字段，从而减少数据传输和处理的开销。</p>
-<p>在编写查询语句时，投影的写法有以下几点讲究：</p>
-<ol>
-<li><strong>指定包含的字段或排除的字段：</strong> 可以使用 1 表示要包含该字段，使用 0 表示要排除该字段。在投影中指定要返回的字段，可以减少返回结果的数据量，提高查询性能。</li>
-<li><strong>使用下划线 _id：</strong> 默认情况下，MongoDB 在每个文档中都会有一个名为 _id 的字段，它唯一标识了该文档。在投影中，如果不想返回 _id 字段，可以将其设置为 0。</li>
-</ol>
-<p>以下是一些投影的常见写法示例：</p>
-<ul>
-<li>返回指定字段，排除其他字段：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">projection = &#123;</span><br><span class="line">    <span class="string">&quot;field1&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;field2&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;_id&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>排除指定字段，返回其他字段：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">projection = &#123;</span><br><span class="line">    <span class="string">&quot;field1&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;field2&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;field3&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;_id&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>返回所有字段（默认情况，可以省略投影）：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">projection = &#123;&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>返回除指定字段外的所有字段：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">projection = &#123;</span><br><span class="line">    <span class="string">&quot;excluded_field&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2023/04/29/mongo%E6%8A%95%E5%BD%B1/">mongo投影</a>
+      </h1>
+    
+  
+</div>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vvky.github.io/2023/04/29/mongo%E6%8A%95%E5%BD%B1/" data-id="clv7qkvwd000nnm095y28c51b" data-title="mongo投影" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-04-29T15:32:34.000Z" itemprop="datePublished">2023-04-29</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            611 词 
+          </div>
+        </div>
+        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongo/" rel="tag">mongo</a></li></ul>
 
-    </footer>
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              投影（Projection）在 MongoDB 中，查询操作中的投影（Projection）可以控制返回结果中包含的字段。通过使用投影控制返回字段，从而减少数据传输和处理的开销。
+在编写查询语句时，投影的写法有以下几点讲究：
+
+指定包含的字段或排除的字段： 可以使用 1 表示要包含该字段，使用 0 表示要排除该字段。在投影中指定要返回的字段，可以减少返回结果的数据量，提高查询性能。
+使用下划线 _id： 默认情况下，MongoDB 在每个文档中都会有一个名为 _id 的字段，它唯一标识了该文档。在投影中，如果不想返回 _id 字段，可以将其设置为 0。
+
+以下是一些投影的常见写法示例：
+
+返回指定字段，排除其他字段：
+
+12345projection = &#123;    &quot;field1&quot;: 1,    &quot;field2&quot;: 1,    &quot;_id&quot;: 0&#125;
+
+排除指定字段，返回其他字段：
+
+123456projection = &#123;    &quot;field1&quot;: 1,    &quot;...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2023/04/29/mongo%E6%8A%95%E5%BD%B1/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
   </div>
   
 </article>
 
 
 
-  
+
+
+
 
 
   <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <!-- 在第二页时 page.prev_link 不知为何无法返回正确的链接 -->
+    <a id="prev-btn" class="page-nav-btn disabled" href=" /  ">
+      <i class="fa-solid fa-angle-left"></i>
+    </a>
+    <div id="num-bar">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a>  
+    </div>
+    <a id="next-btn" class="page-nav-btn " href="/page/2/">
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
   </nav>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/" rel="tag">mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" rel="tag">系统集成</a></li></ul>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mongo/" style="font-size: 15px;">mongo</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 10px;">科普</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" style="font-size: 10px;">系统集成</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/04/19/gps%E5%92%8Cgprs%E7%9A%84%E5%8C%BA%E5%88%AB/">gps和gprs的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/19/html%E5%B5%8C%E5%85%A5%E5%BE%AE%E5%8D%9A%E5%85%B3%E6%B3%A8%E6%8C%89%E9%92%AE/">html嵌入微博关注按钮</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/docker%E9%83%A8%E7%BD%B2redis%EF%BC%88centos7.9%EF%BC%89/">docker部署redis（centos7.9）</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/shell%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0cron%E4%BB%BB%E5%8A%A1/">shell批量添加cron任务</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
+    <div id="footer-wrapper">
       <footer id="footer">
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 wangkaiyu<br>
-      Powered by <a target="_blank" rel="noopener" href="https://github.com/vvky">wangkaiyu</a>
-    </div>
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 WKY<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
   </div>
-  
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-<!--                 本站总访问量10862次 -->
-        </span>
-<!--         <span class="post-meta-divider">|</span> -->
-<!--         <span id="busuanzi_container_site_uv" style='display:none'> -->
-<!--                 本站访客数<span id="busuanzi_value_site_uv"></span>人 -->
-<!--         </span> -->
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  
 </footer>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
 
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
 
   </div>
+  <script src="/js/light-dark-switch.js"></script>
 </body>
 </html>
