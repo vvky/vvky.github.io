@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>docker升级后运行容器报错（centos7.9）</title>
+    <url>/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Error response from daemon: Unknown runtime specified docker-runc</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>可能是因为从不兼容的版本升级了docker，更改&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers目录中的文件参数，把docker-runc替换为runc</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep -rl <span class="string">&#x27;docker-runc&#x27;</span> /var/lib/docker/containers/ | xargs sed -i <span class="string">&#x27;s/docker-runc/runc/g&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>grep -rl：递归搜索目录和子目录，只列出含有匹配的文本行的文件名，而不显示具体的匹配内容</p>
+<p>xargs：衔接执行之前得到的值</p>
+<p>总体意思是把&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers中含有docker-runc的文件搜索出来，更改为runc，然后重启docker、重启容器即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker restart [容器<span class="built_in">id</span>]</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker容器自启动</title>
+    <url>/2022/09/11/docker%E5%AE%B9%E5%99%A8%E8%87%AA%E5%90%AF%E5%8A%A8/</url>
+    <content><![CDATA[<p>先查看是否已经设置了自启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect 容器ID</span><br></pre></td></tr></table></figure>
+<p>在输出中，找到 “RestartPolicy” ，它会显示容器的重启策略。如果值是 “always”，那么说明该容器已设置为开机自启。</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;RestartPolicy&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;always&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;MaximumRetryCount&quot;</span><span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>设置为always</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker update --restart=always [容器名称或ID]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES聚合查询</title>
     <url>/2021/12/06/ES%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2/</url>
     <content><![CDATA[<p>聚合框架有助于根据搜索查询提供聚合数据。聚合查询是数据库中重要的功能特性，ES作为搜索引擎兼数据库，同样提供了强大的聚合分析能力。它基于查询条件来对数据进行分桶、计算的方法。有点类似于 SQL 中的 group by 再加一些函数方法的操作。聚合可以嵌套，由此可以组成复杂的操作。</p>
@@ -113,37 +144,6 @@
 ]]></content>
       <tags>
         <tag>ElasticSearch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>docker升级后运行容器报错（centos7.9）</title>
-    <url>/2023/10/18/docker%E5%8D%87%E7%BA%A7%E5%90%8E%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%EF%BC%88centos7.9%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Error response from daemon: Unknown runtime specified docker-runc</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>可能是因为从不兼容的版本升级了docker，更改&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers目录中的文件参数，把docker-runc替换为runc</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep -rl <span class="string">&#x27;docker-runc&#x27;</span> /var/lib/docker/containers/ | xargs sed -i <span class="string">&#x27;s/docker-runc/runc/g&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>grep -rl：递归搜索目录和子目录，只列出含有匹配的文本行的文件名，而不显示具体的匹配内容</p>
-<p>xargs：衔接执行之前得到的值</p>
-<p>总体意思是把&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers中含有docker-runc的文件搜索出来，更改为runc，然后重启docker、重启容器即可。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker restart [容器<span class="built_in">id</span>]</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>docker容器自启动</title>
-    <url>/2022/09/11/docker%E5%AE%B9%E5%99%A8%E8%87%AA%E5%90%AF%E5%8A%A8/</url>
-    <content><![CDATA[<p>先查看是否已经设置了自启</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect 容器ID</span><br></pre></td></tr></table></figure>
-<p>在输出中，找到 “RestartPolicy” ，它会显示容器的重启策略。如果值是 “always”，那么说明该容器已设置为开机自启。</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;RestartPolicy&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;always&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;MaximumRetryCount&quot;</span><span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>设置为always</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker update --restart=always [容器名称或ID]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -331,16 +331,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git中fork和clone的区别</title>
-    <url>/2020/01/02/git%E7%9A%84fork/</url>
-    <content><![CDATA[<h2 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h2><p>复制一个远程仓库到你自己的git账户下，等于拷贝了一个副本。可以随意的提交，不会影响到原仓库。</p>
-<h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><p>将一个远程仓库连接到本地计算机上，但如果没权限，只能pull不能push。</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>gps和gprs的区别</title>
     <url>/2024/04/19/gps%E5%92%8Cgprs%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h2 id="一-GPS（全球定位系统-global-position-system）"><a href="#一-GPS（全球定位系统-global-position-system）" class="headerlink" title="一. GPS（全球定位系统 global position system）"></a>一. GPS（全球定位系统 global position system）</h2><p>是一种定位技术，用来确认物体的经纬度位置</p>
@@ -350,6 +340,16 @@
 ]]></content>
       <tags>
         <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git中fork和clone的区别</title>
+    <url>/2020/01/02/git%E7%9A%84fork/</url>
+    <content><![CDATA[<h2 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h2><p>复制一个远程仓库到你自己的git账户下，等于拷贝了一个副本。可以随意的提交，不会影响到原仓库。</p>
+<h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><p>将一个远程仓库连接到本地计算机上，但如果没权限，只能pull不能push。</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -410,17 +410,6 @@
       </tags>
   </entry>
   <entry>
-    <title>pymysql的几种游标类</title>
-    <url>/2021/05/17/pymysql%E7%9A%84%E5%87%A0%E7%A7%8D%E6%B8%B8%E6%A0%87%E7%B1%BB/</url>
-    <content><![CDATA[<h3 id="默认游标-Cursor"><a href="#默认游标-Cursor" class="headerlink" title="默认游标 Cursor"></a>默认游标 Cursor</h3><p>返回的查询结果为元组格式，其中元素的顺序与查询结果的列顺序一致。</p>
-<h3 id="字典游标-DictCursor"><a href="#字典游标-DictCursor" class="headerlink" title="字典游标 DictCursor"></a>字典游标 DictCursor</h3><p>返回的查询结果为字典格式，其中键是列名，值是对应的字段值。</p>
-<p>在建立数据库连接时通过 <code>cursorclass</code> 参数指定，例如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql.cursors</span><br><span class="line"></span><br><span class="line">connection = pymysql.connect(</span><br><span class="line">    host=<span class="string">&#x27;your_host&#x27;</span>,</span><br><span class="line">    user=<span class="string">&#x27;your_user&#x27;</span>,</span><br><span class="line">    password=<span class="string">&#x27;your_password&#x27;</span>,</span><br><span class="line">    database=<span class="string">&#x27;your_database&#x27;</span>,</span><br><span class="line">    cursorclass=pymysql.cursors.DictCursor</span><br><span class="line">)</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python2/3中base64的使用差异</title>
     <url>/2021/07/10/python2:3%E4%B8%ADbase64%E7%9A%84%E4%BD%BF%E7%94%A8%E5%B7%AE%E5%BC%82/</url>
     <content><![CDATA[<h2 id="python2"><a href="#python2" class="headerlink" title="python2"></a>python2</h2><p>在python2中，base64可以直接操作string类型</p>
@@ -435,6 +424,17 @@
 ]]></content>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pymysql的几种游标类</title>
+    <url>/2021/05/17/pymysql%E7%9A%84%E5%87%A0%E7%A7%8D%E6%B8%B8%E6%A0%87%E7%B1%BB/</url>
+    <content><![CDATA[<h3 id="默认游标-Cursor"><a href="#默认游标-Cursor" class="headerlink" title="默认游标 Cursor"></a>默认游标 Cursor</h3><p>返回的查询结果为元组格式，其中元素的顺序与查询结果的列顺序一致。</p>
+<h3 id="字典游标-DictCursor"><a href="#字典游标-DictCursor" class="headerlink" title="字典游标 DictCursor"></a>字典游标 DictCursor</h3><p>返回的查询结果为字典格式，其中键是列名，值是对应的字段值。</p>
+<p>在建立数据库连接时通过 <code>cursorclass</code> 参数指定，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql.cursors</span><br><span class="line"></span><br><span class="line">connection = pymysql.connect(</span><br><span class="line">    host=<span class="string">&#x27;your_host&#x27;</span>,</span><br><span class="line">    user=<span class="string">&#x27;your_user&#x27;</span>,</span><br><span class="line">    password=<span class="string">&#x27;your_password&#x27;</span>,</span><br><span class="line">    database=<span class="string">&#x27;your_database&#x27;</span>,</span><br><span class="line">    cursorclass=pymysql.cursors.DictCursor</span><br><span class="line">)</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -662,6 +662,21 @@
       </tags>
   </entry>
   <entry>
+    <title>解决mac触控手势或快捷键失效</title>
+    <url>/2021/11/17/%E8%A7%A3%E5%86%B3mac%E8%A7%A6%E6%8E%A7%E6%89%8B%E5%8A%BF%E6%88%96%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%B1%E6%95%88/</url>
+    <content><![CDATA[<h3 id="触控板手势失效"><a href="#触控板手势失效" class="headerlink" title="触控板手势失效"></a>触控板手势失效</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="复制粘贴快捷键失效"><a href="#复制粘贴快捷键失效" class="headerlink" title="复制粘贴快捷键失效"></a>复制粘贴快捷键失效</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">killall pboard</span><br></pre></td></tr></table></figure>
+
+<h3 id="touchbar失效"><a href="#touchbar失效" class="headerlink" title="touchbar失效"></a>touchbar失效</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pkill TouchBarServer</span><br></pre></td></tr></table></figure>
+
+<h3 id="左键单击失效"><a href="#左键单击失效" class="headerlink" title="左键单击失效"></a>左键单击失效</h3><p>检查外置设备接入，重新插拔即可</p>
+]]></content>
+      <tags>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>累积权重抽样demo及方案分析</title>
     <url>/2022/06/18/%E7%B4%AF%E7%A7%AF%E6%9D%83%E9%87%8D%E6%8A%BD%E6%A0%B7demo%E5%8F%8A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time : 2021-12-18 19:00:00</span></span><br><span class="line"><span class="comment"># @Author : wangkaiyu</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">channel_choose</span>(<span class="params">channel_weights</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> channel_weights:</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 累积权重列表</span></span><br><span class="line">    cumulative_weights = []</span><br><span class="line">    total_weight = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> channel_weights:</span><br><span class="line">        weight = item.get(<span class="string">&quot;weight&quot;</span>, <span class="number">0</span>)</span><br><span class="line">        total_weight += weight</span><br><span class="line">        cumulative_weights.append(total_weight)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果所有渠道的权重和为0，返回第一个渠道数据</span></span><br><span class="line">    <span class="keyword">if</span> total_weight == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> channel_weights[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成一个0到总权重的随机数</span></span><br><span class="line">    rand_val = random.random() * total_weight</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查找随机数所在的权重范围</span></span><br><span class="line">    <span class="keyword">for</span> index, cum_weight <span class="keyword">in</span> <span class="built_in">enumerate</span>(cumulative_weights):</span><br><span class="line">        <span class="keyword">if</span> rand_val &lt; cum_weight:</span><br><span class="line">            <span class="keyword">return</span> channel_weights[index]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    data = [&#123;<span class="string">&quot;weight&quot;</span>: <span class="number">100</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;DDOS&quot;</span>&#125;, &#123;<span class="string">&quot;weight&quot;</span>: <span class="number">50000</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;WAF&quot;</span>&#125;]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;抽样结果：&quot;</span>, channel_choose(data))</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    total_time = end_time - start_time</span><br><span class="line">    total_time_s = <span class="built_in">format</span>(total_time, <span class="string">&#x27;.10f&#x27;</span>)</span><br><span class="line">    total_time_ms = <span class="built_in">format</span>(total_time * <span class="number">1000</span>, <span class="string">&#x27;.2f&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;运行时间：<span class="subst">&#123;total_time_s&#125;</span>s   --&gt;  <span class="subst">&#123;total_time_ms&#125;</span>ms&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -735,21 +750,6 @@
 ]]></content>
       <tags>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决mac触控手势或快捷键失效</title>
-    <url>/2021/11/17/%E8%A7%A3%E5%86%B3mac%E8%A7%A6%E6%8E%A7%E6%89%8B%E5%8A%BF%E6%88%96%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%B1%E6%95%88/</url>
-    <content><![CDATA[<h3 id="触控板手势失效"><a href="#触控板手势失效" class="headerlink" title="触控板手势失效"></a>触控板手势失效</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
-
-<h3 id="复制粘贴快捷键失效"><a href="#复制粘贴快捷键失效" class="headerlink" title="复制粘贴快捷键失效"></a>复制粘贴快捷键失效</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">killall pboard</span><br></pre></td></tr></table></figure>
-
-<h3 id="touchbar失效"><a href="#touchbar失效" class="headerlink" title="touchbar失效"></a>touchbar失效</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pkill TouchBarServer</span><br></pre></td></tr></table></figure>
-
-<h3 id="左键单击失效"><a href="#左键单击失效" class="headerlink" title="左键单击失效"></a>左键单击失效</h3><p>检查外置设备接入，重新插拔即可</p>
-]]></content>
-      <tags>
-        <tag>mac</tag>
       </tags>
   </entry>
 </search>
