@@ -14,23 +14,22 @@
   
 
   
-  <title>python的解构赋值 | WKY的记事本</title>
+  <title>Elasticsearch报错 | WKY的记事本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="解构是指将容器（比如列表、元组、集合、字典等）中的元素分别赋值给变量，可以用以下方式实现： 解构元组 123tpl &#x3D; (1, 2, 3)a, b, c &#x3D; tplprint(a, b, c) 1&gt;&gt;&gt; 1 2 3  解构列表 123lst &#x3D; [1, 2, 3]a, b, c &#x3D; lstprint(a, b, c) 1&gt;&gt;&gt; 1 2 3   解构集合 123s">
+  <meta name="description" content="12345from elasticsearch import Elasticsearchhost &#x3D; &#x27;192.168.1.165&#x27;port &#x3D; 19399es &#x3D; Elasticsearch([&#123;&#x27;host&#x27;: host, &#x27;port&#x27;: port, &#x27;scheme&#x27;: &#x27;http&#x27;&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python的解构赋值">
-<meta property="og:url" content="https://vvky.github.io/2021/08/02/python%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/index.html">
+<meta property="og:title" content="Elasticsearch报错">
+<meta property="og:url" content="https://vvky.github.io/2024/04/24/Python%E7%9A%84Elasticsearch%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5ES/index.html">
 <meta property="og:site_name" content="WKY的记事本">
-<meta property="og:description" content="解构是指将容器（比如列表、元组、集合、字典等）中的元素分别赋值给变量，可以用以下方式实现： 解构元组 123tpl &#x3D; (1, 2, 3)a, b, c &#x3D; tplprint(a, b, c) 1&gt;&gt;&gt; 1 2 3  解构列表 123lst &#x3D; [1, 2, 3]a, b, c &#x3D; lstprint(a, b, c) 1&gt;&gt;&gt; 1 2 3   解构集合 123s">
+<meta property="og:description" content="12345from elasticsearch import Elasticsearchhost &#x3D; &#x27;192.168.1.165&#x27;port &#x3D; 19399es &#x3D; Elasticsearch([&#123;&#x27;host&#x27;: host, &#x27;port&#x27;: port, &#x27;scheme&#x27;: &#x27;http&#x27;&amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-02T11:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-21T16:20:28.166Z">
+<meta property="article:published_time" content="2024-04-24T04:02:09.000Z">
+<meta property="article:modified_time" content="2024-04-24T04:12:08.050Z">
 <meta property="article:author" content="wangkaiyu">
-<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="WKY的记事本" type="application/atom+xml">
@@ -206,7 +205,7 @@
          
 
 
-<article id="post-python的解构赋值" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Python的Elasticsearch无法连接ES" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -219,7 +218,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        python的解构赋值
+        Elasticsearch报错
       </h1>
     
   
@@ -227,7 +226,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2021-08-02T11:00:00.000Z" itemprop="datePublished">2021-08-02</time>
+  <time class="dt-published" datetime="2024-04-24T04:02:09.000Z" itemprop="datePublished">2024-04-24</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -238,36 +237,26 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            611 词 
+            1.6k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>解构是指将容器（比如列表、元组、集合、字典等）中的元素分别赋值给变量，可以用以下方式实现：</p>
-<p>解构元组</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tpl = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">a, b, c = tpl</span><br><span class="line"><span class="built_in">print</span>(a, b, c)</span><br></pre></td></tr></table></figure>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 1 2 3 </span><br></pre></td></tr></table></figure>
-<p>解构列表</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lst = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">a, b, c = lst</span><br><span class="line"><span class="built_in">print</span>(a, b, c)</span><br></pre></td></tr></table></figure>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 1 2 3 </span><br></pre></td></tr></table></figure>
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> elasticsearch <span class="keyword">import</span> Elasticsearch</span><br><span class="line">host = <span class="string">&#x27;192.168.1.165&#x27;</span></span><br><span class="line">port = <span class="number">19399</span></span><br><span class="line">es = Elasticsearch([&#123;<span class="string">&#x27;host&#x27;</span>: host, <span class="string">&#x27;port&#x27;</span>: port, <span class="string">&#x27;scheme&#x27;</span>: <span class="string">&#x27;http&#x27;</span>&#125;])</span><br><span class="line"><span class="built_in">print</span>(es.ping())</span><br></pre></td></tr></table></figure>
 
-<p>解构集合</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">st = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">a, b, c = st</span><br><span class="line"><span class="built_in">print</span>(a, b, c)</span><br></pre></td></tr></table></figure>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 1 2 3</span><br></pre></td></tr></table></figure>
-<p>解构字典</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line">a, b, c = d.values()</span><br><span class="line"><span class="built_in">print</span>(a, b, c)</span><br></pre></td></tr></table></figure>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 1 2 3</span><br></pre></td></tr></table></figure>
+<p>夸夸报错：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">elasticsearch.UnsupportedProductError: </span><br><span class="line">The client noticed that the server is not Elasticsearch and we do not support </span><br></pre></td></tr></table></figure>
+<p>但是requests却可以访问<code>http://192.168.1.165:19399/</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;843c605b7aaa&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cluster_name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;docker-cluster&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cluster_uuid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Tzo9vQLTQ-eHosFP0LrqyQ&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;number&quot;</span><span class="punctuation">:</span> <span class="string">&quot;7.13.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;build_flavor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;default&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;build_type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;docker&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;build_hash&quot;</span><span class="punctuation">:</span> <span class="string">&quot;4d960a0733be83dd2543ca018aa4ddc42e956800&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;build_date&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2021-06-10T21:01:55.251515791Z&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;build_snapshot&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;lucene_version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;8.8.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;minimum_wire_compatibility_version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;6.8.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;minimum_index_compatibility_version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;6.0.0-beta1&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tagline&quot;</span><span class="punctuation">:</span> <span class="string">&quot;You Know, for Search&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p>也可以使用 * 号以解构出剩余的值，如下所示：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lst = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">a, b, *c = lst</span><br><span class="line"><span class="built_in">print</span>(a, b, c)</span><br></pre></td></tr></table></figure>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (1, 2, [3, 4, 5])</span><br></pre></td></tr></table></figure>
-<p>解构也可以在函数调用时用于传递元组或字典的参数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">a, b, c</span>):</span><br><span class="line">    <span class="built_in">print</span>(a, b, c)</span><br><span class="line"></span><br><span class="line">tpl = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">*tpl</span>)</span><br><span class="line">    </span><br><span class="line">d = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">**d</span>)  <span class="comment"># 等同于 print(a=1, b=2, c=3)</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 1 2 3</span><br></pre></td></tr></table></figure>
+<p>发现<code>ES</code>版本是<code>7.13.2</code>，查看<code>Python Elasticsearch</code>的版本，是他妈<code>8.13.0</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip show elasticsearch</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Name: elasticsearch</span><br><span class="line">Version: 8.13.0</span><br><span class="line">Summary: Python client for Elasticsearch</span><br><span class="line">Home-page: https://github.com/elastic/elasticsearch-py</span><br><span class="line">Author: Elastic Client Library Maintainers</span><br><span class="line">Author-email: client-libs@elastic.co</span><br><span class="line">License: Apache-2.0</span><br><span class="line">Location: /Users/wangkaiyu/Documents/个人练习/practice/miniconda3/lib/python3.11/site-packages</span><br><span class="line">Requires: elastic-transport</span><br><span class="line">Required-by: </span><br></pre></td></tr></table></figure>
+
+<p>原因：python的es包和<code>ES</code>的版本不匹配，要保持大版本一致。（7.13.1也可以）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install elasticsearch==7.13.2</span><br></pre></td></tr></table></figure>
         
       </div>
 
@@ -279,27 +268,22 @@
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2021/11/17/%E8%A7%A3%E5%86%B3mac%E8%A7%A6%E6%8E%A7%E6%89%8B%E5%8A%BF%E6%88%96%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%B1%E6%95%88/"
-      title="解决mac触控手势或快捷键失效"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        解决mac触控手势或快捷键失效
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2021/07/10/python2:3%E4%B8%ADbase64%E7%9A%84%E4%BD%BF%E7%94%A8%E5%B7%AE%E5%BC%82/"
-      title="python2/3中base64的使用差异"
+      href="/2024/04/23/pycharm%E5%8D%A1%E6%AD%BB/"
+      title="pycharm2022卡死"
      >
 
     <p class="title-text">
       
-        python2/3中base64的使用差异
+        pycharm2022卡死
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
