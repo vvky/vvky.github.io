@@ -166,9 +166,9 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
-          <a class="recent-link" href="/2024/04/24/Python%E7%9A%84Elasticsearch%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5ES/" title="Elasticsearch报错" >
+          <a class="recent-link" href="/2024/04/24/Python%E7%9A%84Elasticsearch%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5ES/" title="Python的Elasticsearch无法连接ES" >
             <div class="recent-link-text">
-              Elasticsearch报错
+              Python的Elasticsearch无法连接ES
             </div>
           </a>
         
@@ -220,7 +220,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/04/24/Python%E7%9A%84Elasticsearch%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5ES/">Elasticsearch报错</a>
+        <a class="p-name article-title" href="/2024/04/24/Python%E7%9A%84Elasticsearch%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5ES/">Python的Elasticsearch无法连接ES</a>
       </h1>
     
   
@@ -248,12 +248,14 @@
         
           <div class="truncate-text">
             
-              12345from elasticsearch import Elasticsearchhost = &#x27;192.168.1.165&#x27;port = 19399es = Elasticsearch([&#123;&#x27;host&#x27;: host, &#x27;port&#x27;: port, &#x27;scheme&#x27;: &#x27;http&#x27;&#125;])print(es.ping())
+              python3.9
+123456from elasticsearch import Elasticsearchhost = &#x27;192.168.1.165&#x27;port = 19399es = Elasticsearch([&#123;&#x27;host&#x27;: host, &#x27;port&#x27;: port, &#x27;scheme&#x27;: &#x27;http&#x27;&#125;])print(es.ping())
 
 夸夸报错：
 12elasticsearch.UnsupportedProductError: The client noticed that the server is not Elasticsearch and we do not support 
+
 但是requests却可以访问http://192.168.1.165:19399/
-1234567891011121314151617&#123;    &quot;name&quot;: &quot;843c605b7aaa&quot;,    &quot;cluster_name&quo...
+1234567891011121314151617&#123;  &quot;name&quot;: &quot;843c605b7aaa&quot;,  &quot;cluster_...
             
           </div>
         
