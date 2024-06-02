@@ -28,7 +28,7 @@
 <meta property="og:description" content="假设你是一名程序员，你想在linux上安装一个vim，打算手搓一个壮丽的hello world。在不同环境下，你得执行不同的命令。  在centos中：   yum install vim  在ubuntu中：   apt-get install vim   装个小软件尚且如此，要是将自己写的代码部署到不同操作系统的服务器上，那依赖的配置和软件就更多了，需要针对每个环境单独写一套部署脚本，此时就需">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-08T15:00:32.000Z">
-<meta property="article:modified_time" content="2024-06-02T13:23:48.472Z">
+<meta property="article:modified_time" content="2024-06-02T13:27:06.522Z">
 <meta property="article:author" content="wangkaiyu">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -238,7 +238,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            4.8k 词 
+            4.4k 词 
           </div>
         </div>
         
@@ -273,31 +273,10 @@
 <p>或是创建一些文件目录</p>
 <pre><code>mkdir -p /var/logs
 </code></pre>
-<p>又或是创建一些环境变量</p>
-<pre><code>ENV OSS_ACCESS_KEY_ID=&#39;123456789&#39;
-</code></pre>
 <p>最后才是运行程序代码</p>
 <pre><code>python appServer.py
 </code></pre>
-<p>我们知道在linux中所有的操作都可以在命令行完成，所以我们可以将要做的准备工作以命令行的方式逐行列出。</p>
-<pre><code># 指定基础镜像
-FROM registry.cn-beijing.aliyuncs.com/vastpool/docker-base:1.0
-
-# 复制所有文件到容器目录下
-WORKDIR /jt808-data-transfer-server-py
-COPY . .
-
-# 安装依赖软件
-RUN pip3 install -r requirements.txt -i https://mirror.baidu.com/pypi/simple
-
-# 设置环境变量
-ENV OSS_ACCESS_KEY_ID=&#39;123456789&#39;
-ENV OSS_ACCESS_KEY_SECRET=&#39;123456&#39;
-
-# 设置容器启动时的命令
-CMD [&quot;python&quot;, &quot;appServer.py&quot;]
-</code></pre>
-<p>这样一份罗列了从系统到程序启动的清单文件，就是Dockerfile</p>
+<p>我们知道在linux中所有的操作都可以在命令行完成，所以我们可以将要做的准备工作以命令行的方式逐行列出。 这样一份罗列了从系统到程序启动的清单文件，就是Dockerfile</p>
 <p>注意，Dockerfile虽然是一个纯文本文件，但通常没有文件扩展名。</p>
 <p>啥是镜像？</p>
 <p>注意上述Dockerfile只是描述了要做哪些事情，并没有真正开始做。当我们运行build命令时，docker就会按照Dockerfile的指导，一步步构建环境和程序。如：</p>
