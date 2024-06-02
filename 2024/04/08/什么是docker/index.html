@@ -28,7 +28,7 @@
 <meta property="og:description" content="假设你是一名程序员，你想在linux上安装一个vim，打算手搓一个壮丽的hello world。在不同环境下，你得执行不同的命令。  在centos中：   yum install vim  在ubuntu中：   apt-get install vim   装个小软件尚且如此，要是将自己写的代码部署到不同操作系统的服务器上，那依赖的配置和软件就更多了，需要针对每个环境单独写一套部署脚本，此时就需">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-08T15:00:32.000Z">
-<meta property="article:modified_time" content="2024-06-02T13:27:06.522Z">
+<meta property="article:modified_time" content="2024-06-02T14:46:28.230Z">
 <meta property="article:author" content="wangkaiyu">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -238,7 +238,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            4.4k 词 
+            4k 词 
           </div>
         </div>
         
@@ -379,17 +379,6 @@ volumes:
 <p>1、高可用性：如果一个节点故障，docker swarm 会自动在其他节点上重新调度任务。</p>
 <p>2、服务发现和负载均衡：docker swarm 会自动在所有节点间分配流量，确保负载均衡。</p>
 <p>3、滚动更新：可以逐步更新服务，保证在更新过程中始终有服务可用。</p>
-<hr>
-<p>stop！再往下写那就是下期的内容了。</p>
-<p>本期小结！</p>
-<p>docker 是一种开源的容器化平台。通过 docker，开发者可以将应用程序及其所有依赖项打包成一个称为”容器”的标准化单元，这些容器可以在任何支持 docker 的环境中运行，无论是本地机器还是云端。</p>
-<p>它不仅简化了应用的开发、测试和部署流程，还大大提高了系统的可移植性和可扩展性。无论是小型项目，还是需要在多个服务器间协调的复杂应用，docker 都能提供可靠的解决方案。</p>
-<p>显著的优势：</p>
-<p>一致的环境: 通过容器化，开发、测试和生产环境可以保持一致，避免了“在我机器上可以运行”的问题。</p>
-<p>轻量和高效: 容器共享操作系统内核，比虚拟机更加轻量，启动速度更快，资源占用更少。</p>
-<p>可移植性: 容器可以在任何支持并安装了docker 的平台上运行，从而实现了应用的跨平台移植。</p>
-<p>隔离性: 容器之间相互隔离，保证了应用的安全性和稳定性，以及宿主机系统的相对整洁。</p>
-<hr>
 
         
       </div>
