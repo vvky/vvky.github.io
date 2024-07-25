@@ -14,24 +14,25 @@
   
 
   
-  <title>python自定义初始化操作 | WKY的记事本</title>
+  <title>查看navicat连接密码 | WKY的记事本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="用python避免不了各种恶心的导包路径问题或字符编码问题，使用如下方式可在python解释器启动时自动执行一些初始化操作。  在site-packages目录下创建sitecustomize.py文件，添加自定义操作，如: 这里使用的是Miniconda，site-packages目录在&#x2F;root&#x2F;miniconda3&#x2F;lib&#x2F;python3.12&#x2F;site-packages 12import">
+  <meta name="description" content="先在navicat中导出数据，然后勾选导出密码   打开.ncx文件，找到password，使用如下python脚本转为明文： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python自定义初始化操作">
-<meta property="og:url" content="https://vvky.github.io/2024/05/14/python%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%9D%E5%A7%8B%E5%8C%96%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="查看navicat连接密码">
+<meta property="og:url" content="https://vvky.github.io/2024/07/25/%E6%9F%A5%E7%9C%8Bnavicat%E8%BF%9E%E6%8E%A5%E5%AF%86%E7%A0%81/index.html">
 <meta property="og:site_name" content="WKY的记事本">
-<meta property="og:description" content="用python避免不了各种恶心的导包路径问题或字符编码问题，使用如下方式可在python解释器启动时自动执行一些初始化操作。  在site-packages目录下创建sitecustomize.py文件，添加自定义操作，如: 这里使用的是Miniconda，site-packages目录在&#x2F;root&#x2F;miniconda3&#x2F;lib&#x2F;python3.12&#x2F;site-packages 12import">
+<meta property="og:description" content="先在navicat中导出数据，然后勾选导出密码   打开.ncx文件，找到password，使用如下python脚本转为明文： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-05-14T02:05:24.000Z">
-<meta property="article:modified_time" content="2024-05-14T02:11:19.549Z">
+<meta property="og:image" content="https://vvky.github.io/2024/07/25/%E6%9F%A5%E7%9C%8Bnavicat%E8%BF%9E%E6%8E%A5%E5%AF%86%E7%A0%81/img.png">
+<meta property="article:published_time" content="2024-07-25T05:58:55.000Z">
+<meta property="article:modified_time" content="2024-07-25T06:03:11.788Z">
 <meta property="article:author" content="wangkaiyu">
-<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vvky.github.io/2024/07/25/%E6%9F%A5%E7%9C%8Bnavicat%E8%BF%9E%E6%8E%A5%E5%AF%86%E7%A0%81/img.png">
   
     <link rel="alternate" href="/atom.xml" title="WKY的记事本" type="application/atom+xml">
   
@@ -206,7 +207,7 @@
          
 
 
-<article id="post-python自定义初始化操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-查看navicat连接密码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -219,7 +220,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        python自定义初始化操作
+        查看navicat连接密码
       </h1>
     
   
@@ -227,7 +228,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-05-14T02:05:24.000Z" itemprop="datePublished">2024-05-14</time>
+  <time class="dt-published" datetime="2024-07-25T05:58:55.000Z" itemprop="datePublished">2024-07-25</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -238,20 +239,18 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            247 词 
+            2.8k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>用python避免不了各种恶心的导包路径问题或字符编码问题，使用如下方式可在python解释器启动时自动执行一些初始化操作。 </p>
-<p>在<code>site-packages</code>目录下创建<code>sitecustomize.py</code>文件，添加自定义操作，如:</p>
-<p>这里使用的是<code>Miniconda</code>，<code>site-packages</code>目录在<code>/root/miniconda3/lib/python3.12/site-packages</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;/home/wangkaiyu/test&quot;</span>)</span><br></pre></td></tr></table></figure>
+          <p>先在navicat中导出数据，然后勾选导出密码</p>
+<img src="/2024/07/25/%E6%9F%A5%E7%9C%8Bnavicat%E8%BF%9E%E6%8E%A5%E5%AF%86%E7%A0%81/img.png" class="">
 
+<p>打开.ncx文件，找到password，使用如下python脚本转为明文：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES, Blowfish</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.Padding <span class="keyword">import</span> pad, unpad</span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">NavicatPassword</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, version=<span class="number">12</span></span>):</span><br><span class="line">        self.version = version</span><br><span class="line">        self.aes_key = <span class="string">b&#x27;libcckeylibcckey&#x27;</span></span><br><span class="line">        self.aes_iv = <span class="string">b&#x27;libcciv libcciv &#x27;</span></span><br><span class="line">        self.blow_string = <span class="string">&#x27;3DC5CA39&#x27;</span></span><br><span class="line">        self.blow_key = hashlib.sha1(<span class="string">b&#x27;3DC5CA39&#x27;</span>).digest()</span><br><span class="line">        self.blow_iv = binascii.unhexlify(<span class="string">&#x27;d9c7c3c8870d64bd&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">encrypt</span>(<span class="params">self, string</span>):</span><br><span class="line">        result = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> self.version == <span class="number">11</span>:</span><br><span class="line">            result = self.encrypt_eleven(string)</span><br><span class="line">        <span class="keyword">elif</span> self.version == <span class="number">12</span>:</span><br><span class="line">            result = self.encrypt_twelve(string)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">encrypt_eleven</span>(<span class="params">self, string</span>):</span><br><span class="line">        round_count = <span class="built_in">len</span>(string) // <span class="number">8</span></span><br><span class="line">        left_length = <span class="built_in">len</span>(string) % <span class="number">8</span></span><br><span class="line">        result = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">        current_vector = self.blow_iv</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(round_count):</span><br><span class="line">            temp = self.encrypt_block(self.xor_bytes(string[<span class="number">8</span> * i: <span class="number">8</span> * (i + <span class="number">1</span>)], current_vector))</span><br><span class="line">            current_vector = self.xor_bytes(current_vector, temp)</span><br><span class="line">            result += temp</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> left_length:</span><br><span class="line">            current_vector = self.encrypt_block(current_vector)</span><br><span class="line">            result += self.xor_bytes(string[<span class="number">8</span> * round_count:], current_vector)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> binascii.hexlify(result).upper().decode()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">encrypt_block</span>(<span class="params">self, block</span>):</span><br><span class="line">        cipher = Blowfish.new(self.blow_key, Blowfish.MODE_ECB)</span><br><span class="line">        <span class="keyword">return</span> cipher.encrypt(pad(block, Blowfish.block_size))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decrypt_block</span>(<span class="params">self, block</span>):</span><br><span class="line">        cipher = Blowfish.new(self.blow_key, Blowfish.MODE_ECB)</span><br><span class="line">        <span class="keyword">return</span> unpad(cipher.decrypt(block), Blowfish.block_size)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">xor_bytes</span>(<span class="params">self, str1, str2</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">bytes</span>([b1 ^ b2 <span class="keyword">for</span> b1, b2 <span class="keyword">in</span> <span class="built_in">zip</span>(str1, str2)])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">encrypt_twelve</span>(<span class="params">self, string</span>):</span><br><span class="line">        cipher = AES.new(self.aes_key, AES.MODE_CBC, self.aes_iv)</span><br><span class="line">        result = cipher.encrypt(pad(string.encode(), AES.block_size))</span><br><span class="line">        <span class="keyword">return</span> binascii.hexlify(result).upper().decode()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decrypt</span>(<span class="params">self, string</span>):</span><br><span class="line">        result = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> self.version == <span class="number">11</span>:</span><br><span class="line">            result = self.decrypt_eleven(string)</span><br><span class="line">        <span class="keyword">elif</span> self.version == <span class="number">12</span>:</span><br><span class="line">            result = self.decrypt_twelve(string)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decrypt_eleven</span>(<span class="params">self, upper_string</span>):</span><br><span class="line">        string = binascii.unhexlify(upper_string.lower())</span><br><span class="line">        round_count = <span class="built_in">len</span>(string) // <span class="number">8</span></span><br><span class="line">        left_length = <span class="built_in">len</span>(string) % <span class="number">8</span></span><br><span class="line">        result = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">        current_vector = self.blow_iv</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(round_count):</span><br><span class="line">            encrypted_block = string[<span class="number">8</span> * i: <span class="number">8</span> * (i + <span class="number">1</span>)]</span><br><span class="line">            temp = self.xor_bytes(self.decrypt_block(encrypted_block), current_vector)</span><br><span class="line">            current_vector = self.xor_bytes(current_vector, encrypted_block)</span><br><span class="line">            result += temp</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> left_length:</span><br><span class="line">            current_vector = self.encrypt_block(current_vector)</span><br><span class="line">            result += self.xor_bytes(string[<span class="number">8</span> * round_count:], current_vector)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result.decode()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decrypt_twelve</span>(<span class="params">self, upper_string</span>):</span><br><span class="line">        string = binascii.unhexlify(upper_string.lower())</span><br><span class="line">        cipher = AES.new(self.aes_key, AES.MODE_CBC, self.aes_iv)</span><br><span class="line">        <span class="keyword">return</span> unpad(cipher.decrypt(string), AES.block_size).decode()</span><br><span class="line"></span><br><span class="line">navicat_password = NavicatPassword(<span class="number">12</span>)</span><br><span class="line">decode = navicat_password.decrypt(<span class="string">&#x27;密文粘贴到这里即可&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(decode)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
         
       </div>
 
@@ -263,27 +262,22 @@
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2024/05/17/%E5%9F%BA%E4%BA%8Eflask%E5%92%8Ces%E7%9A%84%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"
-      title="基于flask和es的日志系统"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        基于flask和es的日志系统
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2024/04/26/%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%B8%8A%E4%BC%A0%E5%9B%9E%E8%B0%83/"
-      title="阿里云OSS上传回调"
+      href="/2024/05/17/%E5%9F%BA%E4%BA%8Eflask%E5%92%8Ces%E7%9A%84%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"
+      title="基于flask和es的日志系统"
      >
 
     <p class="title-text">
       
-        阿里云OSS上传回调
+        基于flask和es的日志系统
         
     </p>
     <i class="fa-solid fa-angle-right"></i>

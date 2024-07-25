@@ -166,6 +166,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/07/25/%E6%9F%A5%E7%9C%8Bnavicat%E8%BF%9E%E6%8E%A5%E5%AF%86%E7%A0%81/" title="查看navicat连接密码" >
+            <div class="recent-link-text">
+              查看navicat连接密码
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/05/17/%E5%9F%BA%E4%BA%8Eflask%E5%92%8Ces%E7%9A%84%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/" title="基于flask和es的日志系统" >
             <div class="recent-link-text">
               基于flask和es的日志系统
@@ -190,12 +196,6 @@
             </div>
           </a>
         
-          <a class="recent-link" href="/2024/04/24/Python%E7%9A%84Elasticsearch%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5ES/" title="Python的Elasticsearch无法连接ES" >
-            <div class="recent-link-text">
-              Python的Elasticsearch无法连接ES
-            </div>
-          </a>
-        
       </ul>
     </div>
   </div>
@@ -206,6 +206,122 @@
     </div>
     <div id="content-body">
         
+   
+
+
+<article id="post-git常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-04-18T17:00:00.000Z" itemprop="datePublished">2024-04-19</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            661 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              查看远程仓库信息1git remote -v
+
+查看代码所在分支1git branch -v
+
+查看远程分支列表1git branch -r
+
+查看本地分支列表1git branch
+
+查看所有分支列表1git branch -a
+
+创建分支
+创建新branch
+
+1git checkout -b dev
+
+
+切换回主分支
+
+1git checkout master
+
+
+合并新分支到主分支
+
+1git merge dev
+
+
+push
+
+1git push origin dev
+
+切换分支或指定版本1git checkout [branch name]
+
+1git checkout [version hash]
+
+修改上一次提交详情1git commit --amend
+
+会进入一个vim编辑页面，然后重新提交
+1git push --force
+
+将日志写入文件默认写入
+1git log &gt; ./git.log
+
+格式化写入：
+1git log --format=&quot;hash：%H%n提交人：%an &lt;%ae&gt;%n日期：%ad%n更新内容：%s%n&q...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+
    
 
 
@@ -929,79 +1045,6 @@ containerd.io: 这是一个容器运行时，Docker 用它来管理容器的生�
     <a class="right-panel  non-pic  "
       
       href="/2022/09/11/docker%E5%AE%B9%E5%99%A8%E8%87%AA%E5%90%AF%E5%8A%A8/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-累积权重抽样demo及方案分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2022/06/18/%E7%B4%AF%E7%A7%AF%E6%9D%83%E9%87%8D%E6%8A%BD%E6%A0%B7demo%E5%8F%8A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">累积权重抽样demo及方案分析</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2022-06-18T11:00:00.000Z" itemprop="datePublished">2022-06-18</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-    未分类 
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            3.8k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              1234567891011121314151617181920212223242526272829303132333435363738394041# -*- coding: utf-8 -*-# @Time : 2021-12-18 19:00:00# @Author : wangkaiyuimport randomimport timedef channel_choose(channel_weights):    if not channel_weights:        return &#123;&#125;    # 累积权重列表    cumulative_weights = []    total_weight = 0    for item in channel_weights:        weight = item.get(&quot;weight&quot;, 0)        total_weight += weight        cumulative_weights.append(total_weight)    # 如果所有渠道的权重和为0，返回...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2022/06/18/%E7%B4%AF%E7%A7%AF%E6%9D%83%E9%87%8D%E6%8A%BD%E6%A0%B7demo%E5%8F%8A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
