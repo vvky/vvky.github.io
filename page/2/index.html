@@ -549,7 +549,7 @@ docker是什么？我们经常能听到程序员说，这个代码在开发环�
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/03/01/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0/">什么是大模型的参数？</a>
+        <a class="p-name article-title" href="/2024/03/18/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0/">什么是大模型的参数？</a>
       </h1>
     
   
@@ -557,64 +557,49 @@ docker是什么？我们经常能听到程序员说，这个代码在开发环�
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-03-01T06:30:00.000Z" itemprop="datePublished">2024-03-01</time>
+  <time class="dt-published" datetime="2024-03-18T06:30:00.000Z" itemprop="datePublished">2024-03-18</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/AI/">AI</a>
+    未分类 
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            649 词 
+            655 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
             
-              什么是大模型参数？在人工智能领域，大模型的参数是指构成模型的基本计算单元。这些参数决定了模型如何处理和转换输入数据，从而产生相应的输出。让我们通过几个方面来深入理解大模型参数：
-1. 参数的本质参数本质上是一系列数字，它们：
+              大模型的参数是什么？1. 参数的定义大模型的参数指的是 模型内部的可学习变量，这些变量通过训练数据不断调整，以优化模型的输出。它们是模型能够“记住”知识和“推理”答案的关键。
+2. 主要类型大模型的参数可以分为两大类：
+2.1 权重（Weights）
+连接神经元的数值，决定输入数据如何影响输出。
+通过 梯度下降 等优化算法进行调整。
+例如：GPT-4 中的 Transformer 层包含大量的权重矩阵。
 
-存储在模型的各个层中
-通过训练过程不断调整优化
-决定了模型的能力和表现
+2.2 偏置（Biases）
+用来调整神经元的激活值，确保模型更灵活。
+可以理解为在神经网络计算时加上的“额外补偿值”。
 
-2. 参数的规模现代大模型的参数规模十分庞大：
+3. 参数的作用模型的参数决定了它对输入数据的理解能力：
 
-GPT-3：1750亿参数
-GPT-4：据估计超过1万亿参数
-Claude：具体参数量未公开，但规模同样庞大
+参数多：意味着模型可以学习更复杂的模式。
+参数少：可能导致模型能力不足，难以学习复杂任务。
 
-参数数量的增长往往意味着：
+例如，GPT-3 有 1750亿 个参数，而 GPT-4 的参数量更大，这使得它能更好地理解和生成文本。
+4. 参数与推理（Inference）在推理过程中，模型不会更新参数，而是利用已经训练好的参数来处理新输入。例如：
 
-更强的理解能力
-更好的泛化性能
-更复杂的任务处理能力
-
-3. 参数的作用在大模型中，参数主要用于：
-
-特征提取：识别输入数据中的重要特征
-模式识别：发现数据中的规律和关联
-知识存储：记忆训练数据中的知识
-推理决策：基于输入生成合适的输出
-
-4. 参数训练参数需要通过大规模数据训练才能发挥作用：
-
-预训练：在海量通用数据上进行基础训练
-微调：在特定任务数据上进行针对性优化
-持续学习：通过新数据不断更新参数
-
-5. 参数效率虽然参数量大通常意味着更强的能力，但也带来挑战：
-
-计算资源消耗大
-推理速度...
+你向 ChatGPT 提问时，它使用已有的参数来生成回答。
+这些参数不会因为你的问...
             
           </div>
         
@@ -626,7 +611,7 @@ Claude：具体参数量未公开，但规模同样庞大
      
     <a class="right-panel  non-pic  "
       
-      href="/2024/03/01/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0/" 
+      href="/2024/03/18/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>

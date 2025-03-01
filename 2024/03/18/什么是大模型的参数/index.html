@@ -20,19 +20,17 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="什么是大模型参数？在人工智能领域，大模型的参数是指构成模型的基本计算单元。这些参数决定了模型如何处理和转换输入数据，从而产生相应的输出。让我们通过几个方面来深入理解大模型参数： 1. 参数的本质参数本质上是一系列数字，它们：  存储在模型的各个层中 通过训练过程不断调整优化 决定了模型的能力和表现  2. 参数的规模现代大模型的参数规模十分庞大：  GPT-3：1750亿参数 GPT-4：据估计超">
+  <meta name="description" content="大模型的参数是什么？1. 参数的定义大模型的参数指的是 模型内部的可学习变量，这些变量通过训练数据不断调整，以优化模型的输出。它们是模型能够“记住”知识和“推理”答案的关键。 2. 主要类型大模型的参数可以分为两大类： 2.1 权重（Weights） 连接神经元的数值，决定输入数据如何影响输出。 通过 梯度下降 等优化算法进行调整。 例如：GPT-4 中的 Transformer 层包含大量的权重">
 <meta property="og:type" content="article">
 <meta property="og:title" content="什么是大模型的参数？">
-<meta property="og:url" content="https://vvky.github.io/2024/03/01/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0/index.html">
+<meta property="og:url" content="https://vvky.github.io/2024/03/18/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0/index.html">
 <meta property="og:site_name" content="WKY的记事本">
-<meta property="og:description" content="什么是大模型参数？在人工智能领域，大模型的参数是指构成模型的基本计算单元。这些参数决定了模型如何处理和转换输入数据，从而产生相应的输出。让我们通过几个方面来深入理解大模型参数： 1. 参数的本质参数本质上是一系列数字，它们：  存储在模型的各个层中 通过训练过程不断调整优化 决定了模型的能力和表现  2. 参数的规模现代大模型的参数规模十分庞大：  GPT-3：1750亿参数 GPT-4：据估计超">
+<meta property="og:description" content="大模型的参数是什么？1. 参数的定义大模型的参数指的是 模型内部的可学习变量，这些变量通过训练数据不断调整，以优化模型的输出。它们是模型能够“记住”知识和“推理”答案的关键。 2. 主要类型大模型的参数可以分为两大类： 2.1 权重（Weights） 连接神经元的数值，决定输入数据如何影响输出。 通过 梯度下降 等优化算法进行调整。 例如：GPT-4 中的 Transformer 层包含大量的权重">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-01T06:30:00.000Z">
-<meta property="article:modified_time" content="2025-03-01T14:16:06.368Z">
+<meta property="article:published_time" content="2024-03-18T06:30:00.000Z">
+<meta property="article:modified_time" content="2025-03-01T14:26:51.097Z">
 <meta property="article:author" content="wangkaiyu">
-<meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="大模型">
-<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="WKY的记事本" type="application/atom+xml">
@@ -229,78 +227,82 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-03-01T06:30:00.000Z" itemprop="datePublished">2024-03-01</time>
+  <time class="dt-published" datetime="2024-03-18T06:30:00.000Z" itemprop="datePublished">2024-03-18</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/AI/">AI</a>
+    未分类 
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            649 词 
+            655 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h2 id="什么是大模型参数？"><a href="#什么是大模型参数？" class="headerlink" title="什么是大模型参数？"></a>什么是大模型参数？</h2><p>在人工智能领域，大模型的参数是指构成模型的基本计算单元。这些参数决定了模型如何处理和转换输入数据，从而产生相应的输出。让我们通过几个方面来深入理解大模型参数：</p>
-<h3 id="1-参数的本质"><a href="#1-参数的本质" class="headerlink" title="1. 参数的本质"></a>1. 参数的本质</h3><p>参数本质上是一系列数字，它们：</p>
-<ul>
-<li>存储在模型的各个层中</li>
-<li>通过训练过程不断调整优化</li>
-<li>决定了模型的能力和表现</li>
+          <h1 id="大模型的参数是什么？"><a href="#大模型的参数是什么？" class="headerlink" title="大模型的参数是什么？"></a>大模型的参数是什么？</h1><h2 id="1-参数的定义"><a href="#1-参数的定义" class="headerlink" title="1. 参数的定义"></a>1. 参数的定义</h2><p>大模型的参数指的是 <strong>模型内部的可学习变量</strong>，这些变量通过训练数据不断调整，以优化模型的输出。它们是模型能够“记住”知识和“推理”答案的关键。</p>
+<h2 id="2-主要类型"><a href="#2-主要类型" class="headerlink" title="2. 主要类型"></a>2. 主要类型</h2><p>大模型的参数可以分为两大类：</p>
+<h3 id="2-1-权重（Weights）"><a href="#2-1-权重（Weights）" class="headerlink" title="2.1 权重（Weights）"></a>2.1 <strong>权重（Weights）</strong></h3><ul>
+<li>连接神经元的数值，决定输入数据如何影响输出。</li>
+<li>通过 <strong>梯度下降</strong> 等优化算法进行调整。</li>
+<li>例如：GPT-4 中的 Transformer 层包含大量的权重矩阵。</li>
 </ul>
-<h3 id="2-参数的规模"><a href="#2-参数的规模" class="headerlink" title="2. 参数的规模"></a>2. 参数的规模</h3><p>现代大模型的参数规模十分庞大：</p>
-<ul>
-<li>GPT-3：1750亿参数</li>
-<li>GPT-4：据估计超过1万亿参数</li>
-<li>Claude：具体参数量未公开，但规模同样庞大</li>
+<h3 id="2-2-偏置（Biases）"><a href="#2-2-偏置（Biases）" class="headerlink" title="2.2 偏置（Biases）"></a>2.2 <strong>偏置（Biases）</strong></h3><ul>
+<li>用来调整神经元的激活值，确保模型更灵活。</li>
+<li>可以理解为在神经网络计算时加上的“额外补偿值”。</li>
 </ul>
-<p>参数数量的增长往往意味着：</p>
+<h2 id="3-参数的作用"><a href="#3-参数的作用" class="headerlink" title="3. 参数的作用"></a>3. 参数的作用</h2><p>模型的参数决定了它对输入数据的理解能力：</p>
 <ul>
-<li>更强的理解能力</li>
-<li>更好的泛化性能</li>
-<li>更复杂的任务处理能力</li>
+<li><strong>参数多</strong>：意味着模型可以学习更复杂的模式。</li>
+<li><strong>参数少</strong>：可能导致模型能力不足，难以学习复杂任务。</li>
 </ul>
-<h3 id="3-参数的作用"><a href="#3-参数的作用" class="headerlink" title="3. 参数的作用"></a>3. 参数的作用</h3><p>在大模型中，参数主要用于：</p>
+<p>例如，GPT-3 有 <strong>1750亿</strong> 个参数，而 GPT-4 的参数量更大，这使得它能更好地理解和生成文本。</p>
+<h2 id="4-参数与推理（Inference）"><a href="#4-参数与推理（Inference）" class="headerlink" title="4. 参数与推理（Inference）"></a>4. 参数与推理（Inference）</h2><p>在推理过程中，<strong>模型不会更新参数</strong>，而是利用已经训练好的参数来处理新输入。例如：</p>
 <ul>
-<li>特征提取：识别输入数据中的重要特征</li>
-<li>模式识别：发现数据中的规律和关联</li>
-<li>知识存储：记忆训练数据中的知识</li>
-<li>推理决策：基于输入生成合适的输出</li>
+<li>你向 ChatGPT 提问时，它使用已有的参数来生成回答。</li>
+<li>这些参数不会因为你的问题而变化。</li>
 </ul>
-<h3 id="4-参数训练"><a href="#4-参数训练" class="headerlink" title="4. 参数训练"></a>4. 参数训练</h3><p>参数需要通过大规模数据训练才能发挥作用：</p>
-<ul>
-<li>预训练：在海量通用数据上进行基础训练</li>
-<li>微调：在特定任务数据上进行针对性优化</li>
-<li>持续学习：通过新数据不断更新参数</li>
+<h2 id="5-参数规模对模型的影响"><a href="#5-参数规模对模型的影响" class="headerlink" title="5. 参数规模对模型的影响"></a>5. 参数规模对模型的影响</h2><table>
+<thead>
+<tr>
+<th>参数量</th>
+<th>代表模型</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>百万级</td>
+<td>传统机器学习模型，如线性回归</td>
+<td>简单预测任务</td>
+</tr>
+<tr>
+<td>千万级</td>
+<td>早期深度学习模型，如小型 CNN</td>
+<td>图片分类</td>
+</tr>
+<tr>
+<td>亿级</td>
+<td>Bert、GPT-2</td>
+<td>语义理解、文本生成</td>
+</tr>
+<tr>
+<td>千亿级</td>
+<td>GPT-3、GPT-4、LLaMA</td>
+<td>高级推理、复杂任务</td>
+</tr>
+</tbody></table>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h2><ul>
+<li><strong>参数是大模型的核心</strong>，它们存储了模型的知识。</li>
+<li><strong>参数越多，模型通常越强大</strong>，但计算资源需求也更高。</li>
+<li><strong>训练阶段调整参数，推理阶段使用参数</strong>，二者作用不同。</li>
 </ul>
-<h3 id="5-参数效率"><a href="#5-参数效率" class="headerlink" title="5. 参数效率"></a>5. 参数效率</h3><p>虽然参数量大通常意味着更强的能力，但也带来挑战：</p>
-<ul>
-<li>计算资源消耗大</li>
-<li>推理速度可能变慢</li>
-<li>存储空间要求高</li>
-</ul>
-<p>因此，研究人员也在探索：</p>
-<ul>
-<li>参数压缩技术</li>
-<li>知识蒸馏方法</li>
-<li>稀疏化训练等优化方案</li>
-</ul>
-<h3 id="6-未来发展"><a href="#6-未来发展" class="headerlink" title="6. 未来发展"></a>6. 未来发展</h3><p>参数相关的研究方向包括：</p>
-<ul>
-<li>如何提高参数利用效率</li>
-<li>减少参数量但保持性能</li>
-<li>更好的参数初始化方法</li>
-<li>更高效的训练算法</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>大模型的参数是实现人工智能能力的核心要素。理解参数的本质、规模和作用，对于我们把握AI技术发展趋势具有重要意义。随着技术的进步，我们期待在参数效率和模型性能之间找到更好的平衡点。</p>
 
         
       </div>
