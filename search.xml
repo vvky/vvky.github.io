@@ -1253,7 +1253,8 @@ if __name__ == &#39;__main__&#39;:
 <h2 id="3-知识蒸馏的基本方法"><a href="#3-知识蒸馏的基本方法" class="headerlink" title="3. 知识蒸馏的基本方法"></a>3. 知识蒸馏的基本方法</h2><p>知识蒸馏的核心思想是让学生模型学习教师模型的输出分布，而不仅仅是数据集的真实标签。通常的方法包括：</p>
 <h3 id="3-1-软标签蒸馏（Soft-Target-Distillation）"><a href="#3-1-软标签蒸馏（Soft-Target-Distillation）" class="headerlink" title="3.1 软标签蒸馏（Soft Target Distillation）"></a>3.1 软标签蒸馏（Soft Target Distillation）</h3><p>教师模型的输出通常是一个具有温度参数的<strong>Softmax</strong>概率分布，而不是一个单一的硬标签。例如，在分类任务中，与其让学生模型仅学习“猫”或“狗”这种离散类别，它可以学习教师模型对多个类别的<strong>置信度</strong>分布，从而获取更多的信息。</p>
 <p>公式如下：</p>
-<p>[<br>p_i &#x3D; \frac{exp(z_i &#x2F; T)}{\sum_j exp(z_j &#x2F; T)}<br>]</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">p_i = \frac&#123;exp(z_i / T)&#125;&#123;\sum_j exp(z_j / T)&#125;</span><br></pre></td></tr></table></figure>
+
 <p>其中：</p>
 <ul>
 <li>( p_i ) 是类 ( i ) 的概率；</li>
@@ -1284,55 +1285,7 @@ if __name__ == &#39;__main__&#39;:
 </li>
 </ul>
 <h2 id="5-代码示例（PyTorch）"><a href="#5-代码示例（PyTorch）" class="headerlink" title="5. 代码示例（PyTorch）"></a>5. 代码示例（PyTorch）</h2><p>下面是一个简单的PyTorch蒸馏代码示例，使用交叉熵损失（Cross-Entropy）和KL散度（Kullback-Leibler Divergence）进行蒸馏训练：</p>
-<pre><code class="python">import torch
-import torch.nn as nn
-import torch.optim as optim
-
-# 假设 teacher 和 student 是已经定义好的模型
-teacher = TeacherModel()
-student = StudentModel()
-
-# 冻结教师模型参数
-for param in teacher.parameters():
-    param.requires_grad = False
-
-# 交叉熵损失和KL散度损失
-criterion_ce = nn.CrossEntropyLoss()
-criterion_kl = nn.KLDivLoss(reduction=&quot;batchmean&quot;)
-
-# 蒸馏温度
-T = 5.0
-
-optimizer = optim.Adam(student.parameters(), lr=1e-4)
-
-for epoch in range(num_epochs):
-    for images, labels in train_loader:
-        images, labels = images.to(device), labels.to(device)
-
-        with torch.no_grad():
-            teacher_outputs = teacher(images)
-
-        student_outputs = student(images)
-
-        # 计算KL散度损失
-        loss_kl = criterion_kl(
-            nn.functional.log_softmax(student_outputs / T, dim=1),
-            nn.functional.softmax(teacher_outputs / T, dim=1)
-        ) * (T * T)
-
-        # 计算交叉熵损失
-        loss_ce = criterion_ce(student_outputs, labels)
-
-        # 总损失（加权求和）
-        loss = 0.7 * loss_ce + 0.3 * loss_kl
-
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-    print(f&quot;Epoch [&#123;epoch+1&#125;/&#123;num_epochs&#125;], Loss: &#123;loss.item():.4f&#125;&quot;)
-</code></pre>
-]]></content>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设 teacher 和 student 是已经定义好的模型</span></span><br><span class="line">teacher = TeacherModel()</span><br><span class="line">student = StudentModel()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 冻结教师模型参数</span></span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> teacher.parameters():</span><br><span class="line">    param.requires_grad = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 交叉熵损失和KL散度损失</span></span><br><span class="line">criterion_ce = nn.CrossEntropyLoss()</span><br><span class="line">criterion_kl = nn.KLDivLoss(reduction=<span class="string">&quot;batchmean&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 蒸馏温度</span></span><br><span class="line">T = <span class="number">5.0</span></span><br><span class="line"></span><br><span class="line">optimizer = optim.Adam(student.parameters(), lr=<span class="number">1e-4</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> train_loader:</span><br><span class="line">        images, labels = images.to(device), labels.to(device)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">            teacher_outputs = teacher(images)</span><br><span class="line"></span><br><span class="line">        student_outputs = student(images)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 计算KL散度损失</span></span><br><span class="line">        loss_kl = criterion_kl(</span><br><span class="line">            nn.functional.log_softmax(student_outputs / T, dim=<span class="number">1</span>),</span><br><span class="line">            nn.functional.softmax(teacher_outputs / T, dim=<span class="number">1</span>)</span><br><span class="line">        ) * (T * T)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 计算交叉熵损失</span></span><br><span class="line">        loss_ce = criterion_ce(student_outputs, labels)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 总损失（加权求和）</span></span><br><span class="line">        loss = <span class="number">0.7</span> * loss_ce + <span class="number">0.3</span> * loss_kl</span><br><span class="line"></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Epoch [<span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span>/<span class="subst">&#123;num_epochs&#125;</span>], Loss: <span class="subst">&#123;loss.item():<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>大模型</tag>
       </tags>
