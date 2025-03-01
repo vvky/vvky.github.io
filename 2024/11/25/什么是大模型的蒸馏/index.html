@@ -14,23 +14,23 @@
   
 
   
-  <title>什么是docker | WKY的记事本</title>
+  <title>什么是大模型的蒸馏 | WKY的记事本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="假设你是一名程序员，你想在linux上安装一个vim，打算手搓一个壮丽的hello world。在不同环境下，你得执行不同的命令。  在centos中：   yum install vim  在ubuntu中：   apt-get install vim   装个小软件尚且如此，要是将自己写的代码部署到不同操作系统的服务器上，那依赖的配置和软件就更多了，需要针对每个环境单独写一套部署脚本，此时就需">
+  <meta name="description" content="大模型的蒸馏（Model Distillation）1. 什么是大模型的蒸馏？大模型的蒸馏（Model Distillation）是一种知识蒸馏（Knowledge Distillation, KD）技术，旨在将大型、复杂的深度学习模型（通常是教师模型，Teacher Model）中的知识迁移到一个更小、更轻量的模型（学生模型，Student Model）。这个过程可以有效减少模型的计算需求，提高">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什么是docker">
-<meta property="og:url" content="https://vvky.github.io/2024/04/08/%E4%BB%80%E4%B9%88%E6%98%AFdocker/index.html">
+<meta property="og:title" content="什么是大模型的蒸馏">
+<meta property="og:url" content="https://vvky.github.io/2024/11/25/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%92%B8%E9%A6%8F/index.html">
 <meta property="og:site_name" content="WKY的记事本">
-<meta property="og:description" content="假设你是一名程序员，你想在linux上安装一个vim，打算手搓一个壮丽的hello world。在不同环境下，你得执行不同的命令。  在centos中：   yum install vim  在ubuntu中：   apt-get install vim   装个小软件尚且如此，要是将自己写的代码部署到不同操作系统的服务器上，那依赖的配置和软件就更多了，需要针对每个环境单独写一套部署脚本，此时就需">
+<meta property="og:description" content="大模型的蒸馏（Model Distillation）1. 什么是大模型的蒸馏？大模型的蒸馏（Model Distillation）是一种知识蒸馏（Knowledge Distillation, KD）技术，旨在将大型、复杂的深度学习模型（通常是教师模型，Teacher Model）中的知识迁移到一个更小、更轻量的模型（学生模型，Student Model）。这个过程可以有效减少模型的计算需求，提高">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-08T15:00:32.000Z">
-<meta property="article:modified_time" content="2024-06-02T15:00:59.035Z">
+<meta property="article:published_time" content="2024-11-25T02:32:44.000Z">
+<meta property="article:modified_time" content="2025-03-01T14:33:34.991Z">
 <meta property="article:author" content="wangkaiyu">
-<meta property="article:tag" content="docker">
+<meta property="article:tag" content="大模型">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="WKY的记事本" type="application/atom+xml">
@@ -206,7 +206,7 @@
          
 
 
-<article id="post-什么是docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-什么是大模型的蒸馏" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -219,7 +219,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        什么是docker
+        什么是大模型的蒸馏
       </h1>
     
   
@@ -227,7 +227,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-04-08T15:00:32.000Z" itemprop="datePublished">2024-04-08</time>
+  <time class="dt-published" datetime="2024-11-25T02:32:44.000Z" itemprop="datePublished">2024-11-25</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -238,136 +238,106 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            4k 词 
+            2.3k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>假设你是一名程序员，你想在linux上安装一个vim，打算手搓一个壮丽的hello world。在不同环境下，你得执行不同的命令。</p>
+          <h1 id="大模型的蒸馏（Model-Distillation）"><a href="#大模型的蒸馏（Model-Distillation）" class="headerlink" title="大模型的蒸馏（Model Distillation）"></a>大模型的蒸馏（Model Distillation）</h1><h2 id="1-什么是大模型的蒸馏？"><a href="#1-什么是大模型的蒸馏？" class="headerlink" title="1. 什么是大模型的蒸馏？"></a>1. 什么是大模型的蒸馏？</h2><p>大模型的蒸馏（Model Distillation）是一种知识蒸馏（Knowledge Distillation, KD）技术，旨在将大型、复杂的深度学习模型（通常是教师模型，Teacher Model）中的知识迁移到一个更小、更轻量的模型（学生模型，Student Model）。这个过程可以有效减少模型的计算需求，提高推理效率，同时保持尽可能接近的性能。</p>
+<h2 id="2-为什么需要大模型的蒸馏？"><a href="#2-为什么需要大模型的蒸馏？" class="headerlink" title="2. 为什么需要大模型的蒸馏？"></a>2. 为什么需要大模型的蒸馏？</h2><p>在实际应用中，大规模深度学习模型（如 GPT、BERT、ViT）通常具有极高的计算成本和存储需求，使得在边缘设备、移动端或资源受限的环境中部署变得困难。大模型蒸馏的主要目的包括：</p>
 <ul>
-<li><p>在centos中：</p>
-<p>  yum install vim</p>
-</li>
-<li><p>在ubuntu中：</p>
-<p>  apt-get install vim</p>
-</li>
+<li><strong>减少计算成本</strong>：小模型的推理速度更快，计算资源需求更低。</li>
+<li><strong>降低存储需求</strong>：减少模型参数数量，使得存储和加载更高效。</li>
+<li><strong>提升部署能力</strong>：更小的模型可以在移动设备、嵌入式系统或服务器端高效运行。</li>
+<li><strong>加快推理速度</strong>：特别是在实时推理任务（如语音识别、自动驾驶等）中，蒸馏模型可以显著降低延迟。</li>
+<li><strong>提升泛化能力</strong>：通过学习教师模型的软标签，学生模型可以获得更好的泛化能力，避免过拟合。</li>
 </ul>
-<p>装个小软件尚且如此，要是将自己写的代码部署到不同操作系统的服务器上，那依赖的配置和软件就更多了，需要针对每个环境单独写一套部署脚本，此时就需要docker来帮助咱简化这件事。</p>
-<h2 id="docker是什么？"><a href="#docker是什么？" class="headerlink" title="docker是什么？"></a>docker是什么？</h2><p>我们经常能听到程序员说，这个代码在开发环境是正常的，怎么上了生产就不行了？ </p>
-<p>注意这里的关键词：代码和环境，代码构成了程序，程序是跑在操作系统上的，而操作系统上又装了许多依赖库和配置，这种被程序代码所依赖的信息，我们统称为环境。</p>
-<p>程序依赖着环境，环境不同，程序就可能出错跑不起来。如果我们能够将程序和环境打成一个包，给到对方运行，那问题不就解决了吗？docker就是这样一款，可以将程序和环境打包并运行的神器。</p>
-<p>我们都一样，厌倦了网上那些云里雾里、又臭又长的八股文，所以本文从客观角度出发，通俗易懂、浅显的介绍一下docker。</p>
-<h2 id="基础镜像"><a href="#基础镜像" class="headerlink" title="基础镜像"></a>基础镜像</h2><p>既然上述提到了，环境不同会影响到程序运行，那我们首要任务就是要统一环境，而环境中最重要的是操作系统，比如centos或ubuntu，我们要选择一个，让所有程序都跑在同一个操作系统上。我们知道，操作系统分为用户空间和内核空间，程序代码运行在用户空间，因此我们可以”阉割”操作系统，只保留用户空间部分，就能构建出程序代码所需的环境了。 </p>
-<p>我们将所选中操作系统中的文件系统、依赖库等，打包为一个类似压缩包的文件。</p>
-<p>这就是基础镜像base image。</p>
-<h2 id="啥是Dockerfile？"><a href="#啥是Dockerfile？" class="headerlink" title="啥是Dockerfile？"></a>啥是Dockerfile？</h2><p>有了基础镜像还不够，运行程序前，我们经常还要安装一些依赖</p>
-<pre><code>pip install -r requirements.txt
-</code></pre>
-<p>或是创建一些文件目录</p>
-<pre><code>mkdir -p /var/logs
-</code></pre>
-<p>最后才是运行程序代码</p>
-<pre><code>python appServer.py
-</code></pre>
-<p>我们知道在linux中所有的操作都可以在命令行完成，所以我们可以将要做的准备工作以命令行的方式逐行列出。 这样一份罗列了从系统到程序启动的清单文件，就是Dockerfile</p>
-<p>注意，Dockerfile虽然是一个纯文本文件，但通常没有文件扩展名。</p>
-<h2 id="啥是镜像？"><a href="#啥是镜像？" class="headerlink" title="啥是镜像？"></a>啥是镜像？</h2><p>注意上述Dockerfile只是描述了要做哪些事情，并没有真正开始做。当我们运行build命令时，docker就会按照Dockerfile的指导，一步步构建环境和程序。如：</p>
-<pre><code>docker build -t nginx-prod .
-</code></pre>
-<p>（其中-t是-tag的缩写）</p>
-<p>最终docker将这个环境+程序，打包为一个类似压缩包的文件，称作容器镜像 container image。只要将镜像传到任意服务器，然后对其”解压”运行，就可以同时运行环境+程序了。但有一个问题：该如何将这个镜像广而告之呢，总不能一台一台的去分发。</p>
-<h2 id="Registry"><a href="#Registry" class="headerlink" title="Registry"></a>Registry</h2><p>也许有10台服务器等着用这个镜像，又或许是10+n台，又或许你是一个伟大的开源大神，有数以万计嗷嗷待哺的程序员等待着用你的镜像。一个个给他们传倒也不是不行，但不够优雅。那啥是优雅呢，可以参考github仓库的做法，我们通常会用git push将代码推到远程仓库，有需要的人自己通过git pull就能把代码从远程拉到本地。</p>
-<p>docker也一样，只需要做一个镜像仓库，通过docker push将镜像推到远程仓库，有需要时通过docker pull拉取下来。这个负责管理镜像仓库推拉能力的服务，就是docker registry。</p>
-<pre><code>docker pull redis:latest
-</code></pre>
-<p>基于docker registry的能力，我们可以搭建私有的镜像仓库，就像基于git和svn搭建代码仓库服务器一样。比如官方的有DockerHub，一些学术机构也有如清华的Tuna。许多公司内部也会有自己的镜像仓库，一是保证了数据的安全，二是保证了拉取镜像时的网络传输效率。</p>
-<h2 id="啥又是容器？"><a href="#啥又是容器？" class="headerlink" title="啥又是容器？"></a>啥又是容器？</h2><p>现在我们解决了多台服务器之间传输容器镜像的问题。我们可以执行docker pull命令拿到容器的镜像，然后执行docker run命令，将这个类似压缩包的文件”解压缩”，从而获得一个独立的操作系统和程序代码并运行起来。</p>
-<p>这样一个独立的操作系统和程序代码，就是容器 container。我们可以在一个操作系统上同时运行多个容器，并且容器之间相互隔离。容器下面的土壤就叫做宿主机。</p>
-<h2 id="容器是虚拟机吗？"><a href="#容器是虚拟机吗？" class="headerlink" title="容器是虚拟机吗？"></a>容器是虚拟机吗？</h2><p>具有独立环境的容器，确实很像一个虚拟机，但不同的是：虚拟机应具有完整的操作系统，而容器却只包含了操作系统的核心依赖库和配置文件等必要组件，它只是看起来像一个独立的操作系统罢了，本质上是一个自带独立运行环境的特殊进程，底层用的是宿主机的操作系统内核。</p>
-<p>1、Docker利用namespace（一种机制，用来隔离不同进程的系统资源）来实现容器之间的隔离，使得每个容器看起来像一个独立的系统环境，拥有自己的文件系统、网络、进程等。</p>
-<p>2、Docker利用cgroup（Linux内核的一个功能）来管理和限制容器的资源，例如CPU、内存、磁盘I&#x2F;O等。通过cgroup，Docker可以确保容器不会使用超过分配给它们的资源，从而实现资源隔离和管理。</p>
-<p>3、namespace和cgroup结合在一起，为容器提供了资源管理和隔离的基础。</p>
-<h2 id="docker的架构是啥样的？"><a href="#docker的架构是啥样的？" class="headerlink" title="docker的架构是啥样的？"></a>docker的架构是啥样的？</h2><p>docker是client &amp; server架构，client即docker-cli，server即docker daemon。我们在命令行中输入docker命令使用的就是docker-cli，它会解析我们输入的命令，然后调用docker daemon守护进程所提供的restful api，docker daemon收到命令后会根据命令创建和管理各个容器。</p>
-<p>其中，docker daemon内部分为docker server和engine两层。</p>
+<h2 id="3-知识蒸馏的基本方法"><a href="#3-知识蒸馏的基本方法" class="headerlink" title="3. 知识蒸馏的基本方法"></a>3. 知识蒸馏的基本方法</h2><p>知识蒸馏的核心思想是让学生模型学习教师模型的输出分布，而不仅仅是数据集的真实标签。通常的方法包括：</p>
+<h3 id="3-1-软标签蒸馏（Soft-Target-Distillation）"><a href="#3-1-软标签蒸馏（Soft-Target-Distillation）" class="headerlink" title="3.1 软标签蒸馏（Soft Target Distillation）"></a>3.1 软标签蒸馏（Soft Target Distillation）</h3><p>教师模型的输出通常是一个具有温度参数的<strong>Softmax</strong>概率分布，而不是一个单一的硬标签。例如，在分类任务中，与其让学生模型仅学习“猫”或“狗”这种离散类别，它可以学习教师模型对多个类别的<strong>置信度</strong>分布，从而获取更多的信息。</p>
+<p>公式如下：</p>
+<p>[<br>p_i &#x3D; \frac{exp(z_i &#x2F; T)}{\sum_j exp(z_j &#x2F; T)}<br>]</p>
+<p>其中：</p>
 <ul>
-<li>docker server本质上是一个http服务器，负责对外提供操作容器和镜像的api接口。当它接收到请求后，会分发任务给engine。</li>
-<li>engine再创建job，最后由job执行具体的任务。不同的docker命令会执行不同的job任务。</li>
+<li>( p_i ) 是类 ( i ) 的概率；</li>
+<li>( z_i ) 是教师模型对类 ( i ) 的原始 logits 输出；</li>
+<li>( T ) 是温度参数，较高的温度会使概率分布更平滑。</li>
 </ul>
-<p>比如？</p>
+<h3 id="3-2-互信息蒸馏（Feature-Based-Distillation）"><a href="#3-2-互信息蒸馏（Feature-Based-Distillation）" class="headerlink" title="3.2 互信息蒸馏（Feature-Based Distillation）"></a>3.2 互信息蒸馏（Feature-Based Distillation）</h3><p>除了最终输出的概率分布，还可以让学生模型学习教师模型的<strong>中间特征表示</strong>，从而进一步压缩知识。这种方法可以用<strong>均方误差（MSE）</strong>或<strong>互信息损失（MI Loss）</strong>来度量教师和学生模型之间的特征相似性。</p>
+<h3 id="3-3-对抗蒸馏（Adversarial-Distillation）"><a href="#3-3-对抗蒸馏（Adversarial-Distillation）" class="headerlink" title="3.3 对抗蒸馏（Adversarial Distillation）"></a>3.3 对抗蒸馏（Adversarial Distillation）</h3><p>结合生成对抗网络（GAN）的思想，使用判别器（Discriminator）来优化学生模型，使其输出与教师模型尽可能相似。</p>
+<h2 id="4-知识蒸馏的应用场景"><a href="#4-知识蒸馏的应用场景" class="headerlink" title="4. 知识蒸馏的应用场景"></a>4. 知识蒸馏的应用场景</h2><p>知识蒸馏技术广泛应用于多个领域，特别是在需要高效模型的场景：</p>
 <ul>
-<li><p>docker build</p>
-<p>  当运行buid命令时，job会根据Dockerfile中的指令，一步一步的构建容器镜像文件。</p>
-</li>
-<li><p>docker push&#x2F;pull</p>
-<p>  当运行pull或push命令时，job会和外部的docker registry交互，将镜像上传或下载。</p>
-</li>
-<li><p>docker run</p>
-<p>  当运行run命令时，job就会基于镜像文件，调用containerd服务，驱使runC（run container）组件创建和运行容器。</p>
-</li>
-</ul>
-<h2 id="还有哪些必备的相关知识？"><a href="#还有哪些必备的相关知识？" class="headerlink" title="还有哪些必备的相关知识？"></a>还有哪些必备的相关知识？</h2><h3 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker compose"></a>docker compose</h3><p>现在我们已经知道了docker容器本身是一个带有独立运行环境的特殊进程。当我们想要在服务器上部署多个容器，并对它们的运行顺序有要求时该咋办呢？比如我有一个项目，要先启动数据库、再启动web后端、最后启动web前端。按理说，挨个执行docker run也是可以的，但就像上述的逐个分发镜像，不够优雅！</p>
-<p>我们可以通过一个yaml文件，写清楚要部署的容器、部署的顺序、每个容器所分配的cpu和内存。</p>
-<p>举个例子：</p>
-<pre><code>version: &#39;3.8&#39;
-
-services:
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_DATABASE: demo
-      MYSQL_USER: root 
-      MYSQL_PASSWORD: poiuy09876
-    ports:
-      - &quot;53306:3306&quot;
-    volumes:
-      - db_data:/var/lib/mysql
-
-  web:
-    build: ./flask_app
-    command: ...
-    ports:
-      - &quot;55000:5000&quot;
-    depends_on:
-      - db
-
-  nginx:
-    image: nginx:latest
-    ports:
-      - &quot;80:80&quot;
-    depends_on:
-      - web
-
-volumes:
-  db_data:
-</code></pre>
-<p>然后通过docker-compose up命令，将自动拉取镜像、创建容器，并启动定义的所有服务，实现一键部署。</p>
-<pre><code>docker-compose up
-</code></pre>
-<p>这就是docker compose，一个用于定义和运行多容器的工具。</p>
-<p>核心概念：</p>
-<p>1、服务 (Service): 一个服务对应一个容器。例如，一个服务可以是一个数据库，另一个服务可以是一个 Web 应用。</p>
-<p>2、项目 (Project): 由一组关联的服务组成的一个项目，通过 docker-compose.yml 文件定义。</p>
-<h3 id="docker-swarm"><a href="#docker-swarm" class="headerlink" title="docker swarm"></a>docker swarm</h3><p>docker解决的是一个容器的部署，docker compose解决了多个容器组成的一套服务的部署，docker swarm则更加高端，它解决的是这一整套服务在多台服务器上的集群部署问题。</p>
-<p>它是docker的集群管理工具。可以将多台 docker 主机组合成一个集群，并将这些主机中的所有资源作为一个整体来管理和使用。简单来说，docker Swarm 可以帮助你管理和协调多个 docker 容器的部署和运行。</p>
-<p>核心概念</p>
-<ol>
-<li>集群 (Cluster)：由多台 docker 主机构成的一个整体。</li>
-<li>节点 (Node)：集群中的每一台 docker 主机。节点分为管理节点和工作节点。<ul>
-<li>管理节点 (Manager Node)：负责管理集群的状态，调度服务。</li>
-<li>工作节点 (Worker Node)：负责运行容器。</li>
+<li><strong>自然语言处理（NLP）</strong>：<ul>
+<li>BERT → DistilBERT（谷歌）</li>
+<li>GPT → DistilGPT</li>
 </ul>
 </li>
-<li>服务 (Service)：运行在集群中的应用程序，定义了容器的镜像、端口、复制数量等。</li>
-<li>任务 (Task)：服务的具体运行实例，即实际运行的容器。</li>
-</ol>
-<p>主要功能</p>
-<p>1、高可用性：如果一个节点故障，docker swarm 会自动在其他节点上重新调度任务。</p>
-<p>2、服务发现和负载均衡：docker swarm 会自动在所有节点间分配流量，确保负载均衡。</p>
-<p>3、滚动更新：可以逐步更新服务，保证在更新过程中始终有服务可用。</p>
+<li><strong>计算机视觉（CV）</strong>：<ul>
+<li>ResNet → MobileNet</li>
+<li>ViT → DeiT（数据高效Transformer）</li>
+</ul>
+</li>
+<li><strong>语音识别</strong>：<ul>
+<li>大型ASR模型 → 轻量级语音助手（如Siri、Google Assistant）</li>
+</ul>
+</li>
+<li><strong>自动驾驶</strong>：<ul>
+<li>高精度感知模型 → 轻量化模型用于车载计算</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-代码示例（PyTorch）"><a href="#5-代码示例（PyTorch）" class="headerlink" title="5. 代码示例（PyTorch）"></a>5. 代码示例（PyTorch）</h2><p>下面是一个简单的PyTorch蒸馏代码示例，使用交叉熵损失（Cross-Entropy）和KL散度（Kullback-Leibler Divergence）进行蒸馏训练：</p>
+<pre><code class="python">import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# 假设 teacher 和 student 是已经定义好的模型
+teacher = TeacherModel()
+student = StudentModel()
+
+# 冻结教师模型参数
+for param in teacher.parameters():
+    param.requires_grad = False
+
+# 交叉熵损失和KL散度损失
+criterion_ce = nn.CrossEntropyLoss()
+criterion_kl = nn.KLDivLoss(reduction=&quot;batchmean&quot;)
+
+# 蒸馏温度
+T = 5.0
+
+optimizer = optim.Adam(student.parameters(), lr=1e-4)
+
+for epoch in range(num_epochs):
+    for images, labels in train_loader:
+        images, labels = images.to(device), labels.to(device)
+
+        with torch.no_grad():
+            teacher_outputs = teacher(images)
+
+        student_outputs = student(images)
+
+        # 计算KL散度损失
+        loss_kl = criterion_kl(
+            nn.functional.log_softmax(student_outputs / T, dim=1),
+            nn.functional.softmax(teacher_outputs / T, dim=1)
+        ) * (T * T)
+
+        # 计算交叉熵损失
+        loss_ce = criterion_ce(student_outputs, labels)
+
+        # 总损失（加权求和）
+        loss = 0.7 * loss_ce + 0.3 * loss_kl
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+    print(f&quot;Epoch [&#123;epoch+1&#125;/&#123;num_epochs&#125;], Loss: &#123;loss.item():.4f&#125;&quot;)
+</code></pre>
 
         
       </div>
@@ -380,27 +350,22 @@ volumes:
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2024/04/17/%E7%95%85%E6%8D%B7%E9%80%9AT+Cloud%E5%AE%9A%E5%88%B6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/"
-      title="畅捷通T+Cloud定制开发指南"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        畅捷通T+Cloud定制开发指南
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2024/03/18/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0/"
-      title="什么是大模型的参数？"
+      href="/2024/07/25/%E6%9F%A5%E7%9C%8Bnavicat%E8%BF%9E%E6%8E%A5%E5%AF%86%E7%A0%81/"
+      title="查看navicat连接密码"
      >
 
     <p class="title-text">
       
-        什么是大模型的参数？
+        查看navicat连接密码
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
