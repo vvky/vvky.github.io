@@ -1290,4 +1290,57 @@ if __name__ == &#39;__main__&#39;:
         <tag>大模型</tag>
       </tags>
   </entry>
+  <entry>
+    <title>python模块动态加载小记</title>
+    <url>/2025/03/03/python%E6%A8%A1%E5%9D%97%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="Python模块动态加载与-main-属性"><a href="#Python模块动态加载与-main-属性" class="headerlink" title="Python模块动态加载与__main__属性"></a>Python模块动态加载与__main__属性</h1><p><em>本笔记由 Cursor 使用 Claude 3.5 Sonnet 模型生成</em><br><em>生成日期：2025年03月03日15:46:27</em></p>
+<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>在一个更新脚本系统中，主程序通过<code>importlib</code>动态加载并执行更新脚本。更新脚本会生成执行日志，需要将这些日志返回给主程序。</p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><h3 id="更新脚本的原始实现"><a href="#更新脚本的原始实现" class="headerlink" title="更新脚本的原始实现"></a>更新脚本的原始实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">update_mark_summary_with_work_queue_id</span>():</span><br><span class="line">    run_logs = []</span><br><span class="line">    <span class="comment"># ... 执行更新逻辑，生成日志 ...</span></span><br><span class="line">    <span class="keyword">return</span> run_logs</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    update_mark_summary_with_work_queue_id()</span><br></pre></td></tr></table></figure>
+
+<h3 id="主程序中的加载逻辑"><a href="#主程序中的加载逻辑" class="headerlink" title="主程序中的加载逻辑"></a>主程序中的加载逻辑</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">load_and_execute_update_script</span>(<span class="params">script_path, logger</span>):</span><br><span class="line">    spec = importlib.util.spec_from_file_location(<span class="string">&quot;update_module&quot;</span>, script_path)</span><br><span class="line">    module = importlib.util.module_from_spec(spec)</span><br><span class="line">    spec.loader.exec_module(module)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">hasattr</span>(module, <span class="string">&quot;__main__&quot;</span>):</span><br><span class="line">        logger.info(<span class="string">f&quot;正在执行更新脚本: <span class="subst">&#123;script_path&#125;</span>&quot;</span>)</span><br><span class="line">        logs = <span class="built_in">getattr</span>(module, <span class="string">&quot;__main__&quot;</span>)()</span><br><span class="line">        <span class="keyword">return</span> logs <span class="keyword">if</span> logs <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">else</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><ol>
+<li>初始实现中，虽然<code>update_mark_summary_with_work_queue_id()</code>函数返回了日志列表，但是在<code>if __name__ == &quot;__main__&quot;:</code>块中执行时没有返回这个值</li>
+<li>有趣的是，即使没有显式定义<code>__main__</code>函数，<code>hasattr(module, &quot;__main__&quot;)</code>依然返回<code>True</code></li>
+<li>这是因为Python解释器会将<code>if __name__ == &quot;__main__&quot;:</code>条件块识别为模块的<code>__main__</code>属性</li>
+</ol>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>将更新脚本修改为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">update_mark_summary_with_work_queue_id</span>():</span><br><span class="line">    run_logs = []</span><br><span class="line">    <span class="comment"># ... 执行更新逻辑，生成日志 ...</span></span><br><span class="line">    <span class="keyword">return</span> run_logs</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__main__</span>():</span><br><span class="line">    <span class="keyword">return</span> update_mark_summary_with_work_queue_id()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    __main__()</span><br></pre></td></tr></table></figure>
+
+<h2 id="关键知识点"><a href="#关键知识点" class="headerlink" title="关键知识点"></a>关键知识点</h2><ol>
+<li><p><strong>模块的<code>__main__</code>属性</strong>：</p>
+<ul>
+<li>Python中的<code>if __name__ == &quot;__main__&quot;:</code>条件块会被解释器识别为模块的<code>__main__</code>属性</li>
+<li>使用<code>importlib</code>动态加载模块时，可以通过<code>hasattr()</code>和<code>getattr()</code>访问这个属性</li>
+</ul>
+</li>
+<li><p><strong>动态模块加载</strong>：</p>
+<ul>
+<li>使用<code>importlib.util.spec_from_file_location</code>和<code>importlib.util.module_from_spec</code>可以动态加载Python模块</li>
+<li>加载后的模块对象可以通过<code>hasattr()</code>和<code>getattr()</code>访问其属性和方法</li>
+</ul>
+</li>
+<li><p><strong>返回值传递</strong>：</p>
+<ul>
+<li>在<code>if __name__ == &quot;__main__&quot;:</code>块中直接执行函数不会传递返回值</li>
+<li>通过定义显式的<code>__main__</code>函数可以确保返回值被正确传递</li>
+</ul>
+</li>
+</ol>
+<h2 id="实践建议"><a href="#实践建议" class="headerlink" title="实践建议"></a>实践建议</h2><ol>
+<li>当编写需要被动态加载的脚本时，最好显式定义<code>__main__</code>函数</li>
+<li>确保所有需要传递的返回值都通过函数返回，而不是依赖于直接执行</li>
+<li>在动态加载模块时，注意处理返回值为<code>None</code>的情况</li>
+</ol>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p>这个案例展示了Python模块系统的灵活性，同时也提醒我们在设计模块接口时需要考虑：</p>
+<ol>
+<li>模块如何被其他代码加载和使用</li>
+<li>返回值如何正确传递</li>
+<li>如何保持接口的一致性和可预测性</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>
