@@ -166,6 +166,18 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2025/03/05/mongo-engine%E4%B8%ADobject-id%E7%9A%84%E6%9F%A5%E8%AF%A2%E5%9D%91/" title="mongo engine中object id的查询坑" >
+            <div class="recent-link-text">
+              mongo engine中object id的查询坑
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2025/03/05/id%E7%9A%84%E6%9F%A5%E8%AF%A2%E5%9D%91/" title="id的查询坑" >
+            <div class="recent-link-text">
+              id的查询坑
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2025/03/04/%E4%BA%94%E4%BB%A3%E5%8D%81%E5%9B%BD/" title="五代十国" >
             <div class="recent-link-text">
               五代十国
@@ -184,18 +196,6 @@
             </div>
           </a>
         
-          <a class="recent-link" href="/2024/11/25/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%92%B8%E9%A6%8F/" title="什么是大模型的蒸馏" >
-            <div class="recent-link-text">
-              什么是大模型的蒸馏
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2024/07/25/%E6%9F%A5%E7%9C%8Bnavicat%E8%BF%9E%E6%8E%A5%E5%AF%86%E7%A0%81/" title="查看navicat连接密码" >
-            <div class="recent-link-text">
-              查看navicat连接密码
-            </div>
-          </a>
-        
       </ul>
     </div>
   </div>
@@ -206,6 +206,171 @@
     </div>
     <div id="content-body">
         
+   
+
+
+<article id="post-twitter的雪花ID算法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2021/12/29/twitter%E7%9A%84%E9%9B%AA%E8%8A%B1ID%E7%AE%97%E6%B3%95/">twitter的雪花ID算法</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2021-12-29T13:57:26.000Z" itemprop="datePublished">2021-12-29</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            4.1k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              雪花ID算法雪花ID算法是由twitter开源的ID生成算法。目的是在分布式系统中生成全局唯一且递增的64位整数ID。
+结构
+0 | 41位时间戳 | 5位数据中心标识 | 5位机器标识 | 12位序列号
+
+1位符号位
+始终为0，表示正数。（在二进制中，最左侧的最高位用来表示符号，0为正数，1为负数）
+41位时间戳
+精确到毫秒，通常是某个纪元（如项目开工日），41位的长度可以表示约69年的时间。
+这决定了ID的起始位和唯一性。如twitter将其设置为1288834974657（2010-11-04）。
+10位机器标识
+机器标识包括5位数据中心ID和5位机器ID。最多支持1024个机器标识。
+12位序列号
+代表在同一毫秒内生成的不同ID。最多支持每毫秒生成4096个ID。
+应用场景数据库主键
+
+全局唯一性该算法能够生成全局唯一ID。这种全局唯一性确保了在分布式环境中不会产生ID冲突，非常适合需要在多个节点上并行插入数据的场景。比如MySQL的自增ID一旦涉及到数据迁移，很容易出现冲突，因为主键ID不可重用。在删除了大量数据再插入时尤为明显，
+
+有序性雪花ID是基于时间戳生成的，因...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2021/12/29/twitter%E7%9A%84%E9%9B%AA%E8%8A%B1ID%E7%AE%97%E6%B3%95/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+   
+
+
+<article id="post-ES聚合查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2021/12/06/ES%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2/">ES聚合查询</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2021-12-05T16:00:00.000Z" itemprop="datePublished">2021-12-06</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            13k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              聚合框架有助于根据搜索查询提供聚合数据。聚合查询是数据库中重要的功能特性，ES作为搜索引擎兼数据库，同样提供了强大的聚合分析能力。它基于查询条件来对数据进行分桶、计算的方法。有点类似于 SQL 中的 group by 再加一些函数方法的操作。聚合可以嵌套，由此可以组成复杂的操作。
+聚合计算的值可以取字段的值，也可是脚本计算的结果。查询请求体中以aggregations节点的语法定义
+12345678910&quot;aggregations&quot; : &#123;                        //也可简写为 aggs    &quot;&lt;aggregation_name&gt;&quot; : &#123;      //聚合的名字        &quot;&lt;aggregation_type&gt;&quot; : &#123;     //聚合的类型            &lt;aggregation_body&gt;      //聚合体：对哪些字段进行聚合        &#125;        [,&quot;meta&quot;...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2021/12/06/ES%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+
    
 
 

@@ -1575,4 +1575,33 @@ if __name__ == &#39;__main__&#39;:
         <tag>历史</tag>
       </tags>
   </entry>
+  <entry>
+    <title>id的查询坑</title>
+    <url>/2025/03/05/id%E7%9A%84%E6%9F%A5%E8%AF%A2%E5%9D%91/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>mongo engine中object id的查询坑</title>
+    <url>/2025/03/05/mongo-engine%E4%B8%ADobject-id%E7%9A%84%E6%9F%A5%E8%AF%A2%E5%9D%91/</url>
+    <content><![CDATA[<h2 id="1-ObjectIdField-与-StringField-的定义"><a href="#1-ObjectIdField-与-StringField-的定义" class="headerlink" title="1. ObjectIdField 与 StringField 的定义"></a>1. ObjectIdField 与 StringField 的定义</h2><ul>
+<li><strong>ObjectIdField</strong>: 用于存储 MongoDB 的 ObjectId 类型，通常用于唯一标识文档。</li>
+<li><strong>StringField</strong>: 用于存储字符串类型的数据。</li>
+</ul>
+<h2 id="2-查询时的类型匹配"><a href="#2-查询时的类型匹配" class="headerlink" title="2. 查询时的类型匹配"></a>2. 查询时的类型匹配</h2><h3 id="2-1-使用-String-查询-ObjectIdField"><a href="#2-1-使用-String-查询-ObjectIdField" class="headerlink" title="2.1 使用 String 查询 ObjectIdField"></a>2.1 使用 String 查询 ObjectIdField</h3><p>当查询 <code>ObjectIdField</code> 时，如果传入一个字符串，MongoEngine 会尝试将其解析为有效的 <code>ObjectId</code>。如果字符串符合 <code>ObjectId</code> 的格式，查询将成功。</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bson <span class="keyword">import</span> ObjectId</span><br><span class="line"><span class="keyword">from</span> databaser.v1.mongo <span class="keyword">import</span> TaskDao</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设我们有一个字符串形式的 ObjectId</span></span><br><span class="line">string_id = <span class="string">&quot;507f1f77bcf86cd799439011&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接使用字符串进行查询，MongoEngine 会自动转换</span></span><br><span class="line">task_objects = TaskDao.get_by_mark_summary_id(string_id)  <span class="comment"># 可能会成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以手动转换为 ObjectId</span></span><br><span class="line">task_objects = TaskDao.get_by_mark_summary_id(ObjectId(string_id))  <span class="comment"># 也会成功</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-使用-ObjectId-查询时传入-String"><a href="#2-2-使用-ObjectId-查询时传入-String" class="headerlink" title="2.2 使用 ObjectId 查询时传入 String"></a>2.2 使用 ObjectId 查询时传入 String</h3><p>如果字段定义为 <code>ObjectIdField</code>，并且查询时传入了一个字符串，MongoEngine 会尝试将该字符串转换为 <code>ObjectId</code>。只要字符串是有效的 <code>ObjectId</code>，查询将成功。</p>
+<h2 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3. 注意事项"></a>3. 注意事项</h2><ul>
+<li>如果传入的字符串不符合 <code>ObjectId</code> 的格式，查询将失败，返回空结果。</li>
+<li>为了确保代码的健壮性，建议在查询时使用 <code>ObjectId</code> 类型，避免潜在的错误和不一致性。</li>
+</ul>
+<h2 id="4-结论"><a href="#4-结论" class="headerlink" title="4. 结论"></a>4. 结论</h2><ul>
+<li>在使用 MongoEngine 时，您可以直接传入字符串形式的 <code>ObjectId</code>，MongoEngine 会处理转换。</li>
+<li>这种特性使得在查询时更加灵活，但仍然建议确保传入的字符串符合 <code>ObjectId</code> 的格式，以避免潜在的查询错误。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>mongo</tag>
+      </tags>
+  </entry>
 </search>
