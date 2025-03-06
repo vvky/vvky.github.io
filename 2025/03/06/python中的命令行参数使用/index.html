@@ -14,18 +14,23 @@
   
 
   
-  <title>标签: git | WKY的记事本</title>
+  <title>python中的命令行参数使用 | WKY的记事本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="WKY的记事本">
-<meta property="og:url" content="https://vvky.github.io/tags/git/index.html">
+  <meta name="description" content="概述argparse 是 Python 的标准库模块，用于解析命令行参数。它提供了一种简单的方式来处理用户输入，使得编写命令行工具变得更加容易。 基本用法1. 导入模块首先，需要导入 argparse 模块： 1import argparse  2. 创建解析器使用 ArgumentParser 类创建一个解析器对象： 1parser &#x3D; argparse.ArgumentParser(descr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中的命令行参数使用">
+<meta property="og:url" content="https://vvky.github.io/2025/03/06/python%E4%B8%AD%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="WKY的记事本">
+<meta property="og:description" content="概述argparse 是 Python 的标准库模块，用于解析命令行参数。它提供了一种简单的方式来处理用户输入，使得编写命令行工具变得更加容易。 基本用法1. 导入模块首先，需要导入 argparse 模块： 1import argparse  2. 创建解析器使用 ArgumentParser 类创建一个解析器对象： 1parser &#x3D; argparse.ArgumentParser(descr">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-06T06:26:14.000Z">
+<meta property="article:modified_time" content="2025-03-06T06:28:30.857Z">
 <meta property="article:author" content="wangkaiyu">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="WKY的记事本" type="application/atom+xml">
@@ -200,72 +205,118 @@
     <div id="content-body">
          
 
-<div class="archive-main-card">
-    <div class="archive-top">
-      <div class="main-title-bar">
-        <div class="main-title-dot"></div>
-        <h1 class="article-title">归档</h1>
-      </div>    
+
+<article id="post-python中的命令行参数使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        python中的命令行参数使用
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-03-06T06:26:14.000Z" itemprop="datePublished">2025-03-06</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.9k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>argparse</code> 是 Python 的标准库模块，用于解析命令行参数。它提供了一种简单的方式来处理用户输入，使得编写命令行工具变得更加容易。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="1-导入模块"><a href="#1-导入模块" class="headerlink" title="1. 导入模块"></a>1. 导入模块</h3><p>首先，需要导入 <code>argparse</code> 模块：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-创建解析器"><a href="#2-创建解析器" class="headerlink" title="2. 创建解析器"></a>2. 创建解析器</h3><p>使用 <code>ArgumentParser</code> 类创建一个解析器对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&#x27;描述您的程序&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-添加参数"><a href="#3-添加参数" class="headerlink" title="3. 添加参数"></a>3. 添加参数</h3><p>使用 <code>add_argument</code> 方法添加命令行参数。可以指定参数的名称、类型、默认值等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&#x27;--user&#x27;</span>, <span class="string">&#x27;-u&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;用户名&#x27;</span>, required=<span class="literal">True</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--passwd&#x27;</span>, <span class="string">&#x27;-p&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;密码&#x27;</span>, required=<span class="literal">True</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--level&#x27;</span>, <span class="string">&#x27;-l&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">0</span>, <span class="built_in">help</span>=<span class="string">&#x27;用户级别，默认为0&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-解析参数"><a href="#4-解析参数" class="headerlink" title="4. 解析参数"></a>4. 解析参数</h3><p>使用 <code>parse_args()</code> 方法解析命令行参数，并将结果存储在一个对象中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args = parser.parse_args()</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-使用参数"><a href="#5-使用参数" class="headerlink" title="5. 使用参数"></a>5. 使用参数</h3><p>解析后的参数可以通过属性访问：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;用户名: <span class="subst">&#123;args.user&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;密码: <span class="subst">&#123;args.passwd&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;用户级别: <span class="subst">&#123;args.level&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><p>以下是一个完整的示例，展示了如何使用 <code>argparse</code> 模块：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建解析器</span></span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&#x27;用户添加程序&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加参数</span></span><br><span class="line">parser.add_argument(<span class="string">&#x27;--user&#x27;</span>, <span class="string">&#x27;-u&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;用户名&#x27;</span>, required=<span class="literal">True</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--passwd&#x27;</span>, <span class="string">&#x27;-p&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;密码&#x27;</span>, required=<span class="literal">True</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--level&#x27;</span>, <span class="string">&#x27;-l&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">0</span>, <span class="built_in">help</span>=<span class="string">&#x27;用户级别，默认为0&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析参数</span></span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用参数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;用户名: <span class="subst">&#123;args.user&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;密码: <span class="subst">&#123;args.passwd&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;用户级别: <span class="subst">&#123;args.level&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><h3 id="1-位置参数"><a href="#1-位置参数" class="headerlink" title="1. 位置参数"></a>1. 位置参数</h3><p>除了可选参数，还可以添加位置参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&#x27;input_file&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;输入文件名&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-帮助信息"><a href="#2-帮助信息" class="headerlink" title="2. 帮助信息"></a>2. 帮助信息</h3><p><code>argparse</code> 会自动生成帮助信息，可以通过 <code>-h</code> 或 <code>--help</code> 参数查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python your_script.py -h</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-互斥参数"><a href="#3-互斥参数" class="headerlink" title="3. 互斥参数"></a>3. 互斥参数</h3><p>可以使用 <code>add_mutually_exclusive_group</code> 创建互斥参数组：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">group = parser.add_mutually_exclusive_group(required=<span class="literal">True</span>)</span><br><span class="line">group.add_argument(<span class="string">&#x27;--verbose&#x27;</span>, action=<span class="string">&#x27;store_true&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;详细输出&#x27;</span>)</span><br><span class="line">group.add_argument(<span class="string">&#x27;--quiet&#x27;</span>, action=<span class="string">&#x27;store_true&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;安静模式&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+        
+      </div>
+
+         
     </div>
     
-    
-      
-      
-        
-        <div class="year-line">
-            <div class="year-num">2024</div>
-            <div class="dot-wrapper">
-                <div class="dot"></div>
-            </div>
-            <div class="article-count">1 篇文章</div>
-        </div>
-      
-      <a class="archive-article-link" href="/2024/04/19/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="git常用命令">
-        <div class="date">04-19</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    git常用命令
-                
-            </div>
-        </div>
-        <div class="tags">
-            #git
-        </div>
-      </a>
-    
-      
-      
-        
-        <div class="year-line">
-            <div class="year-num">2020</div>
-            <div class="dot-wrapper">
-                <div class="dot"></div>
-            </div>
-            <div class="article-count">1 篇文章</div>
-        </div>
-      
-      <a class="archive-article-link" href="/2020/01/02/git%E7%9A%84fork/" title="git中fork和clone的区别">
-        <div class="date">01-02</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    git中fork和clone的区别
-                
-            </div>
-        </div>
-        <div class="tags">
-            #git
-        </div>
-      </a>
-    
+     
   </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/03/05/%E6%8E%A5%E5%8F%A3json%E6%95%B0%E6%8D%AE%E7%BB%84%E8%A3%85%E4%B8%A2%E5%AD%97%E6%AE%B5/"
+      title="接口json数据组装丢字段"
+     >
+
+    <p class="title-text">
+      
+        接口json数据组装丢字段
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
     </div>
     <div id="footer-wrapper">
         <footer id="footer">
