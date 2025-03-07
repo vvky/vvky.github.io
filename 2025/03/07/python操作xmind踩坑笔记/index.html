@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js"></script>
+<script src="/js/load-settings.js"></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>python操作xmind踩坑笔记 | WKY的记事本</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="代码是用 &#x63;&#117;&#x72;&#115;&#x6f;&#x72;&#64;&#x63;&#108;&#97;&#x75;&#100;&#x65;&#x2d;&#x33;&#x2e;&#x35;&#45;&#x73;&#111;&#110;&#x6e;&#x65;&#x74;&#45;&#x74;&#104;&#105;&#x6e;&#x6b;&#x69;&#110;&#103;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python操作xmind踩坑笔记">
+<meta property="og:url" content="https://vvky.github.io/2025/03/07/python%E6%93%8D%E4%BD%9Cxmind%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="WKY的记事本">
+<meta property="og:description" content="代码是用 &#x63;&#117;&#x72;&#115;&#x6f;&#x72;&#64;&#x63;&#108;&#97;&#x75;&#100;&#x65;&#x2d;&#x33;&#x2e;&#x35;&#45;&#x73;&#111;&#110;&#x6e;&#x65;&#x74;&#45;&#x74;&#104;&#105;&#x6e;&#x6b;&#x69;&#110;&#103;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-07T09:12:52.000Z">
+<meta property="article:modified_time" content="2025-03-07T09:20:51.986Z">
+<meta property="article:author" content="wangkaiyu">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="踩坑">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="WKY的记事本" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+
+
+<div id="main-grid" class="  ">
+    <div id="nav" class="">
+        <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>WKY的记事本 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">主页</a>
+    
+      <a class="main-nav-link" href="/archives">归档</a>
+    
+      <a class="main-nav-link" href="/about">关于</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+    <path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/>
+</svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">主页</a>
+    
+      <a class="nav-dropdown-link" href="/archives">归档</a>
+    
+      <a class="nav-dropdown-link" href="/about">关于</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+        <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/images/avatar.PNG></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">wangkaiyu </div>
+      <div class="dot"></div>
+      <div class="subtitle">无数渺小的思考填满了人的一生 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" href="https://vvky.github.io/eatwhat/" title="eat what？"><i class="fa-solid fa-utensils"></i></a>
+        
+          <a class="link-btn" href="/" title="homepage"><i class="fa-solid fa-house"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/vvky" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/OSS/" rel="tag">OSS</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/mongo/" rel="tag">mongo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/python-elasticsearch/" rel="tag">python elasticsearch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%81%87%E6%83%B3/" rel="tag">假想</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%90%8D%E8%AF%8D%E5%AD%A6%E4%B9%A0/" rel="tag">名词学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%B3%95%E5%BE%8B/" rel="tag">法律</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90/" rel="tag">系统集成</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/" rel="tag">网络通信</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag">踩坑</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" rel="tag">阿里云</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2025/03/07/python%E6%93%8D%E4%BD%9Cxmind%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/" title="python操作xmind踩坑笔记" >
+            <div class="recent-link-text">
+              python操作xmind踩坑笔记
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2025/03/06/python%E4%B8%AD%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8/" title="python中的命令行参数使用" >
+            <div class="recent-link-text">
+              python中的命令行参数使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2025/03/05/%E6%8E%A5%E5%8F%A3json%E6%95%B0%E6%8D%AE%E7%BB%84%E8%A3%85%E4%B8%A2%E5%AD%97%E6%AE%B5/" title="接口json数据组装丢字段" >
+            <div class="recent-link-text">
+              接口json数据组装丢字段
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2025/03/05/mongo-engine%E4%B8%ADobject-id%E7%9A%84%E6%9F%A5%E8%AF%A2%E5%9D%91/" title="mongo engine中object id的查询坑" >
+            <div class="recent-link-text">
+              mongo engine中object id的查询坑
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2025/03/05/id%E7%9A%84%E6%9F%A5%E8%AF%A2%E5%9D%91/" title="id的查询坑" >
+            <div class="recent-link-text">
+              id的查询坑
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+         
+
+
+<article id="post-python操作xmind踩坑笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        python操作xmind踩坑笔记
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-03-07T09:12:52.000Z" itemprop="datePublished">2025-03-07</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            9k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag">踩坑</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <blockquote>
+<p>代码是用 <a href="mailto:&#x63;&#117;&#x72;&#115;&#x6f;&#x72;&#64;&#x63;&#108;&#97;&#x75;&#100;&#x65;&#x2d;&#x33;&#x2e;&#x35;&#45;&#x73;&#111;&#110;&#x6e;&#x65;&#x74;&#45;&#x74;&#104;&#105;&#x6e;&#x6b;&#x69;&#110;&#103;">&#x63;&#117;&#x72;&#115;&#x6f;&#x72;&#64;&#x63;&#108;&#97;&#x75;&#100;&#x65;&#x2d;&#x33;&#x2e;&#x35;&#45;&#x73;&#111;&#110;&#x6e;&#x65;&#x74;&#45;&#x74;&#104;&#105;&#x6e;&#x6b;&#x69;&#110;&#103;</a> 写出来的, （太屌了这玩意, 全程语言调教, 自己在那咔咔跑命令测试, 解放双手啊）</p>
+<p>xmind转json很简单，但是一直转不回去，终于成了，仅此留念</p>
+<p>2025年03月07日 周五 下午17点, 海淀区东升大厦A座501 阴天</p>
+<p>todo：晚点把踩坑的错误示范补充进来~</p>
+</blockquote>
+<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><p>python 3.9、xmindparser 1.0.9</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install xmindparser</span><br></pre></td></tr></table></figure>
+
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> xmindparser <span class="keyword">import</span> xmind_to_dict</span><br><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> tempfile</span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置日志</span></span><br><span class="line">logging.basicConfig(level=logging.INFO, <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(levelname)s - %(message)s&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_id</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成唯一的ID&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span>(uuid.uuid4()).replace(<span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_manifest_xml</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;创建 META-INF/manifest.xml 文件内容&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span></span><br><span class="line"><span class="string">&lt;manifest xmlns=&quot;urn:xmind:xmap:xmlns:manifest:1.0&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;file-entry full-path=&quot;content.xml&quot; media-type=&quot;text/xml&quot;/&gt;</span></span><br><span class="line"><span class="string">    &lt;file-entry full-path=&quot;styles.xml&quot; media-type=&quot;text/xml&quot;/&gt;</span></span><br><span class="line"><span class="string">    &lt;file-entry full-path=&quot;meta.xml&quot; media-type=&quot;text/xml&quot;/&gt;</span></span><br><span class="line"><span class="string">    &lt;file-entry full-path=&quot;Thumbnails/thumbnail.png&quot; media-type=&quot;image/png&quot;/&gt;</span></span><br><span class="line"><span class="string">    &lt;file-entry full-path=&quot;comments.xml&quot; media-type=&quot;text/xml&quot;/&gt;</span></span><br><span class="line"><span class="string">&lt;/manifest&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_meta_xml</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;创建meta.xml文件内容&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&#x27;&#x27;&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span></span><br><span class="line"><span class="string">&lt;meta xmlns=&quot;urn:xmind:xmap:xmlns:meta:2.0&quot; version=&quot;2.0&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;Creator&gt;</span></span><br><span class="line"><span class="string">        &lt;Name&gt;XMind&lt;/Name&gt;</span></span><br><span class="line"><span class="string">        &lt;Version&gt;23.11.02356&lt;/Version&gt;</span></span><br><span class="line"><span class="string">    &lt;/Creator&gt;</span></span><br><span class="line"><span class="string">    &lt;Thumbnail&gt;</span></span><br><span class="line"><span class="string">        &lt;Origin&gt;</span></span><br><span class="line"><span class="string">            &lt;X&gt;0&lt;/X&gt;</span></span><br><span class="line"><span class="string">            &lt;Y&gt;0&lt;/Y&gt;</span></span><br><span class="line"><span class="string">        &lt;/Origin&gt;</span></span><br><span class="line"><span class="string">        &lt;BackgroundColor&gt;#FFFFFF&lt;/BackgroundColor&gt;</span></span><br><span class="line"><span class="string">    &lt;/Thumbnail&gt;</span></span><br><span class="line"><span class="string">&lt;/meta&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_content_xml</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;根据数据创建content.xml&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">create_topic_element</span>(<span class="params">topic_data</span>):</span><br><span class="line">        topic = ET.Element(<span class="string">&#x27;topic&#x27;</span>)</span><br><span class="line">        topic.<span class="built_in">set</span>(<span class="string">&#x27;id&#x27;</span>, generate_id())</span><br><span class="line">        topic.<span class="built_in">set</span>(<span class="string">&#x27;structure-class&#x27;</span>, <span class="string">&#x27;org.xmind.ui.map.unbalanced&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        title = topic_data.get(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        title_elem = ET.SubElement(topic, <span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">        title_elem.text = title</span><br><span class="line"></span><br><span class="line">        children = topic_data.get(<span class="string">&#x27;topics&#x27;</span>, [])</span><br><span class="line">        <span class="keyword">if</span> children:</span><br><span class="line">            children_elem = ET.SubElement(topic, <span class="string">&#x27;children&#x27;</span>)</span><br><span class="line">            topics_elem = ET.SubElement(children_elem, <span class="string">&#x27;topics&#x27;</span>)</span><br><span class="line">            topics_elem.<span class="built_in">set</span>(<span class="string">&#x27;type&#x27;</span>, <span class="string">&#x27;attached&#x27;</span>)</span><br><span class="line">            <span class="keyword">for</span> child <span class="keyword">in</span> children:</span><br><span class="line">                child_elem = create_topic_element(child)</span><br><span class="line">                topics_elem.append(child_elem)</span><br><span class="line">        <span class="keyword">return</span> topic</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建根元素</span></span><br><span class="line">    root = ET.Element(<span class="string">&#x27;xmap-content&#x27;</span>)</span><br><span class="line">    root.<span class="built_in">set</span>(<span class="string">&#x27;xmlns&#x27;</span>, <span class="string">&#x27;urn:xmind:xmap:xmlns:content:2.0&#x27;</span>)</span><br><span class="line">    root.<span class="built_in">set</span>(<span class="string">&#x27;xmlns:fo&#x27;</span>, <span class="string">&#x27;http://www.w3.org/1999/XSL/Format&#x27;</span>)</span><br><span class="line">    root.<span class="built_in">set</span>(<span class="string">&#x27;xmlns:svg&#x27;</span>, <span class="string">&#x27;http://www.w3.org/2000/svg&#x27;</span>)</span><br><span class="line">    root.<span class="built_in">set</span>(<span class="string">&#x27;xmlns:xhtml&#x27;</span>, <span class="string">&#x27;http://www.w3.org/1999/xhtml&#x27;</span>)</span><br><span class="line">    root.<span class="built_in">set</span>(<span class="string">&#x27;xmlns:xlink&#x27;</span>, <span class="string">&#x27;http://www.w3.org/1999/xlink&#x27;</span>)</span><br><span class="line">    root.<span class="built_in">set</span>(<span class="string">&#x27;version&#x27;</span>, <span class="string">&#x27;2.0&#x27;</span>)</span><br><span class="line">    root.<span class="built_in">set</span>(<span class="string">&#x27;timestamp&#x27;</span>, <span class="string">&#x27;1709827200000&#x27;</span>)  <span class="comment"># 添加时间戳</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建sheet</span></span><br><span class="line">    sheet = ET.SubElement(root, <span class="string">&#x27;sheet&#x27;</span>)</span><br><span class="line">    sheet_id = generate_id()</span><br><span class="line">    sheet.<span class="built_in">set</span>(<span class="string">&#x27;id&#x27;</span>, sheet_id)</span><br><span class="line">    sheet.<span class="built_in">set</span>(<span class="string">&#x27;theme&#x27;</span>, <span class="string">f&#x27;<span class="subst">&#123;sheet_id&#125;</span>-theme&#x27;</span>)</span><br><span class="line">    sheet.<span class="built_in">set</span>(<span class="string">&#x27;timestamp&#x27;</span>, <span class="string">&#x27;1709827200000&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建标题</span></span><br><span class="line">    title = ET.SubElement(sheet, <span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">    title.text = <span class="string">&quot;Sheet 1&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建根主题</span></span><br><span class="line">    <span class="keyword">if</span> data <span class="keyword">and</span> <span class="built_in">isinstance</span>(data, <span class="built_in">list</span>) <span class="keyword">and</span> <span class="built_in">len</span>(data) &gt; <span class="number">0</span>:</span><br><span class="line">        root_data = data[<span class="number">0</span>].get(<span class="string">&#x27;topic&#x27;</span>, &#123;&#125;)</span><br><span class="line">        root_topic = create_topic_element(root_data)</span><br><span class="line">        sheet.append(root_topic)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 添加关系列表</span></span><br><span class="line">    relationships = ET.SubElement(sheet, <span class="string">&#x27;relationships&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ET.tostring(root, encoding=<span class="string">&#x27;unicode&#x27;</span>, xml_declaration=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_styles_xml</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;创建基本的styles.xml&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&#x27;&#x27;&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span></span><br><span class="line"><span class="string">&lt;xmap-styles xmlns=&quot;urn:xmind:xmap:xmlns:style:2.0&quot; xmlns:fo=&quot;http://www.w3.org/1999/XSL/Format&quot; version=&quot;2.0&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;automatic-styles&gt;</span></span><br><span class="line"><span class="string">        &lt;style id=&quot;default&quot; type=&quot;topic&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;topic-properties border-line-width=&quot;1pt&quot; fo:font-family=&quot;NeverMind&quot; line-class=&quot;org.xmind.branchConnection.curve&quot;/&gt;</span></span><br><span class="line"><span class="string">        &lt;/style&gt;</span></span><br><span class="line"><span class="string">    &lt;/automatic-styles&gt;</span></span><br><span class="line"><span class="string">    &lt;master-styles&gt;</span></span><br><span class="line"><span class="string">        &lt;style id=&quot;master&quot; type=&quot;theme&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;theme-properties&gt;</span></span><br><span class="line"><span class="string">                &lt;default-style style-id=&quot;default&quot;/&gt;</span></span><br><span class="line"><span class="string">            &lt;/theme-properties&gt;</span></span><br><span class="line"><span class="string">        &lt;/style&gt;</span></span><br><span class="line"><span class="string">    &lt;/master-styles&gt;</span></span><br><span class="line"><span class="string">    &lt;styles/&gt;</span></span><br><span class="line"><span class="string">&lt;/xmap-styles&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_comments_xml</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;创建基本的comments.xml&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span></span><br><span class="line"><span class="string">&lt;comments xmlns=&quot;urn:xmind:xmap:xmlns:comments:2.0&quot;/&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_empty_thumbnail</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;创建一个1x1像素的空白PNG图片&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">b&#x27;\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\x0bIDATx\x9cc\x00\x00\x00\x02\x00\x01\xe5\x27\xde\xfc\x00\x00\x00\x00IEND\xaeB`\x82&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dict_to_xmind</span>(<span class="params">data: <span class="built_in">dict</span>, output_file: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将字典数据转换为XMind文件&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 创建临时目录</span></span><br><span class="line">    <span class="keyword">with</span> tempfile.TemporaryDirectory() <span class="keyword">as</span> temp_dir:</span><br><span class="line">        <span class="comment"># 创建META-INF目录</span></span><br><span class="line">        meta_inf_dir = os.path.join(temp_dir, <span class="string">&#x27;META-INF&#x27;</span>)</span><br><span class="line">        thumbnails_dir = os.path.join(temp_dir, <span class="string">&#x27;Thumbnails&#x27;</span>)</span><br><span class="line">        os.makedirs(meta_inf_dir)</span><br><span class="line">        os.makedirs(thumbnails_dir)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建manifest.xml</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(meta_inf_dir, <span class="string">&#x27;manifest.xml&#x27;</span>), <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(create_manifest_xml())</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建content.xml</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(temp_dir, <span class="string">&#x27;content.xml&#x27;</span>), <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(create_content_xml(data))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建styles.xml</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(temp_dir, <span class="string">&#x27;styles.xml&#x27;</span>), <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(create_styles_xml())</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建meta.xml</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(temp_dir, <span class="string">&#x27;meta.xml&#x27;</span>), <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(create_meta_xml())</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建comments.xml</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(temp_dir, <span class="string">&#x27;comments.xml&#x27;</span>), <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(create_comments_xml())</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建缩略图</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(thumbnails_dir, <span class="string">&#x27;thumbnail.png&#x27;</span>), <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(create_empty_thumbnail())</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建zip文件</span></span><br><span class="line">        <span class="keyword">with</span> zipfile.ZipFile(output_file, <span class="string">&#x27;w&#x27;</span>, zipfile.ZIP_DEFLATED) <span class="keyword">as</span> zf:</span><br><span class="line">            <span class="comment"># 添加META-INF</span></span><br><span class="line">            zf.write(os.path.join(meta_inf_dir, <span class="string">&#x27;manifest.xml&#x27;</span>), <span class="string">&#x27;META-INF/manifest.xml&#x27;</span>)</span><br><span class="line">            <span class="comment"># 添加其他文件</span></span><br><span class="line">            zf.write(os.path.join(temp_dir, <span class="string">&#x27;content.xml&#x27;</span>), <span class="string">&#x27;content.xml&#x27;</span>)</span><br><span class="line">            zf.write(os.path.join(temp_dir, <span class="string">&#x27;styles.xml&#x27;</span>), <span class="string">&#x27;styles.xml&#x27;</span>)</span><br><span class="line">            zf.write(os.path.join(temp_dir, <span class="string">&#x27;meta.xml&#x27;</span>), <span class="string">&#x27;meta.xml&#x27;</span>)</span><br><span class="line">            zf.write(os.path.join(temp_dir, <span class="string">&#x27;comments.xml&#x27;</span>), <span class="string">&#x27;comments.xml&#x27;</span>)</span><br><span class="line">            zf.write(os.path.join(thumbnails_dir, <span class="string">&#x27;thumbnail.png&#x27;</span>), <span class="string">&#x27;Thumbnails/thumbnail.png&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">process_xmind_file</span>(<span class="params">input_file: <span class="built_in">str</span>, output_file: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 转换为Path对象</span></span><br><span class="line">        input_path = Path(input_file)</span><br><span class="line">        output_path = Path(output_file)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查输入文件是否存在</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> input_path.exists():</span><br><span class="line">            logging.error(<span class="string">f&quot;输入文件不存在: <span class="subst">&#123;input_file&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 确保输出目录存在</span></span><br><span class="line">        output_path.parent.mkdir(parents=<span class="literal">True</span>, exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果输出文件已存在，先删除它</span></span><br><span class="line">        <span class="keyword">if</span> output_path.exists():</span><br><span class="line">            output_path.unlink()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 读取xmind文件</span></span><br><span class="line">        logging.info(<span class="string">f&quot;开始读取XMind文件: <span class="subst">&#123;input_file&#125;</span>&quot;</span>)</span><br><span class="line">        out = xmind_to_dict(<span class="built_in">str</span>(input_path))</span><br><span class="line">        logging.info(<span class="string">&quot;XMind文件读取成功&quot;</span>)</span><br><span class="line">        logging.debug(<span class="string">f&quot;解析的数据结构: <span class="subst">&#123;out&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 转换回xmind</span></span><br><span class="line">        logging.info(<span class="string">f&quot;开始生成新的XMind文件: <span class="subst">&#123;output_file&#125;</span>&quot;</span>)</span><br><span class="line">        dict_to_xmind(out, <span class="built_in">str</span>(output_path))</span><br><span class="line">        logging.info(<span class="string">&quot;XMind文件生成成功&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        logging.error(<span class="string">f&quot;处理过程中发生错误: <span class="subst">&#123;<span class="built_in">str</span>(e)&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    input_file = <span class="string">&#x27;test/2025年03月07日/mock_data.xmind&#x27;</span></span><br><span class="line">    output_file = <span class="string">&#x27;test/2025年03月07日/mock_data_out.xmind&#x27;</span></span><br><span class="line"></span><br><span class="line">    success = process_xmind_file(input_file, output_file)</span><br><span class="line">    <span class="keyword">if</span> success:</span><br><span class="line">        logging.info(<span class="string">&quot;文件处理完成&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        logging.error(<span class="string">&quot;文件处理失败&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="XMind-文件结构说明"><a href="#XMind-文件结构说明" class="headerlink" title="XMind 文件结构说明"></a>XMind 文件结构说明</h2><p>XMind 文件实际上是一个 ZIP 格式的文件，包含：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">your_file.xmind</span><br><span class="line">├── META-INF/</span><br><span class="line">│ └── manifest.xml</span><br><span class="line">├── content.xml</span><br><span class="line">├── styles.xml</span><br><span class="line">├── meta.xml</span><br><span class="line">├── comments.xml</span><br><span class="line">└── Thumbnails/</span><br><span class="line">└── thumbnail.png</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>manifest.xml</code>: 文件清单，描述文件结构</li>
+<li><code>content.xml</code>: 思维导图的主要内容</li>
+<li><code>styles.xml</code>: 样式定义</li>
+<li><code>meta.xml</code>: 元数据信息</li>
+<li><code>comments.xml</code>: 注释信息</li>
+<li><code>thumbnail.png</code>: 缩略图</li>
+</ul>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/03/06/python%E4%B8%AD%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8/"
+      title="python中的命令行参数使用"
+     >
+
+    <p class="title-text">
+      
+        python中的命令行参数使用
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+        <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 wangkaiyu<br>
+<!--    Powered by wangkaiyu | github-->
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+</div>
+<script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
